@@ -1,0 +1,142 @@
+.login_register_bgpic{
+    position: fixed;
+    top: 30vh;
+    left: 25vw;
+}
+
+#login_register_hello{
+    opacity: 0.5;
+    width: 50vw;
+}
+
+
+.login_childfooter{
+    clear: both;
+    position: relative;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100vw;
+    color: #a6c2fd;
+    font-size: 2vh;
+    bottom: -25vh;
+}
+
+
+
+
+/*!*清除浏览器默认边距*!*/
+/**{*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*!*整个登录界面作为一个div*!*/
+/*.RegisterPageContainer{*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*    display: flex;*/
+/*    min-height: 100vh;*/
+/*    background: linear-gradient(45deg, #c8f1ee, #f1e5f1);*/
+/*}*/
+
+
+/*.login_logo{*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*}*/
+
+/*!*.hello_logo{*!*/
+/*!*    position: fixed;*!*/
+/*!*    left: 25vw;*!*/
+/*!*    opacity: 0.6;*!*/
+/*!*    z-index: 0;*!*/
+/*!*}*!*/
+
+/*!*其他的使用媒体查询 响应式布局 *!*/
+
+/*!*水平宽度大于1200px 为避免特大屏幕所以用vw定义*!*/
+/*@media only screen and (min-width: 1200px){*/
+/*    #login_logoPic{*/
+/*        width: 32vw;*/
+/*    }*/
+
+/*    !*.hello_logo{*!*/
+/*    !*    left: 25vw;*!*/
+/*    !*    width: 50vw;*!*/
+/*    !*    height: fit-content;*!*/
+/*    !*}*!*/
+/*}*/
+
+/*!*水平小于550px 手机布局*!*/
+/*@media only screen and (max-width: 550px){*/
+/*    #login_logoPic{*/
+/*        width:95vw;*/
+/*    }*/
+
+/*    !*.hello_logo{*!*/
+/*    !*    left: 5vw;*!*/
+/*    !*    width: 90vw;*!*/
+/*    !*    height: fit-content;*!*/
+/*    !*}*!*/
+/*}*/
+
+/*@media only screen and (min-width: 551px) and (max-width: 1199px){*/
+/*    #login_logoPic{*/
+/*        width:50vw;*/
+/*    }*/
+
+/*    !*.hello_logo{*!*/
+/*    !*    left: 25vw;*!*/
+/*    !*    height: fit-content;*!*/
+
+/*    !*}*!*/
+/*}*/
+
+
+/*!*三个背景的颜色渲染 使用高斯模糊 是背景达到一个朦胧的效果，模糊前是三个矩形*!*/
+/*!*高斯模糊时使用的是视宽作为依照，所以缩放不会导致背景的变化*!*/
+/*@media only screen and (max-width: 1100px){*/
+/*    .colorElem{*/
+/*        position: absolute;*/
+/*        filter: blur(100px);*/
+/*    }*/
+/*}*/
+
+/*@media only screen and (min-width: 1101px){*/
+/*    .colorElem{*/
+/*        position: absolute;*/
+/*        filter: blur(200px);*/
+/*    }*/
+/*}*/
+
+/*.colorElem:nth-child(1) {*/
+/*    top: -50vh;*/
+/*    left: 20vw;*/
+/*    right: 20vw;*/
+/*    height: 100vh;*/
+/*    background: #cbfaff;*/
+/*}*/
+
+/*.colorElem:nth-child(2) {*/
+/*    bottom: -40vh;*/
+/*    left: 0;*/
+/*    width: 45vw;*/
+/*    height: 80vh;*/
+/*    background: #ffd0e6;*/
+/*}*/
+
+/*.colorElem:nth-child(3) {*/
+/*    bottom: -40vh;*/
+/*    right: 0;*/
+/*    width: 45vw;*/
+/*    height: 80vh;*/
+/*    background: #faf081;*/
+/*}*/
+
+
+
+
+
+

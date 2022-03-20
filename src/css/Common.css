@@ -1,0 +1,54 @@
+/*注意 这个界面是通用的布局CSS*/
+/*通用布局中，确保网页有一个大的栏目（白色的卡栏），用来显示书籍的具体详情页面 或者订单的列表 亦或者是书籍的搜索*/
+/*目前本通用布局仅支持电脑端使用 2022-3-4*/
+
+.MainContentsCard{
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.6)
+    );
+
+    left: 10vw;
+    top: 20vh;
+
+    position: relative;
+    border-radius: 27px;
+    box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+    width: 80vw;
+    height: fit-content;
+    padding: 30px 40px;
+}
+
+.CommonBottom{
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: none;
+    align-items: end;
+
+    border-radius: 20px;
+    border: 0;
+}
+
+
+.CommonBottom:hover{
+    background-color: #ff91c4;
+    font-weight: bold;
+    color: white;
+}
+
+#LoginFeedBackButtom{
+    margin: 20px;
+    height:40px;
+    width: 100px;
+    position: relative;
+    left: 30vw;
+}
+
+.PageSelector{
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

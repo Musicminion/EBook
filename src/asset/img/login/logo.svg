@@ -1,0 +1,41 @@
+<svg width="700" height="200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1">
+ <defs>
+  <pattern id="wm_tile" x="0" y="0" width="20%" height="27%" patternunits="objectBoundingBox">
+   <g id="wm_lm" fill="#cccccc">
+    <text transform="rotate(-390 -188 -323)" font-size="15" y="-323.00021" x="-188.00003" id="svg_4"/>
+   </g>
+  </pattern>
+ </defs>
+ <!---->
+ <g>
+  <title>Layer 1</title>
+  <g id="shape_AjwXCJgVSQ" transform="translate(235.236 250.032) scale(1 1)">
+   <g id="svg_6">
+    <rect fill="rgba(0,0,0,0)" width="180" height="119.93566" x="-207" y="-220" id="svg_7"/>
+    <svg version="1.1" id="svg_24" x="-197" y="-210" width="160" height="99.93566" viewBox="10.189589500427246 43.904483795166016 179.6204071044922 112.19052124023438" enable-background="new 0 0 200 200" xml:space="preserve" preserveAspectRatio="none" class="style-removed" data-parent="shape_AjwXCJgVSQ" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+     <g id="svg_25">
+      <path fill="#ffc4ff" d="m106.321,89.494c0,0 21.712,-23.689 49.111,-19.623c20.564,3.052 29.926,14.137 34.378,20.14l-13.44,0c0,0 -9.943,-9.084 -23.78,-10.899c-12.577,-1.65 -22.747,-0.991 -46.269,10.382z" stroke-width="0" id="svg_28"/>
+      <path fill="#ffc4ff" d="m147.161,71.716c0,0 -5.801,-22.574 -33.028,-27.054s-52.213,11.258 -70.823,38.025l22.517,-4.021c0,0 19.354,-29.195 47.101,-24.24c16.083,2.872 24.699,10.109 27.916,18.496l6.317,-1.206z" stroke-width="0" id="svg_27"/>
+      <path fill="#ffc4ff" d="m62.38,83.893c0,0 -46.698,7.782 -51.696,38.255c-4.136,25.216 18.611,33.947 33.43,33.947c18.036,0 112.698,0 112.698,0l1.206,-5.687c0,0 -71.397,0.324 -101.38,0c-15.968,-0.172 -28.147,-4.996 -28.147,-22.574c0,-14.992 12.867,-26.502 29.065,-32.034l4.824,-11.907z" stroke-width="0" id="svg_26"/>
+     </g>
+    </svg>
+   </g>
+  </g>
+  <g id="shape_W7YDZ35Q8m" transform="translate(217.764 113.235) scale(1 1)">
+   <svg y="-210" x="-197" version="1.1" width="521" height="407.644" viewBox="0 0 521 407.644" data-parent="shape_W7YDZ35Q8m" id="svg_29" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect fill="rgba(0,0,0,0)" width="289" height="58" x="58" y="174.822" id="svg_39"/>
+    <g data-width="288.202" id="svg_30">
+     <path d="m132.88509,185.13201l13.86,0l0,6.91l-10.73,0q-4.17,0 -6.09,0.58q-1.91,0.58 -3.19,2.26l0,0q-0.87,1.16 -1.18,2.32q-0.32,1.16 -0.56,3.94l0,0l21.75,0l0,6.9l-21.75,0q0.47,4.99 2.96,6.93q2.5,1.95 8.47,1.95l0,0l10.32,0l0,6.9l-10.73,0q-4.35,0 -7.65,-0.52l0,0q-5.22,-0.87 -8.3,-4.58l0,0q-4.4,-5.34 -4.4,-14.45l0,0q0,-10.09 6.2,-15.71l0,0q2.15,-1.92 4.56,-2.67q2.4,-0.76 6.46,-0.76l0,0z" transform="skewX(-14)" fill="#ffc4ff" stroke="#ffc4ff" stroke-width="0.097" data-glyph-w="35.496" data-glyph-h="58" data-glyph-ascender="49.822" data-glyph-descender="-8.178" id="svg_38"/>
+     <path d="m159.10109,223.82201l-9.63,0l16.01,-38.69l9.46,0l16,38.69l-9.62,0l-3.77,-8.93l-14.68,0l-3.77,8.93zm16.65,-15.83l-5.51,-13.52l-5.51,13.52l11.02,0z" transform="skewX(-14)" fill="#ffc4ff" stroke="#ffc4ff" stroke-width="0.097" data-glyph-w="41.876" data-glyph-h="58" data-glyph-ascender="49.822" data-glyph-descender="-8.178" id="svg_37"/>
+     <path d="m214.3771,223.82201l-19.43,0l0,-6.9l17.69,0q4.23,0 5.63,-0.81l0,0q2.03,-1.22 2.03,-3.66l0,0q0,-2.84 -2.38,-4.12l0,0q-1.34,-0.75 -4.29,-0.75l0,0l-7.2,0q-6.55,0 -9.45,-2.38l0,0q-1.8,-1.51 -2.81,-3.77q-1.02,-2.26 -1.02,-4.87l0,0q0,-4.06 2.38,-7.42l0,0q2.32,-3.25 7.42,-3.83l0,0q1.74,-0.18 5.17,-0.18l0,0l19.19,0l0,6.91l-17.34,0q-3.88,0.05 -5.16,0.34l0,0q-2.61,0.64 -2.61,3.95l0,0q0,2.78 2.2,3.71l0,0q1.45,0.7 4.88,0.7l0,0l6.2,0q4.76,0 7.08,0.81l0,0q4.12,1.39 5.68,4.87l0,0q1.22,2.78 1.22,5.97l0,0q0,3.54 -1.62,6.33l0,0q-2.27,3.94 -6.79,4.75l0,0q-2.2,0.35 -6.67,0.35l0,0z" transform="skewX(-14)" fill="#ffc4ff" stroke="#ffc4ff" stroke-width="0.097" data-glyph-w="40.31" data-glyph-h="58" data-glyph-ascender="49.822" data-glyph-descender="-8.178" id="svg_36"/>
+     <path d="m245.92709,223.82201l0,-16.94l-14.32,-21.75l9.62,0l8.88,15.14l9.34,-15.14l9.8,0l-15.08,22.04l0,16.65l-8.24,0z" transform="skewX(-14)" fill="#ffc4ff" stroke="#ffc4ff" stroke-width="0.097" data-glyph-w="37.874" data-glyph-h="58" data-glyph-ascender="49.822" data-glyph-descender="-8.178" id="svg_35"/>
+     <path d="m269.36109,205.38201l13.51,0l0,6.96l-13.51,0l0,-6.96z" transform="skewX(-14)" fill="#ffc4ff" stroke="#ffc4ff" stroke-width="0.097" data-glyph-w="13.514" data-glyph-h="58" data-glyph-ascender="49.822" data-glyph-descender="-8.178" id="svg_34"/>
+     <path d="m308.2251,223.82201l-21.41,0l0,-38.69l21.87,0q5.16,0 7.48,1.22l0,0q2.73,1.34 4.12,4.47l0,0q0.99,2.14 0.99,4.46l0,0q0,3.02 -1.6,5.63q-1.59,2.61 -4.03,3.6l0,0q5.63,2.55 5.63,9.1l0,0q0,3.77 -1.8,6.32l0,0q-1.57,2.21 -4,3.05q-2.44,0.84 -7.25,0.84l0,0zm-13.17,-31.78l0,8.99l11.19,0q1.8,0 2.59,-0.18q0.78,-0.17 1.53,-0.75l0,0q1.8,-1.39 1.8,-3.83l0,0q0,-2.32 -1.68,-3.42l0,0q-1.22,-0.81 -4.06,-0.81l0,0l-11.37,0zm0,15.89l0,8.99l11.19,0q1.8,0 2.61,-0.18q0.82,-0.17 1.51,-0.75l0,0q1.8,-1.39 1.8,-3.83l0,0q0,-2.32 -1.68,-3.42l0,0q-1.22,-0.81 -4.06,-0.81l0,0l-11.37,0z" transform="skewX(-14)" fill="#ffc4ff" stroke="#ffc4ff" stroke-width="0.097" data-glyph-w="40.484" data-glyph-h="58" data-glyph-ascender="49.822" data-glyph-descender="-8.178" id="svg_33"/>
+     <path d="m326.83909,185.13201l8.18,0l0,23.2q0,2.79 0.46,4.32q0.47,1.54 1.57,2.64l0,0q2.43,2.38 6.78,2.38l0,0q2.79,0 4.85,-0.96q2.06,-0.95 2.87,-2.58l0,0q0.81,-1.62 0.81,-5.8l0,0l0,-23.2l8.24,0l0,22.8q0,4.52 -0.96,7.45q-0.96,2.93 -2.93,4.73l0,0q-4.58,4 -12.99,4l0,0q-8.99,0 -13.11,-3.94l0,0q-2.15,-2.03 -2.96,-4.56q-0.81,-2.52 -0.81,-7.1l0,0l0,-23.38z" transform="skewX(-14)" fill="#ffc4ff" stroke="#ffc4ff" stroke-width="0.097" data-glyph-w="40.774" data-glyph-h="58" data-glyph-ascender="49.822" data-glyph-descender="-8.178" id="svg_32"/>
+     <path d="m378.5731,223.82201l0,-16.94l-14.32,-21.75l9.62,0l8.88,15.14l9.34,-15.14l9.8,0l-15.08,22.04l0,16.65l-8.24,0z" transform="skewX(-14)" fill="#ffc4ff" stroke="#ffc4ff" stroke-width="0.097" data-glyph-w="37.874" data-glyph-h="58" data-glyph-ascender="49.822" data-glyph-descender="-8.178" id="svg_31"/>
+    </g>
+   </svg>
+  </g>
+  <text opacity="0.95" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="Microsoft YaHei" font-size="43" stroke-width="0" id="svg_55" y="122.2" x="406.6" fill="#ffc4ff">平台身份认证</text>
+ </g>
+</svg>

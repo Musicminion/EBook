@@ -1,0 +1,29 @@
+.BookDetailImg{
+    display: inline-block;
+    height: 30%;
+    width: 30%;
+}
+
+.BookDetailTop{
+    margin: 0;
+    padding: 0;
+}
+
+.BookDescription{
+    position: absolute;
+    display: inline-block;
+    left: 34%;
+
+}
+
+.BookDetailAddChart{
+    left: 10%;
+    width: 20%;
+    margin: 30px;
+}
+
+.BookDetailBuy{
+    left: 10%;
+    width: 20%;
+    margin: 30px;
+}

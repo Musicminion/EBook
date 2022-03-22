@@ -25,7 +25,7 @@ class LoginPage extends React.Component{
                 <LoginCard/>
 
                 <div className="footer">
-                    <p>CopyRight ©2022 All Rights Reserved.</p>
+                    <p>CopyRight ZhangZiqian,All Rights Reserved.</p>
                 </div>
 
             </div>

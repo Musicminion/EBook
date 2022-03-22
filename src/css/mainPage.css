@@ -187,6 +187,7 @@
     height: fit-content;
 
     float: right;
+    text-align: center;
 
     z-index: 2;
 }
@@ -324,6 +325,18 @@
 #canvas_sakura{
     z-index: 0;
 }
+
+
+.CarouselPicture{
+    position: relative;
+    width: 54vw;
+    height: 50vh;
+    border-radius: 25px;
+
+}
+
+
+
 
 
 /*topBar {*/

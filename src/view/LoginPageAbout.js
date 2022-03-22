@@ -81,7 +81,6 @@ class LoginPageAbout extends React.Component{
                         进一步优化了音乐播放器，尝试了动态背景
                     </li>
 
-
                 </div>
 
                 <div className="login_childfooter">

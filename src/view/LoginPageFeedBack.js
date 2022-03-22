@@ -1,9 +1,9 @@
 import React from 'react';
-import LoginCompStaticBackground from "./LoginCompStaticBackground";
-import '../../css/login.css'
-import '../../css/login_childPage.css'
-import '../../css/Common.css'
-import Hellologin from "../../asset/img/login/hello.png";
+import LoginStaticBackground from "../components/Login/LoginStaticBackground";
+import '../css/login.css'
+import '../css/login_childPage.css'
+import '../css/Common.css'
+import Hellologin from "../asset/img/login/hello.png";
 import {Input} from "antd";
 import TextArea from "antd/es/input/TextArea";
 
@@ -19,7 +19,7 @@ class LoginPageFeedBack extends React.Component{
     render() {
         return (
             <>
-                <LoginCompStaticBackground/>
+                <LoginStaticBackground/>
                 <div className="login_register_bgpic">
                     <img src={Hellologin} id="login_register_hello" alt="Image can't display!"/>
                 </div>

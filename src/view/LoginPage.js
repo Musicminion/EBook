@@ -1,9 +1,9 @@
 import React from 'react';
-import '../../css/login.css';
+import '../css/login.css';
 
-import LoginCompStaticBackground from "./LoginCompStaticBackground";
-import Hellologin from "../../asset/img/login/hello.png";
-import LoginCompLoginCard from "./LoginCompLoginCard";
+import LoginStaticBackground from "../components/Login/LoginStaticBackground";
+import Hellologin from "../asset/img/login/hello.png";
+import LoginCard from "../components/Login/LoginCard";
 
 
 class LoginPage extends React.Component{
@@ -11,7 +11,7 @@ class LoginPage extends React.Component{
         return (
             <div className="loginContainer">
 
-                <LoginCompStaticBackground/>
+                <LoginStaticBackground/>
 
                 <div className="hello_logo">
                     <img src={Hellologin} id="login_hello" alt="Image can't display!"/>
@@ -22,7 +22,7 @@ class LoginPage extends React.Component{
                     <div className="circle"></div>
                 </div>
 
-                <LoginCompLoginCard/>
+                <LoginCard/>
 
                 <div className="footer">
                     <p>CopyRight ©2022 All Rights Reserved.</p>

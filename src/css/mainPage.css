@@ -8,7 +8,7 @@
 
 .eBookPageContainer{
     background: linear-gradient(
-            0deg,
+            180deg,
             #ffecff,
             #cbf8ff
     );
@@ -92,6 +92,8 @@
     width: 50%;
     left: 25%;
     align-self: center;
+
+    z-index: 2;
 }
 
 
@@ -165,6 +167,8 @@
     left: 10vw;
     height: fit-content;
     float: left;
+
+    z-index: 2;
 }
 
 .BookDisplay{
@@ -183,6 +187,8 @@
     height: fit-content;
 
     float: right;
+
+    z-index: 2;
 }
 
 .Recommendation{
@@ -202,6 +208,8 @@
     height: fit-content;
     clear: both;
     text-align: center;
+
+    z-index: 2;
 }
 
 .shopCard{
@@ -313,11 +321,9 @@
     height: 80%;
 }
 
-
-
-
-
-
+#canvas_sakura{
+    z-index: 0;
+}
 
 
 /*topBar {*/

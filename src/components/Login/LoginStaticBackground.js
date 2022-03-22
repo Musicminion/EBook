@@ -1,5 +1,5 @@
 // 注意本页面负责登录界面的背景渲染 Login子站点使用的时候一定要将标签：
-// <LoginCompStaticBackground/> 放在这个页面容器的第一个位置 完成渲染
+// <LoginStaticBackground/> 放在这个页面容器的第一个位置 完成渲染
 // 否则CSS选择器可能不能识别！ 导致元素错位！
 // 注意！ Login的子站点使用LoginChildPage.css 使Hello元素居中！
 // 警告！ LoginChildPage.css必须在Login.css后面引入！
@@ -9,7 +9,7 @@ import React from 'react';
 import Logologin from '../../asset/img/login/logo.svg'
 import {Link} from "react-router-dom";
 
-class LoginCompStaticBackground extends React.Component{
+class LoginStaticBackground extends React.Component{
     render() {
         return(
             <>
@@ -46,4 +46,4 @@ class LoginCompStaticBackground extends React.Component{
     }
 }
 
-export default LoginCompStaticBackground;
+export default LoginStaticBackground;

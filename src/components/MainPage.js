@@ -6,7 +6,8 @@ import 'antd/dist/antd.css';
 import '../css/mainPage.css';
 import {Card} from "antd";
 import BookCard from "./Book/BookCard";
-
+import {startSakura, stopp} from "./test";
+import {history} from "../App";
 
 // import tmptestpic1 from '../asset/img/book/1.jpg'
 // import tmptestpic2 from '../asset/img/book/2.jpg'
@@ -15,11 +16,18 @@ import BookCard from "./Book/BookCard";
 
 
 class MainPage extends React.Component{
+    componentDidMount() {
+
+    }
+    componentWillMount() {
+
+    }
+
     render() {
         return (
             <div className="eBookPageContainer">
                 <div>
-                     <EBookTopBar/>
+                    <EBookTopBar></EBookTopBar>
                 </div>
                 <div className="MainContents">
                     <div className="SearchPanel">

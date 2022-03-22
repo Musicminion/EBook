@@ -1,7 +1,7 @@
 import React from "react";
 import {message, Button, Space, Input, Form, Checkbox} from 'antd';
-import {LoginCompUserRegister} from "./LoginCompUserRegister";
-import LoginCompPassport from "./LoginCompPassport";
+import {UserRegister} from "./UserRegister";
+import LoginPassport from "./LoginPassport";
 import {history} from "../PublicHistory";
 import {Icon} from "@fluentui/react";
 import * as userService from '../../service/user'
@@ -19,7 +19,7 @@ const MesgUserInfoError = () => {
 }
 
 
-class LoginCompLoginCard extends React.Component{
+class LoginCard extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -44,7 +44,7 @@ class LoginCompLoginCard extends React.Component{
         if(userID===""||userPwd===""||userID==null||userPwd==null)
             MesgBlankError();
         else{
-            LoginCompPassport.login(
+            LoginPassport.login(
                 this.state.loginUserName,
                 this.state.loginPassword,
                 () => {
@@ -113,7 +113,7 @@ class LoginCompLoginCard extends React.Component{
                         >
                             登录
                         </button>
-                        <LoginCompUserRegister/>
+                        <UserRegister/>
                     </div>
                     <p className="forget">忘记密码?
                         <a href="#" className="login_a">点击这里</a>
@@ -125,7 +125,7 @@ class LoginCompLoginCard extends React.Component{
     }
 }
 
-export default LoginCompLoginCard;
+export default LoginCard;
 
 
 
@@ -146,7 +146,7 @@ export default LoginCompLoginCard;
 //     </div>
 //     <div className="loginFunction">
 //         <button className="loginFunction_button" type="button">登录</button>
-//         <LoginCompUserRegister/>
+//         <UserRegister/>
 //     </div>
 //     <p className="forget">忘记密码?
 //         <a href="#" className="login_a">点击这里</a>

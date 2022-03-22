@@ -32,7 +32,7 @@ const columnProps: Partial<IStackProps> = {
 initializeIcons();
 
 
-export const LoginCompUserRegister: React.FunctionComponent = () => {
+export const UserRegister: React.FunctionComponent = () => {
     const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
     const [isDraggable, { toggle: toggleIsDraggable }] = useBoolean(false);
     const [keepInBounds, { toggle: toggleKeepInBounds }] = useBoolean(false);
@@ -190,7 +190,7 @@ const iconButtonStyles: Partial<IButtonStyles> = {
 
 //
 //
-// class LoginCompUserRegister extends React.Component{
+// class UserRegister extends React.Component{
 //     const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
 //     const [isDraggable, { toggle: toggleIsDraggable }] = useBoolean(false);
 //     const [keepInBounds, { toggle: toggleKeepInBounds }] = useBoolean(false);
@@ -221,5 +221,5 @@ const iconButtonStyles: Partial<IButtonStyles> = {
 // }
 //
 //
-// export default LoginCompUserRegister;
+// export default UserRegister;
 

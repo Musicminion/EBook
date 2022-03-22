@@ -1,9 +1,9 @@
 import React from 'react';
-import LoginCompStaticBackground from "./LoginCompStaticBackground";
-import '../../css/login.css'
-import '../../css/login_childPage.css'
-import '../../css/Common.css'
-import Hellologin from "../../asset/img/login/hello.png";
+import LoginStaticBackground from "../components/Login/LoginStaticBackground";
+import '../css/login.css'
+import '../css/login_childPage.css'
+import '../css/Common.css'
+import Hellologin from "../asset/img/login/hello.png";
 
 
 class LoginPageAbout extends React.Component{
@@ -11,7 +11,7 @@ class LoginPageAbout extends React.Component{
     render() {
         return(
             <div className="aboutPageContainer">
-                <LoginCompStaticBackground/>
+                <LoginStaticBackground/>
                 <div className="login_register_bgpic">
                     <img src={Hellologin} id="login_register_hello" alt="Image can't display!"/>
                 </div>
@@ -73,6 +73,10 @@ class LoginPageAbout extends React.Component{
                     <li>
                         2022.3.12 在/package.json文件中的scripts做出了修改，增加了"server": "node src/server/index.js"字段，如果后期有错误请删除！
                     </li>
+                    <li>
+                        2022.3.21 增加网页背景音乐的播放功能，增加了可以选择音乐播放的功能，并可以控制音乐的播放进度，播放音量。
+                    </li>
+
 
                 </div>
 

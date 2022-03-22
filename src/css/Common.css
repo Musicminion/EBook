@@ -18,6 +18,10 @@
     width: 80vw;
     height: fit-content;
     padding: 30px 40px;
+
+    z-index: 2;
+
+
 }
 
 .CommonBottom{

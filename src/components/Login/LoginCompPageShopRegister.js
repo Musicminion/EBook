@@ -2,7 +2,7 @@ import '../../css/login_childPage.css'
 import '../../css/Common.css'
 import React from "react";
 import Hellologin from "../../asset/img/login/hello.png";
-import LoginCompStaticBackground from "./LoginCompStaticBackground";
+import LoginStaticBackground from "./LoginStaticBackground";
 import {Button, Form, Input} from "antd";
 
 
@@ -11,7 +11,7 @@ class RegisterPage extends React.Component{
     render() {
         return(
             <div className="RegisterPageContainer">
-                <LoginCompStaticBackground/>
+                <LoginStaticBackground/>
 
                 <div className="login_register_bgpic">
                     <img src={Hellologin} id="login_register_hello" alt="Image can't display!"/>

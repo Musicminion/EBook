@@ -1,20 +1,21 @@
 import React from "react";
-import LoginPage from "./components/Login/LoginPage";
+import LoginPage from "./view/LoginPage";
 import MainPage from "./components/MainPage";
 
-import LoginPageAbout from "./components/Login/LoginPageAbout";
+import LoginPageAbout from "./view/LoginPageAbout";
 import LoginShopRegisterPage from "./components/Login/LoginCompPageShopRegister";
-import LoginPageFeedBack from "./components/Login/LoginPageFeedBack";
+import LoginPageFeedBack from "./view/LoginPageFeedBack";
 import BookDetailPage from "./components/Book/BookDetailPage";
 import EBookSearchResultPage from "./components/EBookSearchResultPage";
 import EBookBookTablePage from "./components/EBookBookTablePage";
-import LoginPageBase from "./components/Login/LoginPageBase";
+import LoginPageBase from "./view/LoginPageBase";
 
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {history} from "./components/PublicHistory";
 
-import { createBrowserHistory } from 'history';
-import LoginCompPassport from "./components/Login/LoginCompPassport";
-export const history = createBrowserHistory();
+// import { createBrowserHistory } from 'history';
+// import LoginPassport from "./components/Login/LoginPassport";
+// export const history = createBrowserHistory();
 
 
 class App extends React.Component{
@@ -40,7 +41,6 @@ class App extends React.Component{
                         <Route exact path="/login/feedback" component={LoginPageFeedBack}/>
                         <Route exact path="/login/about" component={LoginPageAbout}/>
                         <Route exact path="/LoginPageBase" component={LoginPageBase}/>
-                        {/*LoginPageBase*/}
                         <Redirect from="/*" to="/eBook/MainPage" />
                     </Switch>
                 </Router>

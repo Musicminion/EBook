@@ -2,7 +2,7 @@ import React from "react";
 import EBookTopBar from "./EBookTopBar";
 import BookTable from "./Book/BookTable";
 import {history} from "./PublicHistory";
-import LoginPage from "./Login/LoginPage";
+import LoginPage from "../view/LoginPage";
 
 class EBookBookTablePage extends React.Component{
 

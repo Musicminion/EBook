@@ -78,6 +78,7 @@ class LoginPageAbout extends React.Component{
                     </li>
                     <li>
                         2022.3.22 通过localstorage实现了网站的登录功能，对于不同的用户，展示不同的顶部栏。顶部栏带有校验功能，可以校验用户的权限信息，根据权限来进行展示功能区
+                        进一步优化了音乐播放器，尝试了动态背景
                     </li>
 
 

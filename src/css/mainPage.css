@@ -1,0 +1,460 @@
+
+/*清除浏览器默认边距*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.eBookPageContainer{
+    background: linear-gradient(
+            0deg,
+            #ffecff,
+            #cbf8ff
+    );
+    position: relative;
+    height: fit-content;
+    box-sizing: border-box;
+}
+
+
+.MainContents{
+    height: fit-content;
+    width: 100vw;
+}
+
+@media only screen and (min-width: 770px){
+    #MainPageLoginDiv {
+        padding: 0;
+        position: absolute;
+        right:20px;
+        width: fit-content;
+        top: 0vh;
+    }
+}
+
+@media only screen and (max-width: 770px){
+    #MainPageLoginDiv {
+        padding: 0;
+        position: relative;
+        left: 10%;
+        width: 80%;
+        top: 0vh;
+    }
+}
+
+.MainPageLoginButton{
+    width: 100px;
+    border-radius: 8px;
+    border: none;
+    background: rgb(255, 220, 238);
+}
+
+.MainPageLoginButton:hover{
+    background: rgb(250, 101, 160);
+    color: #FFFFFF;
+}
+
+.MainPageTopBar {
+
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.8)
+    );
+    position: fixed;
+    border-radius: 1.3vh;
+    box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
+
+    margin: 0;
+    top: 0.8vh;
+    width: 98vw;
+    height: fit-content;
+    left: 0.5vw;
+    opacity: 0.75;
+    z-index: 10;
+
+}
+
+.SearchPanel {
+    border:1px solid #ffffff;
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.1)
+    );
+    box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
+    border-radius: 2.5vh;
+    padding:1vh 1vw 1vh 1vw;
+
+    position: relative;
+    top:13vh;
+    width: 50%;
+    left: 25%;
+    align-self: center;
+}
+
+
+/*------------------------------------------------------------------*/
+
+/*覆盖掉原来的样式！达到透明的效果*/
+.ant-input{
+    background: rgba(250, 250, 250, 0.1);
+    /*outline: none;*/
+    /*border: none;*/
+}
+
+.ant-input-affix-wrapper{
+
+    background: rgba(250, 250, 250, 0.1);
+    /*border: #d3abfc;*/
+    /*outline: none;*/
+    /*outline: #282c34;*/
+    /*border: none;*/
+}
+
+
+.ant-input-search-button{
+    /*background: rgba(250, 250, 250, 0.1);*/
+    background-color: #ff91c4;
+    /*outline: none;*/
+    border: none;
+    box-shadow:none;
+    /*color: #fdb3fd;*/
+    color: #FFFFFF;
+}
+
+.ant-input-group-addon{
+    background: rgba(250, 250, 250, 0.1);
+    /*outline: none;*/
+    /*border: none;*/
+    color: #d3abfc;
+
+}
+
+.ant-input-search-button:hover,.ant-input-search-button:focus{
+    background: rgba(255, 133, 191, 0.8);
+    color: #FFFFFF;
+}
+
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector{
+    background: rgba(250, 250, 250, 0.1);
+    /*border: none;*/
+}
+
+.ant-picker{
+    background: rgba(250, 250, 250, 0.1);
+}
+
+/*---------------------------------------------------------------------*/
+
+
+.ShopDisplay{
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.1)
+    );
+    position: relative;
+    border-radius: 2.3vh;
+    box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
+
+    top: 20vh;
+    width: 20vw;
+    left: 10vw;
+    height: fit-content;
+    float: left;
+}
+
+.BookDisplay{
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.1)
+    );
+    position: relative;
+    border-radius: 2.3vh;
+    box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
+
+    top: 20vh;
+    width: 58vw;
+    right: 10vw;
+    height: fit-content;
+
+    float: right;
+}
+
+.Recommendation{
+
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.1)
+    );
+
+    position: relative;
+    border-radius: 2.3vh;
+    box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
+    top: 25vh;
+    width: 80vw;
+    left: 10vw;
+    height: fit-content;
+    clear: both;
+    text-align: center;
+}
+
+.shopCard{
+    width: 90%;
+    left: 5%;
+    border-radius: 10px;
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.4)
+    );
+    box-shadow: 6px 6px 6px rgba(122, 122, 122, 0.212);
+    margin: 30px 0;
+}
+
+
+.shopCard:hover{
+    border-color: #FF4400;
+}
+
+.BookCard{
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.4)
+    );
+    box-shadow: 6px 6px 6px rgba(122, 122, 122, 0.212);
+    border-radius: 10px;
+    width: 250px;
+    height: 360px;
+    margin: 20px 15px;
+    display: inline-flex;
+
+}
+
+.BookCard:hover{
+    border-color: #FF4400;
+}
+
+.BookCard_bookPrice{
+    color: #FF4400;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 8px 0;
+    text-align: left;
+}
+
+.BookCard_TitleHref{
+    text-align: left;
+    font-size: 12px;
+    color: #404040;
+    font-family: Arial;
+}
+
+.ShopDisplay_Title{
+    width: 100%;
+    height: 10%;
+    border-radius: 2.3vh 2.3vh 0 0;
+    text-align: center;
+    color: #ff91c4;
+    font-size: 18px;
+    padding-top: 3%;
+    vertical-align: center;
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)
+    );
+}
+
+.BookDisplay_Title{
+    width: 100%;
+    height: 10%;
+    border-radius: 2.3vh 2.3vh 0 0;
+    text-align: center;
+    color: #ff91c4;
+    font-size: 18px;
+    padding-top: 1%;
+    vertical-align: center;
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)
+    );
+}
+
+.clearOnly{
+    height: 30vh;
+    width: 100vw;
+    clear: both;
+}
+
+
+.Pagefooter{
+    clear: both;
+    position: relative;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100vw;
+    height: 16px;
+    color: #a6c2fd;
+
+    font-size: 2vh;
+    bottom:1vh;
+}
+
+
+.webpageMusic{
+    height: 80%;
+}
+
+
+
+
+
+
+
+
+/*topBar {*/
+/*    background: linear-gradient(*/
+/*            to left top,*/
+/*            rgba(255, 255, 255, 0.6),*/
+/*            rgba(255, 255, 255, 0.1)*/
+/*    );*/
+/*    position: fixed;*/
+/*    justify-content: center;*/
+/*    border-radius: 2.3vh;*/
+/*    box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);*/
+
+/*    top: 0.8vh;*/
+/*    width: 99vw;*/
+/*    height: 6vh;*/
+/*    left: 0.5vw;*/
+/*    opacity: 0.95;*/
+
+/*}*/
+
+
+/*.topBarButton{*/
+/*    float: left;*/
+/*    color: #df0446;*/
+
+/*    background: rgba(249, 214, 250, 0.8);*/
+/*    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);*/
+
+/*    opacity:0.75;*/
+
+/*    border: 0;*/
+/*    border-radius: 2.3vh;*/
+
+/*    margin: 0.5vh 1vh 0.5vh 1vh;*/
+/*    height: 80%;*/
+/*    width: 7vw;*/
+
+/*}*/
+
+/*.LoginButton{*/
+/*    float: right;*/
+/*    opacity:0.75;*/
+
+/*    border: 0;*/
+/*    border-radius: 1vh;*/
+/*    background: rgba(255, 174, 219, 0.8);*/
+/*    margin: 0.5vh 1vh 0.5vh 1vh;*/
+/*    height: 80%;*/
+/*    width: 7vw;*/
+/*}*/
+
+
+
+
+
+
+
+
+
+/*.SearchPanel {*/
+/*    border:1px solid #cc27ff;*/
+/*    background-color: rgb(253, 238, 255);*/
+/*    border-radius: 2.5vh;*/
+/*}*/
+
+
+/*@media only screen and (min-width: 651px){*/
+/*    .SearchPanel{*/
+/*        position: relative;*/
+/*        top: 10vh;*/
+/*        left: 30vw;*/
+/*        width: 40vw;*/
+/*        height: 6vh;*/
+/*    }*/
+/*}*/
+
+/*@media only screen and (max-width: 650px){*/
+/*    .SearchPanel{*/
+/*        position: relative;*/
+/*        top: 10vh;*/
+/*        left: 5vw;*/
+/*        width: 90vw;*/
+/*        height: 6vh;*/
+/*    }*/
+/*}*/
+
+
+/*#SearchSelect{*/
+/*    padding: 0;*/
+/*    background-color: rgb(253, 238, 255);*/
+/*    margin: 0 0 0 2%;*/
+/*    border: none;*/
+/*    width: 12%;*/
+/*    height: 80%;*/
+/*}*/
+
+/*option {*/
+/*    text-align: center;*/
+
+/*}*/
+
+
+/* .SearchSelect{
+    visibility: hidden;
+    width: 10%;
+    height: 50%;
+    display: inline-block;
+} */
+
+
+/*#MainPageSearchBox {*/
+/*    padding: 0;*/
+/*    background-color: rgb(253, 238, 255);*/
+
+/*    border: none;*/
+/*    width: 68%;*/
+/*    height: 100%;*/
+/*    opacity: 0.5;*/
+/*}*/
+
+
+/*#MainPageSearchBottom{*/
+/*    !* background-color:#ffbbfc; *!*/
+/*    border-radius: 3vh;*/
+/*    border: none;*/
+/*    margin-top: 0.5vh;*/
+/*    height:80%;*/
+/*    width: 12%;*/
+/*    color: #000000;*/
+/*    font-size: 2vh;*/
+/*    background: rgba(255, 255, 255, 0.8);*/
+/*    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);*/
+/*}*/
+
+/*#MainPageSearchBottom:hover{*/
+/*    background-color: #ff91c4;*/
+/*    font-weight: bold;*/
+/*    color: white;*/
+/*}*/

@@ -50,7 +50,7 @@ class LoginCompLoginCard extends React.Component{
                 () => {
                 // 登录成功时，跳转页面
                     MesgloginSucceed();
-                    window.location.href="/";
+                    setTimeout("window.location.href=\"/\";",800);
                 },
                 () => {
                     // 登录成功时，跳转页面

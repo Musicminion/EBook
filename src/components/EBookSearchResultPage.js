@@ -94,9 +94,7 @@ class EBookSearchResultPage extends React.Component{
 
                 </div>
 
-
                 <div className="clearOnly">
-
                 </div>
 
                 <div className="Pagefooter">

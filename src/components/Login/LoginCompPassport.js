@@ -4,9 +4,15 @@ import * as userService from '../../service/user'
 
 class LoginCompPassport extends React.Component{
 
-    static login(username, password, SuccessCallback,FailureCallback) {
+    static login(username, password, SuccessCallback, FailureCallback) {
+        if(username === "admin" && password === "123")
+        {
+            SuccessCallback();
+        }
 
-
+        else{
+            FailureCallback();
+        }
 
             // let data = {
             //     USERNAME: username,

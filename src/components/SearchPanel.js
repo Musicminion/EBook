@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
-import '../css/MainPage.css';
+import '../css/mainPage.css';
 import { SearchBox } from '@fluentui/react/lib/SearchBox';
 import { Stack, IStackTokens } from '@fluentui/react/lib/Stack';
 import { Route, useHistory } from "react-router-dom";

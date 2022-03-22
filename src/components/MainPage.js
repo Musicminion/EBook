@@ -3,7 +3,7 @@ import EBookTopBar from './EBookTopBar'
 import SearchPanel from "./SearchPanel";
 import React from 'react';
 import 'antd/dist/antd.css';
-import '../css/MainPage.css';
+import '../css/mainPage.css';
 import {Card} from "antd";
 import BookCard from "./Book/BookCard";
 

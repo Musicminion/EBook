@@ -19,7 +19,7 @@
     font-size: 14px;
     color: #404040;
     font-family: Arial;
-    height: 70%;
+    height: 75%;
 }
 
 
@@ -27,9 +27,6 @@
     color: #ff3c95;
 }
 
-/*.BookRow_ButtonArea{*/
-/*    */
-/*}*/
 
 .BookRow_Place{
     color: #404040;
@@ -53,11 +50,14 @@
 }
 
 .BookRow_bookSellnum{
+    position: absolute;
     font-size: 12px;
+    top: 85%;
 }
 
 .BookRow_bookStorageStatus{
     font-size: 12px;
+    color: #ea83ea;
 }
 
 .BookRow_functionButton{

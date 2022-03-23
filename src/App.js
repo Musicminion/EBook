@@ -18,6 +18,7 @@ import {history} from "./components/PublicHistory";
 // export const history = createBrowserHistory();
 
 
+
 class App extends React.Component{
     constructor(props) {
         super(props);
@@ -32,7 +33,7 @@ class App extends React.Component{
                 <Router history={history}>
                     <Switch>
                         <Route exact path="/eBook/MainPage" component={MainPage}/>
-                        <Route exact path="/eBook/bookdetail" component={BookDetailPage}/>
+                        <Route path="/eBook/bookdetail" component={BookDetailPage}/>
                         <Route exact path="/eBook/searchresult" component={SearchResultPage}/>
                         <Route exact path="/eBook/booktable" component={EBookBookTablePage}/>
 

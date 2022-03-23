@@ -1,6 +1,5 @@
 import React from "react";
-import * as userService from '../../service/user'
-import {history} from "../PublicHistory";
+
 
 class LoginPassport extends React.Component{
     static removeLocalPassport(){

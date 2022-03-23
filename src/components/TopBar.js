@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import {Avatar, Badge, Menu} from 'antd';
 import { Button } from 'antd';
@@ -10,8 +9,7 @@ import {
 } from '@ant-design/icons';
 import {Link} from "react-router-dom";
 import LoginPassport from "./Login/LoginPassport";
-import {history} from "./PublicHistory";
-import redirect from "react-router-dom/es/Redirect";
+
 
 
 const { SubMenu } = Menu;
@@ -76,7 +74,6 @@ class TopBar extends React.Component {
         else{
             this.setState({userPermissionLevel: 3});
         }
-
     }
 
     render() {

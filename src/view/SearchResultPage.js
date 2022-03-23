@@ -18,7 +18,6 @@ const data = [
     'Los Angeles battles huge wildfires.',
 ];
 
-
 class SearchResultPage extends React.Component{
     constructor() {
         super();
@@ -34,13 +33,11 @@ class SearchResultPage extends React.Component{
             let str = url.substr( 1 );          //substr()方法返回从参数值开始到结束的字符串；
             let strs = str.split( "&" );
             for ( let i = 0; i < strs.length; i++ ) {
-                theRequest[ strs[ i ].split( "=" )[ 0 ] ] = ( strs[ i ].split( "=" )[ 1 ] );
+                theRequest[strs[i].split("=" )[0]] = (strs[i].split("=" )[1]);
             }
             // alert(theRequest['keyword']);           //此时的theRequest就是我们需要的参数；
         }
-
     }
-
 
     render() {
         return (
@@ -78,17 +75,9 @@ class SearchResultPage extends React.Component{
                             <BookRow bookID="4"></BookRow>
                             <BookRow bookID="5"></BookRow>
 
-
-
                         </TabPane>
 
                     </Tabs>
-
-
-
-
-
-
 
                 </div>
 

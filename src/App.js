@@ -1,12 +1,12 @@
 import React from "react";
 import LoginPage from "./view/LoginPage";
-import MainPage from "./components/MainPage";
+import MainPage from "./view/MainPage";
 
 import LoginPageAbout from "./view/LoginPageAbout";
 import LoginShopRegisterPage from "./components/Login/LoginCompPageShopRegister";
 import LoginPageFeedBack from "./view/LoginPageFeedBack";
-import BookDetailPage from "./components/Book/BookDetailPage";
-import EBookSearchResultPage from "./components/EBookSearchResultPage";
+import BookDetailPage from "./view/BookDetailPage";
+import SearchResultPage from "./view/SearchResultPage";
 import EBookBookTablePage from "./components/EBookBookTablePage";
 import LoginPageBase from "./view/LoginPageBase";
 
@@ -33,7 +33,7 @@ class App extends React.Component{
                     <Switch>
                         <Route exact path="/eBook/MainPage" component={MainPage}/>
                         <Route exact path="/eBook/bookdetail" component={BookDetailPage}/>
-                        <Route exact path="/eBook/searchresult" component={EBookSearchResultPage}/>
+                        <Route exact path="/eBook/searchresult" component={SearchResultPage}/>
                         <Route exact path="/eBook/booktable" component={EBookBookTablePage}/>
 
                         <Route exact path="/login" component={LoginPage}/>

@@ -1,13 +1,13 @@
 
-import EBookTopBar from './EBookTopBar'
-import SearchPanel from "./SearchPanel";
+import TopBar from '../components/TopBar'
+import SearchPanel from "../components/SearchPanel";
 import React from 'react';
 import 'antd/dist/antd.css';
 import '../css/mainPage.css';
 import {history} from "../App";
-import ShopDisplay from "./ShopDisplay";
-import BookDisplay from "./BookDisplay";
-import Recommendation from "./Recommendation";
+import ShopDisplay from "../components/ShopDisplay";
+import BookDisplay from "../components/BookDisplay";
+import Recommendation from "../components/Recommendation";
 
 
 class MainPage extends React.Component{
@@ -22,7 +22,7 @@ class MainPage extends React.Component{
         return (
             <div className="eBookPageContainer">
 
-                <EBookTopBar></EBookTopBar>
+                <TopBar></TopBar>
 
                 <div className="MainContents">
                     <div className="SearchPanel">

@@ -1,16 +1,15 @@
 import React from "react";
-import EBookTopBar from "./EBookTopBar";
+import TopBar from "./TopBar";
 import BookTable from "./Book/BookTable";
 import {history} from "./PublicHistory";
 import LoginPage from "../view/LoginPage";
 
 class EBookBookTablePage extends React.Component{
 
-
     render() {
             return (
                 <div className="eBookPageContainer">
-                    <EBookTopBar></EBookTopBar>
+                    <TopBar></TopBar>
                     <div className="MainContentsCard">
                         <BookTable/>
                     </div>
@@ -18,7 +17,6 @@ class EBookBookTablePage extends React.Component{
                     <div className="clearOnly">
 
                     </div>
-
                     <div className="Pagefooter">
                         <p>CopyRight ©2022 All Rights Reserved.Developed By Zhang Ziqian.</p>
                     </div>

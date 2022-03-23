@@ -1,10 +1,10 @@
 // 本页面是书籍的详情界面
 import React,{ useState } from 'react';
 import {Button, Card, Descriptions, Image, InputNumber, Menu, Modal, Select} from "antd";
-import EBookTopBar from "../EBookTopBar";
-import "../../css/BookDetail.css"
+import TopBar from "../components/TopBar";
+import "../css/BookDetail.css"
 import { Radio } from 'antd';
-import PayComfirm from "../PayComfirm";
+import PayComfirm from "../components/PayComfirm";
 
 
 class BookDetailPage extends React.Component{
@@ -14,12 +14,12 @@ class BookDetailPage extends React.Component{
         return (
             <div >
                 <div className="eBookPageContainer">
-                    <EBookTopBar/>
+                    <TopBar/>
                     <div className="MainContentsCard">
 
                         <div className="BookDetailTop">
                             <div className="BookDetailImg">
-                                <Image src={require('../../asset/img/book/4.jpg')}></Image>
+                                <Image src={require('../asset/img/book/4.jpg')}></Image>
                             </div>
 
                             <div className="BookDescription">

@@ -27,7 +27,7 @@ function testClick2(){
 }
 
 
-class EBookTopBar extends React.Component {
+class TopBar extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -306,4 +306,4 @@ class EBookTopBar extends React.Component {
 
 
 
-export default EBookTopBar;
+export default TopBar;

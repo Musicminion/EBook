@@ -209,7 +209,7 @@
     height: fit-content;
     clear: both;
     /*text-align: center;*/
-
+    padding: 30px 40px;
     z-index: 2;
 }
 

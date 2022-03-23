@@ -1,10 +1,10 @@
 import React from "react";
-import SearchPanel from "./SearchPanel";
+import SearchPanel from "../components/SearchPanel";
 import '../css/Common.css'
-import EBookTopBar from "./EBookTopBar";
-import BookCard from "./Book/BookCard";
+import TopBar from "../components/TopBar";
+import BookCard from "../components/Book/BookCard";
 import {Button, Col, Collapse, Divider, List, Pagination, Row, Tabs, Typography} from 'antd';
-import BookRow from "./Book/BookRow";
+import BookRow from "../components/Book/BookRow";
 import {AppstoreOutlined, BarsOutlined} from "@ant-design/icons";
 
 const { TabPane } = Tabs;
@@ -19,7 +19,7 @@ const data = [
 ];
 
 
-class EBookSearchResultPage extends React.Component{
+class SearchResultPage extends React.Component{
     constructor() {
         super();
         this.state = {
@@ -45,7 +45,7 @@ class EBookSearchResultPage extends React.Component{
     render() {
         return (
             <div className="eBookPageContainer">
-                <EBookTopBar></EBookTopBar>
+                <TopBar></TopBar>
                 <div className="SearchPanel">
                     <SearchPanel id="MainPageSearchPanel"></SearchPanel>
                 </div>
@@ -104,4 +104,4 @@ class EBookSearchResultPage extends React.Component{
     }
 }
 
-export default EBookSearchResultPage;
+export default SearchResultPage;

@@ -250,6 +250,12 @@
     border-color: #FF4400;
 }
 
+.BookCard_Image{
+    height: 200px;
+    width: 200px;
+}
+
+
 .BookCard_bookPrice{
     color: #FF4400;
     font-size: 18px;
@@ -257,17 +263,25 @@
     margin: 8px 0;
     text-align: left;
 }
+.BookCard_TItleArea{
+    height: 17%;
+}
+
+
 
 .BookCard_TitleHref{
     text-align: left;
     font-size: 12px;
     color: #404040;
     font-family: Arial;
+
 }
 
 .BookCard_TitleHref:hover{
     color: #ff91c4;
 }
+
+
 
 .BookCard_Shoper{
     float: left;

@@ -19,6 +19,9 @@ import {
     ShoppingCartOutlined,
     ShoppingOutlined,
 } from '@ant-design/icons';
+import {history} from "./PublicHistory";
+import {createBrowserHistory} from "history";
+
 
 const { Search } = Input;
 const { Option } = Select;
@@ -36,11 +39,10 @@ const suffix = (
 );
 
 // const onSearch = value => console.log(value);
-function onSearch(){
+function onSearch(value){
     const w=window.open('about:blank');
-    w.location.href="searchresult"
+    w.location.href="searchresult?keyword="+ encodeURI(value);
 }
-
 
 class SearchPanel extends React.Component{
 

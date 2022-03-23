@@ -7,8 +7,8 @@ import { Radio } from 'antd';
 import PayComfirm from "../PayComfirm";
 
 
-
 class BookDetailPage extends React.Component{
+
 
     render() {
         return (

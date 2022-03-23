@@ -21,6 +21,8 @@ class Recommendation extends React.Component{
                 <BookCard bookID="10"/>
                 <BookCard bookID="11"/>
                 <BookCard bookID="12"/>
+                <BookCard bookID="11"/>
+
             </div>
         );
     }

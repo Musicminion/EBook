@@ -201,14 +201,14 @@
     );
 
     position: relative;
-    border-radius: 2.3vh;
+    border-radius: 27px;
     box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
     top: 25vh;
     width: 80vw;
     left: 10vw;
     height: fit-content;
     clear: both;
-    text-align: center;
+    /*text-align: center;*/
 
     z-index: 2;
 }
@@ -263,7 +263,8 @@
     margin: 8px 0;
     text-align: left;
 }
-.BookCard_TItleArea{
+
+.BookCard_TitleArea{
     height: 17%;
 }
 

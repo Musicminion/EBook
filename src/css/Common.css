@@ -16,11 +16,11 @@
     border-radius: 27px;
     box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
     width: 80vw;
+    min-height: 61vh;
     height: fit-content;
     padding: 30px 40px;
 
     z-index: 2;
-
 
 }
 

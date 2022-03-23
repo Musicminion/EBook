@@ -61,7 +61,7 @@ class BookCard extends React.Component{
                     <Card className="BookCard">
                         <Image className="BookCard_Image" src={require('../../asset/img/book/'+ ID +'.jpg')}/>
                         <p className="BookCard_bookPrice">{AllBooks[ID].bookPrice}</p>
-                        <div className="BookCard_TItleArea">
+                        <div className="BookCard_TitleArea">
                             <p className="BookCard_TitleHref">{AllBooks[ID].bookTitle}</p>
                         </div>
                         <div>

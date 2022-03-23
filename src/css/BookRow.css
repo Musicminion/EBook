@@ -1,0 +1,65 @@
+.BookRow_Image{
+    width: 80%;
+    height: auto;
+}
+
+.BookRow_bookPrice{
+    margin: 0;
+
+    color: #FF4400;
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: left;
+
+}
+
+.BookRow_bookTitle{
+    text-align: left;
+    font-size: 14px;
+    color: #404040;
+    font-family: Arial;
+    height: 70%;
+}
+
+
+.BookRow_bookTitle:hover{
+    color: #ff3c95;
+}
+
+/*.BookRow_ButtonArea{*/
+/*    */
+/*}*/
+
+.BookRow_Place{
+    color: #404040;
+    float: right;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.BookRow_Shoper{
+    float: left;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.BookRow_Place:hover{
+    color: #04aff1;
+}
+
+.BookRow_Shoper:hover{
+    color: #04aff1;
+}
+
+.BookRow_bookSellnum{
+    font-size: 12px;
+}
+
+.BookRow_bookStorageStatus{
+    font-size: 12px;
+}
+
+.BookRow_functionButton{
+    margin: 3px;
+}

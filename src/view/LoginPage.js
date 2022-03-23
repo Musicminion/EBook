@@ -4,9 +4,16 @@ import '../css/login.css';
 import LoginStaticBackground from "../components/Login/LoginStaticBackground";
 import Hellologin from "../asset/img/login/hello.png";
 import LoginCard from "../components/Login/LoginCard";
+import loginPassport from "../components/Login/LoginPassport";
 
 
 class LoginPage extends React.Component{
+    componentDidMount() {
+        loginPassport.checkLastLogin(() => {
+            window.location.href = "/";
+        })
+    }
+
     render() {
         return (
             <div className="loginContainer">

@@ -89,7 +89,7 @@ class EBookSearchResultPage extends React.Component{
                     </BookCard>
 
                     <div className="PageSelector">
-                        <Pagination defaultCurrent={1} total={50} />
+                        <Pagination showSizeChanger defaultCurrent={1} total={50} />
                     </div>
 
                 </div>

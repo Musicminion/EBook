@@ -4,6 +4,7 @@ import {Switch} from "react-router-dom";
 import '../../css/mainPage.css'
 import {type} from "@testing-library/user-event/dist/type";
 import {Link} from "react-router-dom";
+import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
 
 // import tmptestpic4 from '../asset/img/book/4.jpg'
 
@@ -46,7 +47,12 @@ class BookCard extends React.Component{
                     <Card className="BookCard">
                         <Image src={require('../../asset/img/book/'+ ID +'.jpg')}/>
                         <p className="BookCard_bookPrice">{this.props.bookPrice}</p>
-                        <a className="BookCard_TitleHref" href="/eBook/bookdetail">{this.props.bookTitleStr}</a>
+                        <p className="BookCard_TitleHref">{this.props.bookTitleStr}</p>
+                        <div>
+                            <p className="BookCard_Shoper"><UnorderedListOutlined/>&nbsp;{this.props.bookShoperStr}</p>
+                            <p className="BookCard_Place"><EnvironmentOutlined/>&nbsp;{this.props.bookPlaceStr}</p>
+                        </div>
+
                     </Card>
                 </Link>
 

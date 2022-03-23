@@ -10,7 +10,6 @@ import BookDisplay from "./BookDisplay";
 import Recommendation from "./Recommendation";
 
 
-
 class MainPage extends React.Component{
     componentDidMount() {
 

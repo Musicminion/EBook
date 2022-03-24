@@ -16,13 +16,43 @@
     border-radius: 27px;
     box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
     width: 80vw;
-    min-height: 61vh;
+    min-height: 65vh;
     height: fit-content;
     padding: 30px 40px;
-
     z-index: 2;
 
 }
+
+/*compact 更为紧凑的版本*/
+.MainContentsCard_compact{
+    background: linear-gradient(
+            to left top,
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.6)
+    );
+
+    left: 10vw;
+    top: 10vh;
+
+    position: relative;
+    border-radius: 27px;
+    box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+    width: 80vw;
+    min-height: 81vh;
+    height: fit-content;
+    padding: 30px 40px;
+    z-index: 2;
+}
+
+.clearOnly_compact{
+    margin: 0;
+    padding: 0;
+
+    height: 15vh;
+    clear: both;
+}
+
+
 
 .CommonBottom{
     background: rgba(255, 255, 255, 0.4);

@@ -14,6 +14,7 @@
     );
     position: relative;
     height: fit-content;
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
@@ -339,7 +340,11 @@
     );
 }
 
+
 .clearOnly{
+    margin: 0;
+    padding: 0;
+
     height: 30vh;
     width: 100vw;
     clear: both;
@@ -368,14 +373,14 @@
     z-index: 0;
 }
 
-
 .CarouselPicture{
     position: relative;
     width: 54vw;
     height: 50vh;
     border-radius: 25px;
-
 }
+
+
 
 
 

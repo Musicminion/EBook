@@ -42,7 +42,7 @@ class BookCard extends React.Component{
             <>
                 <Switch checked={!loading} onChange={this.onChange} />
 
-                <Link to={{pathname:'/eBook/bookdetail'}}>
+                <Link to={'bookdetail?bookid='+ID}>
                     <Card className="BookCard">
                         <Image className="BookCard_Image" src={require('../../asset/img/book/'+ ID +'.jpg')}/>
                         <p className="BookCard_bookPrice">{"￥" + AllBooks[ID].bookPrice}</p>

@@ -12,6 +12,7 @@ import LoginPageBase from "./view/LoginPageBase";
 
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import {history} from "./components/PublicHistory";
+import PayComfirm from "./view/PayComfirm";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -33,9 +34,11 @@ class App extends React.Component{
                 <Router history={history}>
                     <Switch>
                         <Route exact path="/eBook/MainPage" component={MainPage}/>
-                        <Route path="/eBook/bookdetail" component={BookDetailPage}/>
+                        <Route exact path="/eBook/bookdetail" component={BookDetailPage}/>
                         <Route exact path="/eBook/searchresult" component={SearchResultPage}/>
                         <Route exact path="/eBook/booktable" component={EBookBookTablePage}/>
+                        <Route exact path="/eBook/paycomfirm" component={PayComfirm}/>
+
 
                         <Route exact path="/login" component={LoginPage}/>
                         <Route exact path="/login/shopregister" component={LoginShopRegisterPage}/>

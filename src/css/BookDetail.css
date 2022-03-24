@@ -1,18 +1,30 @@
 .BookDetailImg{
     display: inline-block;
-    height: 30%;
     width: 30%;
+    height: auto;
+    float: left;
+
+
 }
 
 .BookDetailTop{
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+
 }
 
+
+
 .BookDescription{
-    position: absolute;
     display: inline-block;
-    left: 34%;
+    float: right;
+    width: 70%;
+    height: auto;
+    padding: 10px 20px;
 
 }
 
@@ -30,4 +42,83 @@
 
 .bookDetailImage{
     text-align: center;
+}
+
+.clearBoth{
+    clear: both;
+}
+
+.bookVersonChoser{
+    width: fit-content;
+}
+
+.bookDetailPrice{
+    color: #FF4400;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.bookDetailFunctionArea{
+    margin: 10px;
+    height: fit-content;
+}
+
+
+.bookDetailBuyNow{
+    margin-right: 0;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: #ffeded;
+    border: 1px solid #FF0036;
+    color: #FF0036;
+    font-family: 'Microsoft Yahei';
+    height: 40px;
+}
+
+.bookDetailBuyNow:hover{
+    background-color: #FFFFFF;
+    border: 1px solid #FF0036;
+    color: #FF0036;
+}
+
+.bookDetailBuyNow:visited{
+    background-color: #ffeded;
+    border: 1px solid #FF0036;
+    color: #FF0036;
+}
+
+.bookDetailBuyNow:focus{
+    background-color: #ffeded;
+    border: 1px solid #FF0036;
+    color: #FF0036;
+}
+
+.bookDetailAddToChart{
+    background-color: #ff0036;
+    border: 1px solid #ff0036;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    font-family: 'Microsoft Yahei';
+}
+
+.bookDetailAddToChart:hover{
+    background-color: #ff0036;
+    border: 1px solid #ff0036;
+    color: #fff;
+}
+
+
+.bookDetailAddToChart:visited{
+    background-color: #ff0036;
+    border: 1px solid #ff0036;
+    color: #fff;
+}
+
+.bookDetailAddToChart:focus{
+    background-color: #ff0036;
+    border: 1px solid #ff0036;
+    color: #fff;
 }

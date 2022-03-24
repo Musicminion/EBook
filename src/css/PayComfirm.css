@@ -1,0 +1,29 @@
+
+
+.PayComfirm_TopArea{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+
+}
+
+.PayComfirm_logoArea{
+    display: inline-block;
+    width: 40%;
+}
+
+.PayComfirm_logo{
+    float: left;
+    width: 20%;
+}
+
+
+.PayComfirm_StepArea{
+    display: inline-block;
+    display:table-cell;
+    width: 60%;
+
+    float: right;
+
+    vertical-align: middle;
+}

@@ -1,35 +1,27 @@
 // 本页面是书籍的详情界面
-import React,{ createElement, useState } from 'react';
+import React from 'react';
 import {
     Button,
-    Card,
-    Comment,
-    Descriptions, Divider,
+    Card, Col,
+    Descriptions,
     Image,
     InputNumber,
     Menu,
     Modal,
-    Pagination,
-    Select,
-    Tabs, Tooltip,
+    Row,
+    Tabs,
     Typography
 } from "antd";
 import TopBar from "../components/TopBar";
 import "../css/BookDetail.css"
 import { Radio } from 'antd';
-import PayComfirm from "../components/PayComfirm";
 import {AllBooks} from "../components/Book/tmpBookData";
-import {AppstoreOutlined, BarsOutlined, BookOutlined, CommentOutlined} from "@ant-design/icons";
-import BookCard from "../components/Book/BookCard";
-import BookRow from "../components/Book/BookRow";
-import Title from "antd/es/typography/Title";
+import {BookOutlined, CommentOutlined} from "@ant-design/icons";
 import Paragraph from "antd/es/typography/Paragraph";
 import Demo from "../components/bookComment";
-
+import {Link} from "react-router-dom";
 
 const { TabPane } = Tabs;
-
-
 
 
 // -----------------------------------------------------------
@@ -41,7 +33,8 @@ class BookDetailPage extends React.Component{
     constructor() {
         super();
         this.state = {
-            bookID: 0
+            bookID: 0,
+            bookNum: 1,
         }
     }
 
@@ -59,6 +52,11 @@ class BookDetailPage extends React.Component{
                 this.setState({bookID: BookIDnum});
             }, 0);
         }
+    }
+
+    buyNumChange(e){
+        if(e!=null)
+            this.setState({bookNum: e})
     }
 
     render() {
@@ -79,34 +77,86 @@ class BookDetailPage extends React.Component{
                                 </div>
 
                                 <div className="BookDescription">
+
                                     <Descriptions title={AllBooks[BookID].bookTitle}>
                                         <Descriptions.Item label="书籍名称">{AllBooks[BookID].bookName}</Descriptions.Item>
                                         <Descriptions.Item label="书籍ISBN">{AllBooks[BookID].bookISBN}</Descriptions.Item>
                                         <Descriptions.Item label="作者">{AllBooks[BookID].bookAuthor}</Descriptions.Item>
                                         <Descriptions.Item label="库存量">{AllBooks[BookID].bookremainNum}</Descriptions.Item>
-                                        <Descriptions.Item label="出版社">{AllBooks[BookID].bookSellnum}</Descriptions.Item>
-                                        <Descriptions.Item label="发货地点">发货地点XXXXXXX</Descriptions.Item>
-                                        <Descriptions.Item label="月销量">100本</Descriptions.Item>
+                                        <Descriptions.Item label="出版社">{AllBooks[BookID].bookPublisher}</Descriptions.Item>
+                                        <Descriptions.Item label="发货地点">{AllBooks[BookID].bookPlace}</Descriptions.Item>
+                                        <Descriptions.Item label="月销量">{AllBooks[BookID].bookSellnum}</Descriptions.Item>
                                         <Descriptions.Item label="其他备注">无</Descriptions.Item>
                                     </Descriptions>
 
-                                    <p className="BookCard_bookPrice">单价：￥20.99</p>
-                                    <p>购买数量：
-                                        <InputNumber min={1} max={100} defaultValue={1}/>
-                                    </p>
+                                    <Card title="购买信息" size={"small"}>
+                                        <Row>
+                                            <Col span={3}>
+                                                <p>商品单价：</p>
+                                            </Col>
+                                            <Col span={5}>
+                                                <p className="bookDetailPrice">￥{AllBooks[BookID].bookPrice}</p>
+                                            </Col>
 
-                                    <Button type="primary" className="BookDetailAddChart">加入购物车</Button>
-                                    {/*<Button type="primary" danger className="BookDetailBuy">立即购买</Button>*/}
-                                    <PayComfirm/>
+                                            <Col span={3}>
+                                                <p>版本选择：</p>
+                                            </Col>
+                                            <Col span={13}>
+                                                <Radio.Group>
+                                                    <Radio.Button value="1" className="bookVersonChoser">版本1</Radio.Button>
+                                                    <Radio.Button value="2" className="bookVersonChoser">版本2</Radio.Button>
+                                                    <Radio.Button value="3" className="bookVersonChoser">版本3</Radio.Button>
+                                                    <Radio.Button value="4" className="bookVersonChoser">版本4</Radio.Button>
+                                                </Radio.Group>
+                                            </Col>
+                                        </Row>
+
+                                        <Row>
+                                            <Col span={3}>
+                                                <p>购买数量：</p>
+                                            </Col>
+                                            <Col span={5}>
+                                                <InputNumber min={1} max={100} onChange={e => this.buyNumChange(e)} defaultValue={1}/>
+                                            </Col>
+                                            <Col span={3}>
+                                                <p>商品总价：</p>
+                                            </Col>
+                                            <Col span={10}>
+                                                <InputNumber readOnly defaultValue={AllBooks[BookID].bookPrice}/>
+                                            </Col>
+                                        </Row>
+                                    </Card>
+
+                                    <div className="bookDetailFunctionArea">
+                                        <Row>
+                                            <Col span={4}>
+                                            </Col>
+                                            <Col span={7}>
+                                                <Link to={'paycomfirm?bookid=' + BookID+"&bookbuynum="+this.state.bookNum}>
+                                                    <Button className="bookDetailBuyNow">立即购买</Button>
+                                                </Link>
+                                            </Col>
+                                            <Col span={2}>
+                                            </Col>
+                                            <Col span={7}>
+                                                <Button className="bookDetailAddToChart">加入购物车</Button>
+                                            </Col>
+                                            <Col span={4}>
+                                            </Col>
+                                        </Row>
+                                    </div>
+
                                 </div>
 
 
+                                <div className="clearBoth">
+                                </div>
                             </div>
 
                             <br/>
                             <br/>
 
-                            <div>
+                            <div className="BookDetailContent">
                                 <Tabs defaultActiveKey="1">
                                     <TabPane tab={<><BookOutlined/>商品描述</>} key="1">
                                         <Typography>
@@ -134,18 +184,9 @@ class BookDetailPage extends React.Component{
                                             <div className="bookDetailImage">
                                                 <Image  src={require("../asset/bookdescription/1/1.jpg")}></Image>
                                             </div>
-
-
-
                                         </Typography>
-
-
                                     </TabPane>
                                     <TabPane tab={<><CommentOutlined/>用户评价</>} key="2">
-                                        <Demo/>
-                                        <Demo/>
-                                        <Demo/>
-                                        <Demo/>
                                         <Demo/>
                                         <Demo/>
                                         <Demo/>

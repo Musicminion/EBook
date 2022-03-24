@@ -26,13 +26,13 @@ class MainPage extends React.Component{
 
                 <div className="MainContents">
                     <div className="SearchPanel">
-                        <SearchPanel id="MainPageSearchPanel"></SearchPanel>
+                        <SearchPanel id="MainPageSearchPanel"/>
                     </div>
 
-                    <ShopDisplay></ShopDisplay>
-                    <BookDisplay></BookDisplay>
+                    <ShopDisplay/>
+                    <BookDisplay/>
 
-                    <Recommendation></Recommendation>
+                    <Recommendation/>
                 </div>
 
                 <div className="clearOnly">

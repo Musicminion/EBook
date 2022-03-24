@@ -1,20 +1,17 @@
 import React from 'react';
 import TopBar from "../components/TopBar";
-import {Col, Form, Input, Row, Steps, Tabs} from "antd";
+import {Button, Card, Col, Form, Input, Row, Steps, Tabs} from "antd";
 import "../css/PayComfirm.css"
 import LogoEBook from "../asset/background/ebookLogo.svg";
 import BookRow from "../components/Book/BookRow";
 import {AppstoreOutlined} from "@ant-design/icons";
 import LocationForm from "../components/locationForm";
+import { Radio } from 'antd';
+
+
 
 const { Step } = Steps;
 const { TabPane } = Tabs;
-
-//
-
-//
-
-
 
 class PayComfirm extends React.Component{
     constructor() {
@@ -56,7 +53,7 @@ class PayComfirm extends React.Component{
                 <div className="MainContentsCard_compact">
                     <div className="PayComfirm_TopArea">
                         <div className="PayComfirm_logoArea">
-                            <img src={LogoEBook} className="PayComfirm_logo"></img>
+                            <img src={LogoEBook} className="PayComfirm_logo"/>
                         </div>
                         <div className="PayComfirm_StepArea">
                             <Steps current={0} className="PayComfirm_Step">
@@ -71,27 +68,68 @@ class PayComfirm extends React.Component{
                     <div className="PayComfirm_ContentArea">
                         <Tabs defaultActiveKey="1">
                             <TabPane tab={<><AppstoreOutlined/>填写地址</>} key="1">
+                                <Radio.Group className="userLocationButtonGroup" defaultValue="a" size="large">
+                                    <Button value="a" className="userLocationButton">
+                                        <Card
+                                            title={<p className="userLocationTitle">上海(张子谦收货)</p>}
+                                            className="userLocationCard"
+                                            size={"small"}
+                                        >
+                                            <p className="userLocationPlace">地址：上海交通大学闵行校区</p>
+                                            <p className="userPhoneNumber">联系电话：180-0000-0000</p>
+                                        </Card>
+                                    </Button>
+
+                                    <Button value="b" className="userLocationButton">
+                                        <Card
+                                            title={<p className="userLocationTitle">上海(小明收货)</p>}
+                                            className="userLocationCard"
+                                            size={"small"}
+                                        >
+                                            <p className="userLocationPlace">地址：上海</p>
+                                            <p className="userPhoneNumber">联系电话：180-0000-0000</p>
+                                        </Card>
+                                    </Button>
+
+                                    <Button value="b" className="userLocationButton">
+                                        <Card
+                                            title={<p className="userLocationTitle">上海(小明收货)</p>}
+                                            className="userLocationCard"
+                                            size={"small"}
+                                        >
+                                            <p className="userLocationPlace">地址：上海</p>
+                                            <p className="userPhoneNumber">联系电话：180-0000-0000</p>
+                                        </Card>
+                                    </Button>
+
+                                    <Button value="b" className="userLocationButton">
+                                        <Card
+                                            title={<p className="userLocationTitle">上海(小明收货)</p>}
+                                            className="userLocationCard"
+                                            size={"small"}
+                                        >
+                                            <p className="userLocationPlace">地址：上海</p>
+                                            <p className="userPhoneNumber">联系电话：180-0000-0000</p>
+                                        </Card>
+                                    </Button>
+                                </Radio.Group>
+
                                 <Row>
-                                    <Col span={2}>
+                                    <Col span={20}>
 
                                     </Col>
-                                    <Col span={22}>
+                                    <Col span={2}>
                                         <LocationForm/>
                                     </Col>
                                 </Row>
-
                             </TabPane>
                         </Tabs>
 
                         <Tabs defaultActiveKey="1">
                             <TabPane tab={<><AppstoreOutlined/>确认订单信息</>} key="1">
                                 <BookRow bookID="2"></BookRow>
-
                             </TabPane>
                         </Tabs>
-
-                        <p>{this.state.bookID}</p>
-                        <p>{this.state.bookNum}</p>
 
                     </div>
 

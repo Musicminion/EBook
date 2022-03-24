@@ -27,3 +27,61 @@
 
     vertical-align: middle;
 }
+
+.userLocationButtonGroup{
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: fit-content;
+}
+
+
+.userLocationButton{
+    margin: 20px;
+    height: fit-content;
+    width: 20%;
+    padding: 0;
+    word-wrap:break-word;
+}
+
+.userLocationCard{
+
+    height: 100%;
+    text-align: left;
+    word-wrap:break-word;
+    background: url(//img.alicdn.com/tps/i2/T1VPiBXvpeXXbjLKQ7-237-106.png) no-repeat;
+    background-size: 100%,100%;
+}
+
+.userLocationCard:hover{
+    background: url(//img.alicdn.com/tfs/TB1OVRCRpXXXXaMXFXXXXXXXXXX-237-106.png) no-repeat;
+    background-size: 100%,100%;
+}
+
+
+.userLocationPlace{
+    margin: 0;
+    padding: 0;
+
+    white-space:normal;
+    font-size: 12px;
+    color: #666666;
+}
+
+.userPhoneNumber{
+    margin: 0;
+    padding: 0;
+
+    white-space:normal;
+    font-size: 12px;
+    color: #666666;
+
+}
+
+.userLocationTitle{
+    margin: 0;
+    padding: 0;
+    color: #666666;
+    font-weight: bold;
+}

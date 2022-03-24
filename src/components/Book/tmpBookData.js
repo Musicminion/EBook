@@ -15,6 +15,12 @@
 // bookremainNum    书的剩余库存
 // bookPublisher    书的出版商
 
+
+import React from "react";
+
+
+import BookCard from "./BookCard";
+
 export const AllBooks =[
     {bookID:0,bookTitle:"",bookPrice:"",bookPlace:"", bookShoper: "",bookISBN:"",bookSellnum:"",bookremainNum:""},
     {
@@ -90,5 +96,62 @@ export const AllBooks =[
         bookPublisher: "XX出版社",
     }
 ];
+
+
+
+class BookOperation extends React.Component{
+    constructor() {
+        super();
+        this.props = {
+            bookKeyName: "",
+        }
+    }
+
+    findBookByName(bookKeyName){
+
+        let result = [];
+        let i = 1;
+
+        for (i=1;i<AllBooks.length;i++)
+        {
+            if(AllBooks[i].bookTitle.indexOf(bookKeyName)>=0)
+            {
+                result.push(<BookCard bookID={i.toString()}/>);
+            }
+        }
+        return result;
+    }
+
+    // findBookByShoper(shoperKeyName){
+    //     let result = [];
+    //     let i = 0;
+    //     for (i=1;i<=AllBooks.length();i++)
+    //     {
+    //         if(AllBooks[i].bookShoper.indexOf(shoperKeyName))
+    //             result.push(<BookCard/>);
+    //     }
+    //     return result;
+    // }
+
+    render() {
+
+        if(this.props.bookKeyName != null)
+        {
+            let result = this.findBookByName(this.props.bookKeyName);
+
+            return(
+                <>{result}</>
+            );
+        }
+
+        else
+            return(
+                <></>
+            );
+    }
+
+}
+
+export default BookOperation;
 
 

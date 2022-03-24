@@ -61,5 +61,6 @@
 }
 
 .BookRow_functionButton{
-    margin: 3px;
+    margin: 10px;
+    width: 90%;
 }

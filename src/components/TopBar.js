@@ -53,6 +53,7 @@ class TopBar extends React.Component {
             console.log("获取失败");
         }
     }
+
     logout(){
         LoginPassport.logout(
             () => {
@@ -62,7 +63,7 @@ class TopBar extends React.Component {
     }
     componentDidMount() {
         let userPrivilege =localStorage.getItem('ebookPrivilege');
-        if(userPrivilege)
+        if(userPrivilege!=null)
         {
             // this.setState({ userPermissionLevel: userPricilege});
             this.setState(prevState => {

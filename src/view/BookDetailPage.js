@@ -102,7 +102,7 @@ class BookDetailPage extends React.Component{
                                                 <p>版本选择：</p>
                                             </Col>
                                             <Col span={13}>
-                                                <Radio.Group>
+                                                <Radio.Group buttonStyle="solid" defaultValue="1">
                                                     <Radio.Button value="1" className="bookVersonChoser">版本1</Radio.Button>
                                                     <Radio.Button value="2" className="bookVersonChoser">版本2</Radio.Button>
                                                     <Radio.Button value="3" className="bookVersonChoser">版本3</Radio.Button>

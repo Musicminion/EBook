@@ -4,6 +4,7 @@ import '../../css/BookRow.css';
 import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import {Link} from "react-router-dom";
 import {AllBooks} from "./tmpBookData";
+import BookOperation from "./BookOperation";
 
 
 
@@ -39,9 +40,8 @@ class BookRow extends React.Component{
                             <p className="BookRow_bookSellnum">&nbsp;月销量 {AllBooks[ID].bookSellnum}</p>
                         </Col>
                         <Col span={8}>
-                            <Button className="BookRow_functionButton" type="primary" danger>立即购买</Button>
-                            <Button className="BookRow_functionButton" type="primary">加入购物车</Button>
-                            <Button className="BookRow_functionButton" type="primary">加入收藏</Button>
+                            <BookOperation/>
+
                         </Col>
                     </Row>
                     <Divider></Divider>

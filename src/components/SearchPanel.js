@@ -39,24 +39,49 @@ const suffix = (
 );
 
 // const onSearch = value => console.log(value);
-function onSearch(value){
-    const w=window.open('about:blank');
-    w.location.href="searchresult?keyword="+ encodeURI(value);
-}
 
 class SearchPanel extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchWay: 0,
+        };
 
+    }
+
+    onSearch(value){
+        const w=window.open('about:blank');
+        w.location.href="searchresult?keyword="+ encodeURI(value)+"&searchby="+this.state.searchWay;
+    }
+
+    SelectChange(value){
+        // alert(value);
+        //
+        // this.setState((preState, props)=>{searchWay:parseInt(value)});
+
+        // this.setState({searchWay:parseInt(value)});
+        // setTimeout(() => {
+        //     this.setState({searchWay:parseInt(value)});
+        // }, 0);
+
+        this.setState(prevState => {
+            return {
+                searchWay: value,
+            };
+        });
+
+    }
 
     render() {
 
         return(
             <Input.Group compact>
-                <Select style={{ width: '15%',textAlign:'center'} } defaultValue="书籍">
-                    <Option value="BookCard" style={{ textAlign: 'center'}}>书籍</Option>
-                    <Option value="Shop" style={{ textAlign: 'center'}}>店铺</Option>
-                    <Option value="publisher" style={{ textAlign: 'center'}}>出版社</Option>*/}
-                    <Option value="Author" style={{ textAlign: 'center'}}>作者</Option>*/}
-                    <Option value="Global" style={{ textAlign: 'center'}}>全局搜索</Option>*/}
+                <Select style={{ width: '15%',textAlign:'center'} } defaultValue="0" onChange={(e) => this.SelectChange(e)}>
+                    <Option value="1" style={{ textAlign: 'center'}}>书籍</Option>
+                    <Option value="2" style={{ textAlign: 'center'}}>店铺</Option>
+                    <Option value="3" style={{ textAlign: 'center'}}>出版社</Option>*/}
+                    <Option value="4" style={{ textAlign: 'center'}}>作者</Option>*/}
+                    <Option value="0" style={{ textAlign: 'center'}}>全局搜索</Option>*/}
                 </Select>
 
                 <Search
@@ -64,11 +89,10 @@ class SearchPanel extends React.Component{
                     enterButton="&nbsp;&nbsp;&nbsp;搜&nbsp;&nbsp;&nbsp;索&nbsp;&nbsp;&nbsp;"
                     size="middle"
                     suffix={suffix}
-                    onSearch={onSearch}
+                    onSearch={(e) => this.onSearch(e) }
                     style={{ width: '85%'}}
                 />
 
-                {/*/eBook/searchresult*/}
             </Input.Group>
         );
     }

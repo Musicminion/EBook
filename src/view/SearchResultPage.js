@@ -3,10 +3,12 @@ import SearchPanel from "../components/SearchPanel";
 import '../css/Common.css'
 import TopBar from "../components/TopBar/TopBar";
 import BookCard from "../components/Book/BookCard";
-import {Button, Col, Collapse, Divider, List, Pagination, Row, Tabs, Typography} from 'antd';
+import {Button, Col, Collapse, Divider, Form, Input, List, Pagination, Row, Tabs, Typography} from 'antd';
 import BookRow from "../components/Book/BookRow";
 import {AppstoreOutlined, BarsOutlined} from "@ant-design/icons";
 import BookOperation from "../components/Book/tmpBookData";
+import '../css/searchResult.css'
+
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
@@ -63,7 +65,56 @@ class SearchResultPage extends React.Component{
                     <div className="MainContentsCard">
                         <Collapse>
                             <Panel header="精准查找"  key="1" extra={<Button size={"small"}>展开面板</Button>}>
-                                <p>1</p>
+                                <Form name="horizontal_login" layout="inline">
+                                    <Form.Item
+                                        label="书籍名"
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="书籍ISBN"
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="销售商家"
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="出版社"
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                </Form>
+
+                                <br/>
+
+                                <Form name="horizontal_login" layout="inline">
+                                    <Form.Item
+                                        label="发货地"
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="书籍作者"
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="书籍价格"
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="销量区间"
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                </Form>
+
+
+
                             </Panel>
                         </Collapse>
 
@@ -76,13 +127,6 @@ class SearchResultPage extends React.Component{
                                 />
 
                                 {/*<BookCard bookID="1"/>*/}
-                                {/*<BookCard bookID="2"/>*/}
-                                {/*<BookCard bookID="3"/>*/}
-                                {/*<BookCard bookID="4"/>*/}
-                                {/*<BookCard bookID="5"/>*/}
-                                {/*<BookCard bookID="6"/>*/}
-                                {/*<BookCard bookID="7"/>*/}
-                                {/*<BookCard bookID="8"/>*/}
 
                                 <div className="PageSelector">
                                     <Pagination showSizeChanger defaultCurrent={1} total={50} />

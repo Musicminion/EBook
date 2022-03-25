@@ -1,5 +1,5 @@
 import React from "react";
-import {Avatar, Menu} from "antd";
+import {Avatar, Badge, Menu} from "antd";
 import {Link} from "react-router-dom";
 import {ShoppingCartOutlined, ShoppingOutlined, SoundOutlined, UserOutlined} from "@ant-design/icons";
 import LoginPassport from "../Login/LoginPassport";
@@ -72,9 +72,14 @@ class userTopBar extends React.Component{
                     </Menu.ItemGroup>
                 </SubMenu>
 
-                <Menu.Item id="MainPageLoginDiv">
-                    <Avatar size="small" icon={<UserOutlined/>} />
-                </Menu.Item>
+                <SubMenu
+                    id="MainPageLoginDiv"
+                    title="用户 张子谦"
+                    icon={<Badge count={1} size="small"><Avatar size="middle" icon={<UserOutlined/>}/></Badge>}
+                >
+                    <Menu.Item key="setting:22">我的消息</Menu.Item>
+                    <Menu.Item key="setting:23" onClick={(e) => this.logout()}>退出登录</Menu.Item>
+                </SubMenu>
             </Menu>
         );
     }

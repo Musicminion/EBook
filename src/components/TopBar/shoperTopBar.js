@@ -1,7 +1,13 @@
 import React from "react";
 import {Avatar, Badge, Menu} from "antd";
 import {Link} from "react-router-dom";
-import {ShoppingCartOutlined, ShoppingOutlined, SoundOutlined, UserOutlined} from "@ant-design/icons";
+import {
+    LineChartOutlined, ShopOutlined,
+    ShoppingCartOutlined,
+    ShoppingOutlined,
+    SoundOutlined,
+    UserOutlined
+} from "@ant-design/icons";
 import LoginPassport from "../Login/LoginPassport";
 
 const { SubMenu } = Menu;
@@ -45,23 +51,20 @@ class shoperTopBar extends React.Component{
                         <Menu.Item key="shopInfo">收款方式</Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>
-                <SubMenu key="shoppingCart" icon={<ShoppingCartOutlined />} title="我的商店">
+                <SubMenu key="shoppingCart" icon={<ShopOutlined/>} title="商店管理">
                     <Menu.ItemGroup>
-                        <Menu.Item key="setting:8" >商品管理</Menu.Item>
-                        <Menu.Item key="setting:9" >数据统计</Menu.Item>
+                        <Menu.Item key="newGoods" >新品发布</Menu.Item>
+                        <Menu.Item key="manageGoods" >商品管理</Menu.Item>
+                        <Menu.Item key="manageOrder" >订单管理</Menu.Item>
+                        <Menu.Item key="goodsComment" >商品评价</Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>
 
-                <SubMenu key="myPurchase" icon={<ShoppingOutlined />} title="客户订单">
-                    <Menu.ItemGroup title="订单查询">
-                        <Menu.Item key="setting:1" >未付款</Menu.Item>
-                        <Menu.Item key="setting:2" >进行中</Menu.Item>
-                        <Menu.Item key="setting:3" >已完成</Menu.Item>
-                    </Menu.ItemGroup>
-
-                    <Menu.ItemGroup title="订单反馈">
-                        <Menu.Item key="setting:4" >评价汇总</Menu.Item>
-                    </Menu.ItemGroup>
+                <SubMenu key="myPurchase" icon={<LineChartOutlined />} title="数据统计">
+                    <Menu.Item key="sellData" >商品销量统计</Menu.Item>
+                    <Menu.Item key="readData" >商品浏览统计</Menu.Item>
+                    <Menu.Item key="commentData" >商品评价统计</Menu.Item>
+                    <Menu.Item key="customerData" >客户数据统计</Menu.Item>
                 </SubMenu>
 
                 <SubMenu key="SubMenu" icon={<SoundOutlined />} title="背景音乐">

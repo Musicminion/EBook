@@ -1,7 +1,14 @@
 import React from "react";
 import {Avatar, Badge, Menu} from "antd";
 import {Link} from "react-router-dom";
-import {ShoppingCartOutlined, ShoppingOutlined, SoundOutlined, UserOutlined} from "@ant-design/icons";
+import {
+    LineChartOutlined,
+    SettingOutlined,
+    ShoppingCartOutlined,
+    ShoppingOutlined,
+    SoundOutlined,
+    UserOutlined
+} from "@ant-design/icons";
 import LoginPassport from "../Login/LoginPassport";
 
 const { SubMenu } = Menu;
@@ -35,29 +42,33 @@ class adminTopBar extends React.Component{
                 <Menu.Item>
                     <Link to={{pathname:'/eBook'}}>eBook 管理后台</Link>
                 </Menu.Item>
-                <SubMenu key="account" icon={<UserOutlined />} title="用户管理">
+                <SubMenu key="account" icon={<SettingOutlined/>} title="全局系统管理">
                     <Menu.ItemGroup>
-                        <Menu.Item key="setting:6">商家账户管理</Menu.Item>
-                        <Menu.Item key="setting:7">用户账户管理</Menu.Item>
-                        <Menu.Item key="setting:100">管理员账户</Menu.Item>
+                        <Menu.Item key="shoperManage">商家账户管理</Menu.Item>
+                        <Menu.Item key="userAccountManage">用户账户管理</Menu.Item>
+                        <Menu.Item key="adminAccount">管理员账户</Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>
-                <SubMenu key="shoppingCart" icon={<ShoppingCartOutlined />} title="书籍管理">
+                <SubMenu key="shoppingCart" icon={<ShoppingOutlined />} title="全局商户管理">
                     <Menu.ItemGroup>
-                        <Menu.Item key="setting:10" >书籍编辑</Menu.Item>
+                        <Menu.Item key="newGoods" >新品发布</Menu.Item>
+                        <Menu.Item key="manageGoods" >商品管理</Menu.Item>
+                        <Menu.Item key="manageOrder" >订单管理</Menu.Item>
+                        <Menu.Item key="goodsComment" >商品评价</Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>
 
-                <SubMenu key="myPurchase" icon={<ShoppingOutlined />} title="订单管理">
-                    <Menu.ItemGroup title="订单查询">
-                        <Menu.Item key="setting:1" >未付款</Menu.Item>
-                        <Menu.Item key="setting:2" >进行中</Menu.Item>
-                        <Menu.Item key="setting:3" >已完成</Menu.Item>
+                <SubMenu key="myPurchase" icon={<LineChartOutlined/>} title="全局数据统计">
+                    <Menu.ItemGroup>
+                        <Menu.Item key="userData" >用户数据统计</Menu.Item>
+                        <Menu.Item key="goodsData" >商品销量统计</Menu.Item>
+                        <Menu.Item key="goodCLick" >商品浏览统计</Menu.Item>
+                        <Menu.Item key="goodCommentData" >商品评价统计</Menu.Item>
+                        <Menu.Item key="shoperSalenum" >商户销售量统计</Menu.Item>
+                        <Menu.Item key="shoperSalemoney" >商户销售额统计</Menu.Item>
+                        <Menu.Item key="shoperComment" >商户评价统计</Menu.Item>
                     </Menu.ItemGroup>
 
-                    <Menu.ItemGroup title="订单反馈">
-                        <Menu.Item key="setting:4" >评价汇总</Menu.Item>
-                    </Menu.ItemGroup>
                 </SubMenu>
 
                 <SubMenu key="SubMenu" icon={<SoundOutlined />} title="背景音乐">
@@ -85,7 +96,6 @@ class adminTopBar extends React.Component{
                 >
                     <Menu.Item key="setting:22">我的消息</Menu.Item>
                     <Menu.Item key="setting:23" onClick={(e) => this.logout()}>退出登录</Menu.Item>
-
                 </SubMenu>
             </Menu>
         );

@@ -118,12 +118,12 @@ class BookDetailPage extends React.Component{
                                             <Col span={5}>
                                                 <InputNumber min={1} max={100} onChange={e => this.buyNumChange(e)} defaultValue={1}/>
                                             </Col>
-                                            <Col span={3}>
-                                                <p>商品总价：</p>
-                                            </Col>
-                                            <Col span={10}>
-                                                <InputNumber readOnly defaultValue={AllBooks[BookID].bookPrice}/>
-                                            </Col>
+                                            {/*<Col span={3}>*/}
+                                            {/*    <p>商品总价：</p>*/}
+                                            {/*</Col>*/}
+                                            {/*<Col span={10}>*/}
+                                            {/*    <InputNumber readOnly defaultValue={AllBooks[BookID].bookPrice}/>*/}
+                                            {/*</Col>*/}
                                         </Row>
                                     </Card>
 

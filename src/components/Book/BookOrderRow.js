@@ -29,8 +29,17 @@ class BookOrderRow extends React.Component{
                 theRequest[strs[i].split("=" )[0]] = (strs[ i ].split("=" )[1]);
             }
             let BookPurchasenum = Number(theRequest['bookbuynum']);
+            let BookEachPrice = Number(AllBooks[Number(theRequest['bookid'])].bookPrice);
+            let initTotalPrice = BookPurchasenum * BookEachPrice;
 
-            this.buyNumChange(BookPurchasenum);
+
+            setTimeout(() => {
+                this.setState({
+                    allPrice: initTotalPrice,
+                });
+            }, 0);
+
+
         }
     }
 
@@ -60,6 +69,7 @@ class BookOrderRow extends React.Component{
 
         let ID = parseInt(this.props.bookID);
         let num = this.buynumInit();
+
 
         if(ID != null)
             return (

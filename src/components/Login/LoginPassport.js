@@ -15,6 +15,16 @@ class LoginPassport extends React.Component{
         }
     }
 
+    static checkPrivilege(){
+        if(this.checkStatus() === 1)
+        {
+            return localStorage.getItem('ebookPrivilege');
+        }
+        else {
+            return 3;
+        }
+    }
+
     static checkStatus(){
         let lastLoginTime = localStorage.getItem('ebookLogintime');
         let nowTime = Date.now();
@@ -23,6 +33,8 @@ class LoginPassport extends React.Component{
             let loginInterval = (nowTime - lastLoginTime)/1000;
 
             if(loginInterval < 600){
+                localStorage.setItem('ebookLogintime',Date.now());
+                // 再次颁发令牌
                 return 1;
             }
             else{

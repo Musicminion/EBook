@@ -172,7 +172,7 @@ export default () => {
             width: '12%',
         },
         {
-            title: '价格',
+            title: '价格(元)',
             dataIndex: 'bookPrice',
             formItemProps: (form, { rowIndex }) => {
                 return {
@@ -180,6 +180,9 @@ export default () => {
                 };
             },
             width: '12%',
+            render: (text, record, _, action) => [
+                <span>￥{text}</span>
+            ],
         },
         {
             title: '发货地',

@@ -29,8 +29,14 @@ class MainPage extends React.Component{
                         <SearchPanel id="MainPageSearchPanel"/>
                     </div>
 
-                    <ShopDisplay/>
-                    <BookDisplay/>
+                    <div className="MainPageTopArea">
+                        <ShopDisplay/>
+                        <BookDisplay/>
+                    </div>
+
+
+                    {/*<ShopDisplay/>*/}
+                    {/*<BookDisplay/>*/}
 
                     <Recommendation/>
                 </div>

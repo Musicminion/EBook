@@ -24,6 +24,20 @@
     width: 100vw;
 }
 
+.MainPageTopArea{
+    position: relative;
+
+    top: 20vh;
+
+    display: flex;
+    height: fit-content;
+    width: 100%;
+
+}
+
+
+
+
 @media only screen and (min-width: 770px){
     #MainPageLoginDiv {
         padding: 0;
@@ -163,11 +177,12 @@
     border-radius: 2.3vh;
     box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
 
-    top: 20vh;
+
     width: 20vw;
     left: 10vw;
-    height: fit-content;
+    height: 100%;
     float: left;
+    display: inline-block;
 
     z-index: 2;
 }
@@ -178,16 +193,16 @@
             rgba(255, 255, 255, 0.6),
             rgba(255, 255, 255, 0.1)
     );
-    position: relative;
-    border-radius: 2.3vh;
+    position: absolute;
+    border-radius: 27px;
     box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
 
-    top: 20vh;
     width: 58vw;
     right: 10vw;
-    height: fit-content;
 
+    height: 100%;
     float: right;
+    display: inline-block;
     text-align: center;
 
     z-index: 2;
@@ -310,7 +325,7 @@
 
 .ShopDisplay_Title{
     width: 100%;
-    height: 10%;
+    height: 40px;
     border-radius: 2.3vh 2.3vh 0 0;
     text-align: center;
     color: #ff91c4;
@@ -326,7 +341,7 @@
 
 .BookDisplay_Title{
     width: 100%;
-    height: 10%;
+    height: 40px;
     border-radius: 2.3vh 2.3vh 0 0;
     text-align: center;
     color: #ff91c4;
@@ -373,10 +388,15 @@
     z-index: 0;
 }
 
+/*.BookDisplayCarouselArea{*/
+/*    */
+/*}*/
+
+
 .CarouselPicture{
-    position: relative;
+    height: 52vh;
     width: 54vw;
-    height: 50vh;
+
     border-radius: 25px;
 }
 

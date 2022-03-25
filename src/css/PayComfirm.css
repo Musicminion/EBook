@@ -85,3 +85,37 @@
     color: #666666;
     font-weight: bold;
 }
+
+.payComfirmPriceAll{
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    color: rgb(255, 0, 54);
+    font-size: 19px;
+}
+
+
+.PayComfirm_TableHeader{
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-bottom: 3px solid #b2d1ff;
+    font-size: 12px;
+    margin-left: 1px;
+    vertical-align: bottom;
+    width: 100%;
+}
+
+
+.payComfirmPriceTotalLabel{
+    font-weight: 700;
+    color: #333;
+}
+
+.payComfirmPriceTotalNum{
+    color: #FF0036;
+    font-size: 30px;
+    font-weight: bold;
+
+}

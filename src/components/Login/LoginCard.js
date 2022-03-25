@@ -79,7 +79,7 @@ class LoginCard extends React.Component{
                 <p className="login_title">Login</p>
                 <form>
                     <div className="inputBox">
-                        <label>账号:</label>
+                        <label className="loginLabel">账号:</label>
                         <input
                             type="text"
                             id="userIDInput"
@@ -91,7 +91,7 @@ class LoginCard extends React.Component{
                         />
                     </div>
                     <div className="inputBox">
-                        <label>密码:</label>
+                        <label className="loginLabel">密码:</label>
                         <input
                             type="password"
                             id="userPwdInput"

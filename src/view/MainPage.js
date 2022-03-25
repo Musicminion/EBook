@@ -1,5 +1,5 @@
 
-import TopBar from '../components/TopBar'
+import TopBar from '../components/TopBar/TopBar'
 import SearchPanel from "../components/SearchPanel";
 import React from 'react';
 import 'antd/dist/antd.css';
@@ -26,7 +26,7 @@ class MainPage extends React.Component{
 
                 <div className="MainContents">
                     <div className="SearchPanel">
-                        <SearchPanel id="MainPageSearchPanel"/>
+                        <SearchPanel id="MainPageSearchPanel" fromPage="MainPage"/>
                     </div>
 
                     <div className="MainPageTopArea">

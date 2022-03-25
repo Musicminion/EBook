@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@ant-design/pro-card": "^1.18.42",
+    "@ant-design/pro-form": "^1.59.3",
     "@ant-design/pro-table": "^2.66.1",
     "@fluentui/react": "^8.57.0",
     "@fluentui/react-hooks": "^8.5.0",

@@ -55,13 +55,15 @@
 
 
 .CommonBottom{
-    background: rgba(255, 255, 255, 0.4);
+    background: rgb(255, 201, 255);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
     outline: none;
     border: none;
     align-items: end;
+    position: relative;
 
-    border-radius: 20px;
+    border-radius: 10px;
     border: 0;
 }
 

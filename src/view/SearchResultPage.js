@@ -1,7 +1,7 @@
 import React from "react";
 import SearchPanel from "../components/SearchPanel";
 import '../css/Common.css'
-import TopBar from "../components/TopBar";
+import TopBar from "../components/TopBar/TopBar";
 import BookCard from "../components/Book/BookCard";
 import {Button, Col, Collapse, Divider, List, Pagination, Row, Tabs, Typography} from 'antd';
 import BookRow from "../components/Book/BookRow";
@@ -24,7 +24,7 @@ class SearchResultPage extends React.Component{
         super();
         this.state = {
             searchContent: "",
-            searchWay: -1,
+            searchWay: 0,
         }
     }
 
@@ -53,11 +53,12 @@ class SearchResultPage extends React.Component{
     render() {
         // alert(this.state.searchContent);
         if(this.state.searchContent!=null)
+
             return (
                 <div className="eBookPageContainer">
                     <TopBar/>
                     <div className="SearchPanel">
-                        <SearchPanel id="MainPageSearchPanel"/>
+                        <SearchPanel id="MainPageSearchPanel" fromPage="ResultPage"/>
                     </div>
                     <div className="MainContentsCard">
                         <Collapse>
@@ -68,7 +69,11 @@ class SearchResultPage extends React.Component{
 
                         <Tabs defaultActiveKey="1">
                             <TabPane tab={<><AppstoreOutlined/>卡片</>} key="1">
-                                <BookOperation bookKeyName={this.state.searchContent} searchTarget={this.state.searchWay}/>
+                                <BookOperation
+                                    searchKeyName={this.state.searchContent}
+                                    searchTarget = {this.state.searchWay}
+                                    requestType = "BookCard"
+                                />
 
                                 {/*<BookCard bookID="1"/>*/}
                                 {/*<BookCard bookID="2"/>*/}
@@ -84,11 +89,11 @@ class SearchResultPage extends React.Component{
                                 </div>
                             </TabPane>
                             <TabPane tab={<><BarsOutlined/>列表</>} key="2">
-                                <BookRow bookID="1"/>
-                                <BookRow bookID="2"/>
-                                <BookRow bookID="3"/>
-                                <BookRow bookID="4"/>
-                                <BookRow bookID="5"/>
+                                <BookOperation
+                                    searchKeyName={this.state.searchContent}
+                                    searchTarget={this.state.searchWay}
+                                    requestType="BookRow"
+                                />
 
                             </TabPane>
 

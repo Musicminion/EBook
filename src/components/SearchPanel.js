@@ -50,26 +50,21 @@ class SearchPanel extends React.Component{
     }
 
     onSearch(value){
-        const w=window.open('about:blank');
-        w.location.href="searchresult?keyword="+ encodeURI(value)+"&searchby="+this.state.searchWay;
+        if(this.props.fromPage === "MainPage"){
+            const w=window.open('about:blank');
+            w.location.href="searchresult?keyword="+ encodeURI(value)+"&searchby="+this.state.searchWay;
+        }
+        else {
+            window.location.href="searchresult?keyword="+ encodeURI(value)+"&searchby="+this.state.searchWay;
+        }
     }
 
     SelectChange(value){
-        // alert(value);
-        //
-        // this.setState((preState, props)=>{searchWay:parseInt(value)});
-
-        // this.setState({searchWay:parseInt(value)});
-        // setTimeout(() => {
-        //     this.setState({searchWay:parseInt(value)});
-        // }, 0);
-
         this.setState(prevState => {
             return {
                 searchWay: value,
             };
         });
-
     }
 
     render() {

@@ -1,10 +1,10 @@
 import React from "react";
-import TopBar from "./TopBar";
-import BookTable from "./Book/BookTable";
-import {history} from "./PublicHistory";
-import LoginPage from "../view/LoginPage";
+import TopBar from "../components/TopBar/TopBar";
+import BookTable from '../components/Book/BookTable.tsx';
+import {history} from "../components/PublicHistory";
+import LoginPage from "./LoginPage";
 
-class EBookBookTablePage extends React.Component{
+class BookTablePage extends React.Component{
 
     render() {
             return (
@@ -27,4 +27,4 @@ class EBookBookTablePage extends React.Component{
     }
 }
 
-export default EBookBookTablePage;
+export default BookTablePage;

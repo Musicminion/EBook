@@ -12,7 +12,7 @@ import {
     Tabs,
     Typography
 } from "antd";
-import TopBar from "../components/TopBar";
+import TopBar from "../components/TopBar/TopBar";
 import "../css/BookDetail.css"
 import { Radio } from 'antd';
 import {AllBooks} from "../components/Book/tmpBookData";

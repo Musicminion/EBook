@@ -5,6 +5,7 @@ import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import {Link} from "react-router-dom";
 import {AllBooks} from "./tmpBookData";
 import BookOperation from "./BookOperation";
+import BookPriceDisplay from "./BookPriceDisplay";
 
 
 
@@ -41,7 +42,6 @@ class BookRow extends React.Component{
                         </Col>
                         <Col span={8}>
                             <BookOperation/>
-
                         </Col>
                     </Row>
                     <Divider></Divider>

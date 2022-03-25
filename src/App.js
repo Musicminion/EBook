@@ -7,7 +7,7 @@ import LoginShopRegisterPage from "./components/Login/LoginCompPageShopRegister"
 import LoginPageFeedBack from "./view/LoginPageFeedBack";
 import BookDetailPage from "./view/BookDetailPage";
 import SearchResultPage from "./view/SearchResultPage";
-import EBookBookTablePage from "./components/EBookBookTablePage";
+import BookTablePage from "./view/BookTablePage";
 import LoginPageBase from "./view/LoginPageBase";
 
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
@@ -36,7 +36,7 @@ class App extends React.Component{
                         <Route exact path="/eBook/MainPage" component={MainPage}/>
                         <Route exact path="/eBook/bookdetail" component={BookDetailPage}/>
                         <Route exact path="/eBook/searchresult" component={SearchResultPage}/>
-                        <Route exact path="/eBook/booktable" component={EBookBookTablePage}/>
+                        <Route exact path="/eBook/booktable" component={BookTablePage}/>
                         <Route exact path="/eBook/paycomfirm" component={PayComfirm}/>
 
 

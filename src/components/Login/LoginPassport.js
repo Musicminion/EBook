@@ -1,12 +1,15 @@
 import React from "react";
 
+import {postRequest} from "../../utils/ajax";
+// import config from "config";
+
 
 class LoginPassport extends React.Component{
     static removeLocalPassport(){
         localStorage.removeItem('ebookUser');
-        localStorage.removeItem('ebookPassword');
         localStorage.removeItem('ebookPrivilege');
         localStorage.removeItem('ebookLogintime');
+        localStorage.removeItem('ebookNickname');
     }
 
     static checkLastLogin(successfulCallBack){
@@ -30,7 +33,7 @@ class LoginPassport extends React.Component{
         let nowTime = Date.now();
         if(lastLoginTime != null)
         {
-            let loginInterval = (nowTime - lastLoginTime)/1000;
+            let loginInterval = (nowTime - lastLoginTime) / 1000;
 
             if(loginInterval < 600){
                 localStorage.setItem('ebookLogintime',Date.now());
@@ -45,48 +48,31 @@ class LoginPassport extends React.Component{
         return 0;
     }
 
-    static login(username, password, SuccessCallback, FailureCallback) {
+    static login(loginInfo, SuccessCallback, FailureCallback) {
 
 
-        this.checkStatus();
-        if(username === "admin" && password === "123")
-        {
-            localStorage.setItem('ebookUser',username);
-            localStorage.setItem('ebookPassword',password);
-            localStorage.setItem('ebookPrivilege',0);
-            localStorage.setItem('ebookLogintime',Date.now());
-            SuccessCallback();
-        }
-        else if(username === "shoperer" && password === "1234")
-        {
-            localStorage.setItem('ebookUser',username);
-            localStorage.setItem('ebookPassword',password);
-            localStorage.setItem('ebookPrivilege',1);
-            localStorage.setItem('ebookLogintime',Date.now());
-            SuccessCallback();
-        }
-        else if(username === "user" && password === "12345")
-        {
-            localStorage.setItem('ebookUser',username);
-            localStorage.setItem('ebookPassword',password);
-            localStorage.setItem('ebookPrivilege',2);
-            localStorage.setItem('ebookLogintime',Date.now());
-            SuccessCallback();
-        }
+        // const url = `${config.apiUrl}/login`;
+        const url = 'http://localhost:8080/login';
 
-        else{
-            FailureCallback();
-        }
+        postRequest(url, loginInfo,
+            (respdata) => {
+                if (respdata.status >= 0) {
+                    localStorage.setItem('ebookUser',respdata.data.username);
+                    localStorage.setItem('ebookNickname', respdata.data.name);
+                    localStorage.setItem('ebookPrivilege',respdata.data.privilege);
+                    localStorage.setItem('ebookLogintime',Date.now());
+                    SuccessCallback();
+                } else {
+                    FailureCallback(respdata.msg);
+                }
+            }
+            );
     }
 
-    static logout(SuccessCallBack){
+    static logout(SuccessCallBack) {
         this.removeLocalPassport();
         SuccessCallBack();
     }
-
-
-
-
 }
 
 export default LoginPassport;

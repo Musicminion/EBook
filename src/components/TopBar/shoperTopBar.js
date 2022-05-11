@@ -48,7 +48,7 @@ class shoperTopBar extends React.Component{
                         <Menu.Item key="accountSafe">账号安全</Menu.Item>
                         <Menu.Item key="personalInfo">个人资料</Menu.Item>
                         <Menu.Item key="receiveMethod">收款方式</Menu.Item>
-                        <Menu.Item key="shopInfo">收款方式</Menu.Item>
+                        <Menu.Item key="shopInfo">商店资料</Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>
                 <SubMenu key="shoppingCart" icon={<ShopOutlined/>} title="商店管理">

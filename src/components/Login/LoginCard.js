@@ -1,5 +1,5 @@
 import React from "react";
-import {message, Button, Space, Input, Form, Checkbox} from 'antd';
+import {message, Button, Space, Input, Form, Checkbox, Row, Col} from 'antd';
 import {UserRegister} from "./UserRegister";
 import LoginPassport from "./LoginPassport";
 import {history} from "../PublicHistory";
@@ -11,11 +11,11 @@ const MesgBlankError = () => {
 };
 
 const MesgloginSucceed = () => {
-    message.success('登录成功！')
+    message.success('登录成功！欢迎 ~')
 }
 
-const MesgUserInfoError = () => {
-    message.error('用户名或密码错误有错误哦，请检查一下~');
+const MesgloginFail = (errinfo) => {
+    message.error(errinfo)
 }
 
 
@@ -37,47 +37,56 @@ class LoginCard extends React.Component{
 
     //检查空表单，拒绝提交空表单，返回一个顶部通知信息
     //表单非空，则提交给loginPassport
-    loginInputCheck(){
-        //
+    loginInputCheck = e => {
+        e.preventDefault();
+
+
         let userID=document.getElementById("userIDInput").value;
         let userPwd=document.getElementById("userPwdInput").value;
-        if(userID===""||userPwd===""||userID==null||userPwd==null)
+        if(userID== null || userPwd==null || userID==="" || userPwd==="")
             MesgBlankError();
         else{
-            LoginPassport.login(
-                this.state.loginUserName,
-                this.state.loginPassword,
-                () => {
-                // 登录成功时，跳转页面
-                    MesgloginSucceed();
-                    setTimeout("window.location.href=\"/\";",800);
-                },
-                () => {
+            let formInfo = {
+                username : this.state.loginUserName,
+                password : this.state.loginPassword,
+            }
+
+            // formInfo = JSON.stringify(formInfo);
+
+            console.log(formInfo);
+            LoginPassport.login(formInfo,
+                    () => {
                     // 登录成功时，跳转页面
-                    // this.props.history.push('/');
-                    MesgUserInfoError();
-                },
-            )
+                        MesgloginSucceed();
+                        setTimeout("window.location.href=\"/\";",800);
+                    },
+                    (errorinfo) => {
+                        // 登录成功时，跳转页面
+                        // this.props.history.push('/');
+                        MesgloginFail(errorinfo);
+                    }
+                );
         }
     }
 
 
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-                userService.login(values);
-            }
-        });
-    };
+    // handleSubmit = e => {
+    //     e.preventDefault();
+    //     this.props.form.validateFields((err, values) => {
+    //         if (!err) {
+    //             console.log('Received values of form: ', values);
+    //             userService.login(values);
+    //         }
+    //     });
+    // };
 
 
     render() {
         return (
             <div className="loginCard_login">
                 <p className="login_title">Login</p>
-                <form>
+
+                <form onSubmit={this.loginInputCheck}>
                     <div className="inputBox">
                         <label className="loginLabel">账号:</label>
                         <input
@@ -106,10 +115,11 @@ class LoginCard extends React.Component{
                     <div className="loginFunction">
                         <button
                             className="loginFunction_button"
-                            type="button"
-                            onClick={()=>{
-                                this.loginInputCheck();
-                            }}
+                            type="submit"
+                            // type="button"
+                            // onClick={()=>{
+                            //     this.loginInputCheck();
+                            // }}
                         >
                             登录
                         </button>

@@ -328,6 +328,11 @@
 
 }
 
+.login_form{
+    padding-top: 20%;
+    height: 80%;
+}
+
 @media only screen and (min-width: 1000px){
     .loginCard_login{
         right:10vw;

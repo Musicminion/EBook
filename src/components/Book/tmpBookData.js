@@ -97,7 +97,7 @@ export const AllBooks =[
     {
         id:11,
         bookID:11,bookTitle:"四大名著《西游记》《水浒传》《三国演义》《红楼梦》套装书籍",
-        bookName:"计算机网络",bookPrice:"129.29",bookPlace:"南京",bookAuthor:"曹雪芹、吴承恩等",
+        bookName:"四大名著",bookPrice:"129.29",bookPlace:"南京",bookAuthor:"曹雪芹、吴承恩等",
         bookShoper: "儿童图书店",bookISBN:"978123456789",bookSellnum:"986",bookremainNum:"100",
         bookPublisher: "商务出版社",
     },
@@ -130,7 +130,6 @@ export const AllBooks =[
         bookPublisher: "上海交通大学出版社",
     },
 ];
-
 
 
 class BookOperation extends React.Component{

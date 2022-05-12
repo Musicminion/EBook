@@ -14,6 +14,7 @@ import userTopBar from "./userTopBar";
 import UserTopBar from "./userTopBar";
 import ShoperTopBar from "./shoperTopBar";
 import AdminTopBar from "./adminTopBar";
+import loginPassport from "../Login/LoginPassport";
 
 
 
@@ -49,7 +50,7 @@ class TopBar extends React.Component {
 
 
     componentDidMount() {
-        let userPrivilege =localStorage.getItem('ebookPrivilege');
+        let userPrivilege = loginPassport.getPrivilege();
         if(userPrivilege!=null)
         {
             // this.setState({ userPermissionLevel: userPricilege});
@@ -65,7 +66,7 @@ class TopBar extends React.Component {
     }
 
     render() {
-        const { current } = this.state;
+        // const { current } = this.state;
         switch (this.state.userPermissionLevel) {
             case 3:
                 return (

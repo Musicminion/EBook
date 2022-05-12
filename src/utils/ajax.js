@@ -49,3 +49,20 @@ let postRequest = (url, json, callback) => {
 };
 
 export {postRequest};
+
+let getRequest = (url,callback) => {
+    fetch(url,{
+        method: 'GET',
+    })
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            callback(data);
+        })
+        .catch((error) => {
+            alert(error)
+        })
+}
+
+export {getRequest};

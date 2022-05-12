@@ -20,6 +20,7 @@ import {BookOutlined, CommentOutlined} from "@ant-design/icons";
 import Paragraph from "antd/es/typography/Paragraph";
 import Demo from "../components/bookComment";
 import {Link} from "react-router-dom";
+import {getBookByID} from "../service/bookservice";
 
 const { TabPane } = Tabs;
 
@@ -35,13 +36,10 @@ class BookDetailPage extends React.Component{
         this.state = {
             bookID: 0,
             bookNum: 1,
-        }
-    }
-
-    componentDidMount() {
+        };
         let url = decodeURI(window.location.search); //获取url中"?"符后的字串 ('?modFlag=business&role=1')
-        let theRequest = new Object();
-        if ( url.indexOf( "?" ) != -1 ) {
+        let theRequest = {};
+        if ( url.indexOf( "?" ) !== -1 ) {
             let str = url.substr( 1 );          //substr()方法返回从参数值开始到结束的字符串；
             let strs = str.split( "&" );
             for ( let i = 0; i < strs.length; i++ ) {
@@ -51,7 +49,13 @@ class BookDetailPage extends React.Component{
             setTimeout(() => {
                 this.setState({bookID: BookIDnum});
             }, 0);
+
+            getBookByID(BookIDnum);
         }
+    }
+
+    componentDidMount() {
+
     }
 
     buyNumChange(e){
@@ -60,8 +64,6 @@ class BookDetailPage extends React.Component{
     }
 
     render() {
-
-
         if(this.state.bookID > 0){
             let BookID = this.state.bookID;
 

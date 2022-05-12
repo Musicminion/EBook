@@ -34,6 +34,11 @@ class BookCard extends React.Component{
         this.setState({ loading: !checked });
     };
 
+    componentDidMount() {
+
+    }
+
+
     render() {
         const { loading } = this.state;
         let ID = parseInt(this.props.bookID);

@@ -10,6 +10,7 @@ import {
     UserOutlined
 } from "@ant-design/icons";
 import LoginPassport from "../Login/LoginPassport";
+import loginPassport from "../Login/LoginPassport";
 
 const { SubMenu } = Menu;
 
@@ -91,7 +92,7 @@ class adminTopBar extends React.Component{
 
                 <SubMenu
                     id="MainPageLoginDiv"
-                    title="超级管理员 张子谦"
+                    title={"管理员: " + loginPassport.getNickName()}
                     icon={<Badge count={1} size="small"><Avatar size="middle" icon={<UserOutlined/>}/></Badge>}
                 >
                     <Menu.Item key="setting:22">我的消息</Menu.Item>

@@ -3,7 +3,6 @@ import {Button, Col, Row} from "antd";
 
 class BookOperation extends React.Component{
 
-
     render() {
         return (
             <>
@@ -28,7 +27,6 @@ class BookOperation extends React.Component{
                     </Col>
                     <Col span={8}>
                         <Button className="BookRow_functionButton" type="primary" danger>删除书籍</Button>
-
                     </Col>
                 </Row>
 

@@ -3,6 +3,7 @@ import {Avatar, Badge, Menu} from "antd";
 import {Link} from "react-router-dom";
 import {ShoppingCartOutlined, ShoppingOutlined, SoundOutlined, UserOutlined} from "@ant-design/icons";
 import LoginPassport from "../Login/LoginPassport";
+import loginPassport from "../Login/LoginPassport";
 
 const { SubMenu } = Menu;
 
@@ -74,7 +75,7 @@ class userTopBar extends React.Component{
 
                 <SubMenu
                     id="MainPageLoginDiv"
-                    title="用户 张子谦"
+                    title={"Hello! "+loginPassport.getNickName()}
                     icon={<Badge count={1} size="small"><Avatar size="middle" icon={<UserOutlined/>}/></Badge>}
                 >
                     <Menu.Item key="setting:22">我的消息</Menu.Item>

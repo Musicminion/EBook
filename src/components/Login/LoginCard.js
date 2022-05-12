@@ -4,7 +4,6 @@ import {UserRegister} from "./UserRegister";
 import LoginPassport from "./LoginPassport";
 import {history} from "../PublicHistory";
 import {Icon} from "@fluentui/react";
-import * as userService from '../../service/user'
 
 const MesgBlankError = () => {
     message.error('用户名或密码不能空白哦，请检查一下~');

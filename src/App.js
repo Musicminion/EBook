@@ -13,6 +13,7 @@ import LoginPageBase from "./view/LoginPageBase";
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import {history} from "./components/PublicHistory";
 import PayComfirm from "./view/PayComfirm";
+import PrivateRoute from "./route/PrivateRoute";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -33,11 +34,11 @@ class App extends React.Component{
             <>
                 <Router history={history}>
                     <Switch>
+                        {/* -----------------  下面的部分是共有路由  ----------------- */}
                         <Route exact path="/eBook/MainPage" component={MainPage}/>
                         <Route exact path="/eBook/bookdetail" component={BookDetailPage}/>
                         <Route exact path="/eBook/searchresult" component={SearchResultPage}/>
                         <Route exact path="/eBook/booktable" component={BookTablePage}/>
-                        <Route exact path="/eBook/paycomfirm" component={PayComfirm}/>
 
 
                         <Route exact path="/login" component={LoginPage}/>
@@ -45,6 +46,11 @@ class App extends React.Component{
                         <Route exact path="/login/feedback" component={LoginPageFeedBack}/>
                         <Route exact path="/login/about" component={LoginPageAbout}/>
                         <Route exact path="/LoginPageBase" component={LoginPageBase}/>
+
+                        {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
+                        <PrivateRoute exact path="/eBook/paycomfirm" component={PayComfirm}/>
+
+                        {/*<PrivateRoute exact path="/" component={HomeView} />*/}
                         <Redirect from="/*" to="/eBook/MainPage" />
                     </Switch>
                 </Router>

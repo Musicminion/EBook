@@ -8,8 +8,6 @@ import BookOperation from "./BookOperation";
 import BookPriceDisplay from "./BookPriceDisplay";
 
 
-
-
 class BookRow extends React.Component{
 
     render() {

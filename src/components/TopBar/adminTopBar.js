@@ -93,7 +93,7 @@ class adminTopBar extends React.Component{
                 <SubMenu
                     id="MainPageLoginDiv"
                     title={"管理员: " + loginPassport.getNickName()}
-                    icon={<Badge count={1} size="small"><Avatar size="middle" icon={<UserOutlined/>}/></Badge>}
+                    icon={<Badge count={0} size="small"><Avatar size="middle" icon={<UserOutlined/>}/></Badge>}
                 >
                     <Menu.Item key="setting:22">我的消息</Menu.Item>
                     <Menu.Item key="setting:23" onClick={(e) => this.logout()}>退出登录</Menu.Item>

@@ -4,19 +4,12 @@
 import {apiURL} from "../config/URLconfig";
 import {getRequest} from "../utils/ajax";
 
-let getBookByID = (ID) => {
+let getBookByID = (ID , callback) => {
     let getBookURL = apiURL + "/queryBookdetail/" + ID;
-    let respData;
-
-    getRequest(getBookURL,
-        (data) => {
-            respData = data;
-            console.log(respData);
-        }
-        );
-
+    var respData;
     console.log(respData);
-    return respData;
+    getRequest(getBookURL, callback);
+    console.log(respData);
 }
 
 export {getBookByID};

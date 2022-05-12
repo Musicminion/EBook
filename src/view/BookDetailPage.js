@@ -34,8 +34,19 @@ class BookDetailPage extends React.Component{
     constructor() {
         super();
         this.state = {
-            bookID: 0,
-            bookNum: 1,
+            bookID: 0,          // 书本的ID
+            bookNum: 1,         // 书本买了多少，默认是1,初始化1，价格也初始化显示一本的价格
+            bookTitle: "",
+            bookName: "",
+            bookAuthor: "",
+            bookISBN: "",
+            bookremainNum: 0,
+            bookPublisher: "",
+            bookPlace: "",
+            bookSellnum: 0,
+            bookPrice: 0,
+            bookDescription: "",
+            allPrice: 0,
         };
         let url = decodeURI(window.location.search); //获取url中"?"符后的字串 ('?modFlag=business&role=1')
         let theRequest = {};
@@ -46,11 +57,27 @@ class BookDetailPage extends React.Component{
                 theRequest[strs[i].split("=" )[0]] = (strs[ i ].split("=" )[1]);
             }
             let BookIDnum = parseInt(theRequest['bookid']);
-            setTimeout(() => {
-                this.setState({bookID: BookIDnum});
-            }, 0);
 
-            getBookByID(BookIDnum);
+            let that = this;
+
+            getBookByID(BookIDnum,(data) => {
+                    console.log(data);
+                    that.setState({
+                        bookID: BookIDnum,
+                        bookTitle: data.displaytitle,
+                        bookName:  data.bookname,
+                        bookAuthor: data.author,
+                        bookremainNum: data.inventory,
+                        bookPublisher: data.publisher,
+                        bookPlace: data.departure,
+                        bookSellnum: data.sellnum,
+                        bookPrice: data.price,
+                        bookISBN: data.isbn,
+                        bookDescription: data.description,
+                        allPrice:data.price,
+                    });
+                }
+                );
         }
     }
 
@@ -60,13 +87,11 @@ class BookDetailPage extends React.Component{
 
     buyNumChange(e){
         if(e!=null)
-            this.setState({bookNum: e})
+            this.setState({bookNum: e, allPrice: this.state.bookPrice * e})
     }
 
     render() {
         if(this.state.bookID > 0){
-            let BookID = this.state.bookID;
-
             return (
                 <div>
                     <div className="eBookPageContainer">
@@ -75,19 +100,19 @@ class BookDetailPage extends React.Component{
 
                             <div className="BookDetailTop">
                                 <div className="BookDetailImg">
-                                    <Image src={require('../asset/img/book/'+BookID+'.jpg')}/>
+                                    <Image src={require('../asset/img/book/'+ this.state.bookID +'.jpg')}/>
                                 </div>
 
                                 <div className="BookDescription">
 
-                                    <Descriptions title={AllBooks[BookID].bookTitle}>
-                                        <Descriptions.Item label="书籍名称">{AllBooks[BookID].bookName}</Descriptions.Item>
-                                        <Descriptions.Item label="书籍ISBN">{AllBooks[BookID].bookISBN}</Descriptions.Item>
-                                        <Descriptions.Item label="作者">{AllBooks[BookID].bookAuthor}</Descriptions.Item>
-                                        <Descriptions.Item label="库存量">{AllBooks[BookID].bookremainNum}</Descriptions.Item>
-                                        <Descriptions.Item label="出版社">{AllBooks[BookID].bookPublisher}</Descriptions.Item>
-                                        <Descriptions.Item label="发货地点">{AllBooks[BookID].bookPlace}</Descriptions.Item>
-                                        <Descriptions.Item label="月销量">{AllBooks[BookID].bookSellnum}</Descriptions.Item>
+                                    <Descriptions title={this.state.bookTitle}>
+                                        <Descriptions.Item label="书籍名称">{this.state.bookName}</Descriptions.Item>
+                                        <Descriptions.Item label="书籍ISBN">{this.state.bookISBN}</Descriptions.Item>
+                                        <Descriptions.Item label="作者">{this.state.bookAuthor}</Descriptions.Item>
+                                        <Descriptions.Item label="库存量">{this.state.bookremainNum}</Descriptions.Item>
+                                        <Descriptions.Item label="出版社">{this.state.bookPublisher}</Descriptions.Item>
+                                        <Descriptions.Item label="发货地点">{this.state.bookPlace}</Descriptions.Item>
+                                        <Descriptions.Item label="月销量">{this.state.bookSellnum}</Descriptions.Item>
                                         <Descriptions.Item label="其他备注">无</Descriptions.Item>
                                     </Descriptions>
 
@@ -97,7 +122,7 @@ class BookDetailPage extends React.Component{
                                                 <p>商品单价：</p>
                                             </Col>
                                             <Col span={5}>
-                                                <p className="bookDetailPrice">￥{AllBooks[BookID].bookPrice}</p>
+                                                <p className="bookDetailPrice">￥{this.state.allPrice.toFixed(2)}</p>
                                             </Col>
 
                                             <Col span={3}>
@@ -118,7 +143,8 @@ class BookDetailPage extends React.Component{
                                                 <p>购买数量：</p>
                                             </Col>
                                             <Col span={5}>
-                                                <InputNumber min={1} max={100} onChange={e => this.buyNumChange(e)} defaultValue={1}/>
+                                                <InputNumber min={1} max={this.state.bookremainNum}
+                                                             onChange={e => this.buyNumChange(e)} defaultValue={1}/>
                                             </Col>
                                             {/*<Col span={3}>*/}
                                             {/*    <p>商品总价：</p>*/}
@@ -134,7 +160,7 @@ class BookDetailPage extends React.Component{
                                             <Col span={4}>
                                             </Col>
                                             <Col span={7}>
-                                                <Link to={'paycomfirm?bookid=' + BookID+"&bookbuynum="+this.state.bookNum}>
+                                                <Link to={'paycomfirm?bookid=' + this.state.bookID +"&bookbuynum="+this.state.bookNum}>
                                                     <Button className="bookDetailBuyNow">立即购买</Button>
                                                 </Link>
                                             </Col>
@@ -163,29 +189,8 @@ class BookDetailPage extends React.Component{
                                     <TabPane tab={<><BookOutlined/>商品描述</>} key="1">
                                         <Typography>
                                             <Paragraph>
-                                                《西游记》是中国古代第一部浪漫主义章回体长篇神魔小说。现存明刊百回本《西游记》均无作者署名，作者是明代吴承恩。
-                                                全书主要描写了孙悟空出世及大闹天宫后，遇见了唐僧、猪八戒、沙僧和白龙马，西行取经，一路上历经艰险，降妖除魔，
-                                                经历了九九八十一难，终于到达西天见到如来佛祖，最终五圣成真的故事。该小说以“玄奘取经”这一历史事件为蓝本，经作
-                                                者的艺术加工，深刻地描绘出明代百姓的社会生活状况。
+                                                {this.state.bookDescription}
                                             </Paragraph>
-
-                                            <Paragraph>
-                                                《西游记》是中国神魔小说的经典之作，达到了古代长篇浪漫主义小说的巅峰，与《三国演义》《水浒传》《红楼梦》并称
-                                                为中国古典四大名著。《西游记》自问世以来在民间广为流传，各式各样的版本层出不穷。明代刊本有六种，清代刊本、抄本
-                                                也有七种，典籍所记已佚版本十三种。鸦片战争以后，大量中国古典文学作品被译为西文，《西游记》渐渐传入欧美，被译为
-                                                英、法、德、意、西、手语、世（世界语）、斯（斯瓦西里语）、俄、捷、罗、波、日、朝、越等语言。
-                                            </Paragraph>
-
-                                            <Paragraph>
-                                                东胜神州傲来国海边有一花果山，山顶一石，秉受日月精华，产下一个石猴。石猴在花果山做了众猴
-                                                之王，为求长生，出海求仙，在西牛贺州拜菩提祖师为师。祖师为其取法名孙悟空，并授与七十二般
-                                                变化及翻筋斗云之法。孙悟空回到花果山，占山为王，号为美猴王。苦于无兵刃，遂去东海龙宫求取
-                                                ，龙王及兄弟送他一支如意金箍棒及一身披挂。孙悟空又去幽冥界把自己的名字从生死簿上勾掉。龙
-                                                王，地藏王上天庭告状，太白金星建议招安孙悟空，玉帝准奏。
-                                            </Paragraph>
-                                            <div className="bookDetailImage">
-                                                <Image  src={require("../asset/bookdescription/1/1.jpg")}></Image>
-                                            </div>
                                         </Typography>
                                     </TabPane>
                                     <TabPane tab={<><CommentOutlined/>用户评价</>} key="2">

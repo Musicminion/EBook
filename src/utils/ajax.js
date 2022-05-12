@@ -10,6 +10,7 @@ let postRequest = (url, json, callback) => {
         },
         credentials: "include"
     };
+
     fetch(url,opts)
         .then((response) => {
             return response.json()

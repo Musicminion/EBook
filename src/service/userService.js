@@ -2,6 +2,7 @@ import {apiURL} from "../config/URLconfig";
 import {postRequest} from "../utils/ajax";
 import {message} from "antd";
 import LoginPassport from "../components/Login/LoginPassport";
+import loginPassport from "../components/Login/LoginPassport";
 
 export const userLogin = (loginInfo, SuccessCallback, FailureCallback, LocalToken) => {
     const url = apiURL + "/login";
@@ -37,10 +38,19 @@ export const userLogout = (SuccessCallBack) => {
 }
 
 
-
 export const userCheckSession = (callback) => {
     const url = apiURL +"/checkSession";
     postRequest(url, {}, callback);
 };
 
 
+export const userInfoRequest = (callBack) => {
+    const url = apiURL + "/user/info";
+    let user = loginPassport.getUserName();
+
+    let obj = {
+        username: user
+    };
+
+    postRequest(url, obj, callBack);
+}

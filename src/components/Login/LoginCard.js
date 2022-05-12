@@ -50,8 +50,6 @@ class LoginCard extends React.Component{
                 password : this.state.loginPassword,
             }
 
-            // formInfo = JSON.stringify(formInfo);
-
             console.log(formInfo);
             LoginPassport.login(formInfo,
                     () => {

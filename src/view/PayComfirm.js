@@ -10,27 +10,32 @@ import { Radio } from 'antd';
 import BookRowHeader from "../components/Book/BookRowHeader";
 import BookOrderRow from "../components/Book/BookOrderRow";
 import {AllBooks} from "../components/Book/tmpBookData";
+import LoginPassport from "../components/Login/LoginPassport";
+import {userInfoRequest} from "../service/userService";
 
 
 
 const { Step } = Steps;
 const { TabPane } = Tabs;
 
+// 注意 这个页面只能下单单个商品！不能下单多个商品
 class PayComfirm extends React.Component{
     constructor() {
         super();
-
         this.state = {
             bookID: '1',
             bookNum: 1,
             allBookPrice: 0,
+            username: LoginPassport.getUserName(),
+            phonenumber : "",
+            postcode: "400000",
+            receiveaddress: "",
         }
-    }
 
-    componentDidMount() {
+        // 解析url的参数
         let url = decodeURI(window.location.search);
-        let theRequest = new Object();
-        if ( url.indexOf( "?" ) != -1 ) {
+        let theRequest = {};
+        if ( url.indexOf( "?" ) !== -1 ) {
             let str = url.substr( 1 );
             let strs = str.split( "&" );
             for ( let i = 0; i < strs.length; i++ ) {
@@ -51,6 +56,20 @@ class PayComfirm extends React.Component{
                 });
             }, 0);
         }
+
+        let that = this;
+        // 请求用户的信息接口：
+        userInfoRequest((respdata) => {
+            console.log(respdata);
+            that.setState({
+                phonenumber : respdata.data.telephone,
+                receiveaddress : respdata.data.useraddress
+            });
+        });
+    }
+
+    componentDidMount() {
+
     }
 
     render() {
@@ -75,52 +94,68 @@ class PayComfirm extends React.Component{
 
                         <div className="PayComfirm_ContentArea">
                             <Tabs defaultActiveKey="1">
-                                <TabPane tab={<><AppstoreOutlined/>填写地址</>} key="1">
-                                    <Radio.Group className="userLocationButtonGroup" defaultValue="a" size="large">
-                                        <Button value="a" className="userLocationButton">
-                                            <Card
-                                                title={<p className="userLocationTitle">上海(张子谦收货)</p>}
-                                                className="userLocationCard"
-                                                size={"small"}
-                                            >
-                                                <p className="userLocationPlace">地址：上海交通大学闵行校区</p>
-                                                <p className="userPhoneNumber">联系电话：180-0000-0000</p>
-                                            </Card>
-                                        </Button>
+                                <TabPane tab={<><AppstoreOutlined/>订单确认</>} key="1">
+                                    <h2>请确认订单信息</h2>
+                                    <Card size={"small"} title={"收件人："+this.state.username} style={{ width: 400 }}>
+                                        <p>联系方式：{this.state.phonenumber}</p>
+                                        <p>邮政编码：{this.state.postcode}</p>
+                                        <p>收件地址：{this.state.receiveaddress}</p>
+                                    </Card>
 
-                                        <Button value="b" className="userLocationButton">
-                                            <Card
-                                                title={<p className="userLocationTitle">上海(小明收货)</p>}
-                                                className="userLocationCard"
-                                                size={"small"}
-                                            >
-                                                <p className="userLocationPlace">地址：上海</p>
-                                                <p className="userPhoneNumber">联系电话：180-0000-0000</p>
-                                            </Card>
-                                        </Button>
+                                    {/*<Card*/}
+                                    {/*    title={<p className="userLocationTitle">上海(张子谦收货)</p>}*/}
+                                    {/*    className="userLocationCard"*/}
+                                    {/*    size={"small"}*/}
+                                    {/*>*/}
+                                    {/*    <p className="userLocationPlace">地址：上海交通大学闵行校区</p>*/}
+                                    {/*    <p className="userPhoneNumber">联系电话：180-0000-0000</p>*/}
+                                    {/*</Card>*/}
 
-                                        <Button value="b" className="userLocationButton">
-                                            <Card
-                                                title={<p className="userLocationTitle">上海(小明收货)</p>}
-                                                className="userLocationCard"
-                                                size={"small"}
-                                            >
-                                                <p className="userLocationPlace">地址：上海</p>
-                                                <p className="userPhoneNumber">联系电话：180-0000-0000</p>
-                                            </Card>
-                                        </Button>
+                                    {/*<Radio.Group className="userLocationButtonGroup" defaultValue="a" size="large">*/}
+                                    {/*    <Button value="a" className="userLocationButton">*/}
+                                    {/*        <Card*/}
+                                    {/*            title={<p className="userLocationTitle">上海(张子谦收货)</p>}*/}
+                                    {/*            className="userLocationCard"*/}
+                                    {/*            size={"small"}*/}
+                                    {/*        >*/}
+                                    {/*            <p className="userLocationPlace">地址：上海交通大学闵行校区</p>*/}
+                                    {/*            <p className="userPhoneNumber">联系电话：180-0000-0000</p>*/}
+                                    {/*        </Card>*/}
+                                    {/*    </Button>*/}
 
-                                        <Button value="b" className="userLocationButton">
-                                            <Card
-                                                title={<p className="userLocationTitle">上海(小明收货)</p>}
-                                                className="userLocationCard"
-                                                size={"small"}
-                                            >
-                                                <p className="userLocationPlace">地址：上海</p>
-                                                <p className="userPhoneNumber">联系电话：180-0000-0000</p>
-                                            </Card>
-                                        </Button>
-                                    </Radio.Group>
+                                    {/*    <Button value="b" className="userLocationButton">*/}
+                                    {/*        <Card*/}
+                                    {/*            title={<p className="userLocationTitle">上海(小明收货)</p>}*/}
+                                    {/*            className="userLocationCard"*/}
+                                    {/*            size={"small"}*/}
+                                    {/*        >*/}
+                                    {/*            <p className="userLocationPlace">地址：上海</p>*/}
+                                    {/*            <p className="userPhoneNumber">联系电话：180-0000-0000</p>*/}
+                                    {/*        </Card>*/}
+                                    {/*    </Button>*/}
+
+                                    {/*    <Button value="b" className="userLocationButton">*/}
+                                    {/*        <Card*/}
+                                    {/*            title={<p className="userLocationTitle">上海(小明收货)</p>}*/}
+                                    {/*            className="userLocationCard"*/}
+                                    {/*            size={"small"}*/}
+                                    {/*        >*/}
+                                    {/*            <p className="userLocationPlace">地址：上海</p>*/}
+                                    {/*            <p className="userPhoneNumber">联系电话：180-0000-0000</p>*/}
+                                    {/*        </Card>*/}
+                                    {/*    </Button>*/}
+
+                                    {/*    <Button value="b" className="userLocationButton">*/}
+                                    {/*        <Card*/}
+                                    {/*            title={<p className="userLocationTitle">上海(小明收货)</p>}*/}
+                                    {/*            className="userLocationCard"*/}
+                                    {/*            size={"small"}*/}
+                                    {/*        >*/}
+                                    {/*            <p className="userLocationPlace">地址：上海</p>*/}
+                                    {/*            <p className="userPhoneNumber">联系电话：180-0000-0000</p>*/}
+                                    {/*        </Card>*/}
+                                    {/*    </Button>*/}
+                                    {/*</Radio.Group>*/}
 
                                     <Row>
                                         <Col span={20}>

@@ -54,7 +54,7 @@ class LocationForm extends React.Component{
     render() {
         return (
             <>
-                <Button type="primary" onClick={this.showModal}>添加地址</Button>
+                <Button type="primary" onClick={this.showModal}>修改地址</Button>
 
                 <Modal
                     visible={this.state.visible}

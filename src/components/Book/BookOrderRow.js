@@ -12,98 +12,62 @@ import {getBookByID} from "../../service/bookservice";
 class BookOrderRow extends React.Component{
     constructor(props) {
         super(props);
-
         this.state = {
-            bookID: 0,
+            bookID: this.props.bookID,
             buynum: this.props.buynum,
-            allPrice: 0,
+            pageItemID: this.props.pageItemID,
+            itemPrice: 0,
         };
 
-        let url = decodeURI(window.location.search);
-        let theRequest = {};
-        if ( url.indexOf( "?" ) !== -1 ) {
-            let str = url.substr( 1 );
-            let strs = str.split( "&" );
-            for ( let i = 0; i < strs.length; i++ ) {
-                theRequest[strs[i].split("=" )[0]] = (strs[ i ].split("=" )[1]);
-            }
+        let that = this;
+        let id = parseInt(this.state.bookID);
 
-            let that = this;
-            let id = parseInt(theRequest['bookid']);
-            setTimeout(() => {
-                this.setState({
-                    bookID : id,
+        if(id > 0){
+            getBookByID(id, (data) => {
+                console.log(data);
+                // alert(data.price);
+                that.setState({
+                    bookTitle: data.displaytitle,
+                    bookName:  data.bookname,
+                    bookAuthor: data.author,
+                    bookremainNum: data.inventory,
+                    bookPublisher: data.publisher,
+                    bookPlace: data.departure,
+                    bookSellnum: data.sellnumber,
+                    bookPrice: data.price.toFixed(2),
+                    bookISBN: data.isbn,
+                    bookDescription: data.description,
+                    itemPrice:data.price * (this.props.buynum),
                 });
-            }, 0);
-
-            if(id > 0){
-                getBookByID(id, (data) => {
-                    console.log(data);
-                    that.setState({
-                        bookTitle: data.displaytitle,
-                        bookName:  data.bookname,
-                        bookAuthor: data.author,
-                        bookremainNum: data.inventory,
-                        bookPublisher: data.publisher,
-                        bookPlace: data.departure,
-                        bookSellnum: data.sellnumber,
-                        bookPrice: data.price.toFixed(2),
-                        bookISBN: data.isbn,
-                        bookDescription: data.description,
-                        allPrice:data.price,
-                    });
-                });
-            }
-
-            // let BookPurchasenum = Number(theRequest['bookbuynum']);
-            // let BookEachPrice = Number(AllBooks[Number(theRequest['bookid'])].bookPrice);
-            // let initTotalPrice = BookPurchasenum * BookEachPrice;
-            //
-            // setTimeout(() => {
-            //     this.setState({
-            //         allPrice: initTotalPrice,
-            //     });
-            // }, 0);
+            });
         }
     }
 
     componentDidMount() {
-        let BookPurchasenum = this.state.buynum;
-        let BookEachPrice = this.state.bookPrice;
-        let initTotalPrice = BookPurchasenum * BookEachPrice;
-        setTimeout(() => {
-            this.setState({
-                allPrice: initTotalPrice,
-            });
-        }, 0);
-
     }
 
-    buynumInit(){
-        let url = decodeURI(window.location.search);
-        let theRequest = new Object();
-        if ( url.indexOf( "?" ) != -1 ) {
-            let str = url.substr( 1 );
-            let strs = str.split( "&" );
-            for ( let i = 0; i < strs.length; i++ ) {
-                theRequest[strs[i].split("=" )[0]] = (strs[ i ].split("=" )[1]);
-            }
-            let BookPurchasenum = Number(theRequest['bookbuynum']);
-            return BookPurchasenum;
-        }
-    }
-
-    buyNumChange(e){
+    buyNumChange = (e) => {
         let ID = parseInt(this.props.bookID);
         let refreshedPrice = e * Number(this.state.bookPrice);
-        this.setState({allPrice: refreshedPrice});
+        this.setState({itemPrice: refreshedPrice});
+
+        this.props.parent.bookNum[this.props.pageItemID] = e;
+
+        let tmpsum = 0;
+
+        for(let i=1;i<this.props.parent.bookNum.length;i++){
+            tmpsum += this.props.parent.bookPrice[i] * this.props.parent.bookNum[i];
+        }
+
+        this.props.parent.setState({
+            allBookPrice: tmpsum,
+        });
     }
 
     render() {
         let ID = parseInt(this.props.bookID);
-        let num = this.buynumInit();
 
-        if(ID != null)
+        if(ID != null && ID > 0)
             return (
                 <>
                     <Row>
@@ -132,17 +96,18 @@ class BookOrderRow extends React.Component{
                         <Col span={8}>
 
                             <Row>
-                                <Col span={8}>
+                                <Col span={10}>
                                     <InputNumber
-                                        size="large" min={1} max={this.state.bookremainNum} defaultValue={num}
-                                        onChange={e => this.buyNumChange(e)}
+                                        size="large" min={1} max={this.state.bookremainNum}
+                                        defaultValue={this.state.buynum}
+                                        onChange={this.buyNumChange}
                                     />
                                 </Col>
-                                <Col span={12}>
+                                <Col span={10}>
                                     <p>无特殊优惠</p>
                                 </Col>
                                 <Col span={4}>
-                                    <p className="payComfirmPriceAll">￥{this.state.allPrice.toFixed(2)}</p>
+                                    <p className="payComfirmPriceAll">￥{this.state.itemPrice.toFixed(2)}</p>
                                 </Col>
                             </Row>
 

@@ -8,6 +8,7 @@ import BookRow from "../components/Book/BookRow";
 import {AppstoreOutlined, BarsOutlined} from "@ant-design/icons";
 import BookOperation from "../components/Book/tmpBookData";
 import '../css/searchResult.css'
+import {urlDecoder} from "../utils/urlDecoder";
 
 
 const { TabPane } = Tabs;
@@ -32,15 +33,7 @@ class SearchResultPage extends React.Component{
 
     componentDidMount() {
         let url = decodeURI(window.location.search); //获取url中"?"符后的字串 ('?modFlag=business&role=1')
-        let theRequest = new Object();
-        if ( url.indexOf( "?" ) != -1 ) {
-            let str = url.substr( 1 );          //substr()方法返回从参数值开始到结束的字符串；
-            let strs = str.split( "&" );
-            for ( let i = 0; i < strs.length; i++ ) {
-                theRequest[strs[i].split("=" )[0]] = (strs[i].split("=" )[1]);
-            }
-            // alert(theRequest['keyword']);           //此时的theRequest就是我们需要的参数；
-        }
+        let theRequest = urlDecoder(url);
 
         setTimeout(() => {
             this.setState({searchContent: theRequest['keyword']});
@@ -113,8 +106,6 @@ class SearchResultPage extends React.Component{
                                     </Form.Item>
                                 </Form>
 
-
-
                             </Panel>
                         </Collapse>
 
@@ -138,7 +129,6 @@ class SearchResultPage extends React.Component{
                                     searchTarget={this.state.searchWay}
                                     requestType="BookRow"
                                 />
-
                             </TabPane>
 
                         </Tabs>

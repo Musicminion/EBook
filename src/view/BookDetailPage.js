@@ -21,6 +21,7 @@ import Paragraph from "antd/es/typography/Paragraph";
 import Demo from "../components/bookComment";
 import {Link} from "react-router-dom";
 import {getBookByID} from "../service/bookservice";
+import {urlDecoder} from "../utils/urlDecoder";
 
 const { TabPane } = Tabs;
 
@@ -49,17 +50,11 @@ class BookDetailPage extends React.Component{
             allPrice: 0,
         };
         let url = decodeURI(window.location.search); //获取url中"?"符后的字串 ('?modFlag=business&role=1')
-        let theRequest = {};
-        if ( url.indexOf( "?" ) !== -1 ) {
-            let str = url.substr( 1 );          //substr()方法返回从参数值开始到结束的字符串；
-            let strs = str.split( "&" );
-            for ( let i = 0; i < strs.length; i++ ) {
-                theRequest[strs[i].split("=" )[0]] = (strs[ i ].split("=" )[1]);
-            }
+        let theRequest = urlDecoder(url);
+        if ( Object.keys(theRequest).length > 0) {
+
             let BookIDnum = parseInt(theRequest['bookid']);
-
             let that = this;
-
             getBookByID(BookIDnum,(data) => {
                     console.log(data);
                     that.setState({
@@ -160,7 +155,7 @@ class BookDetailPage extends React.Component{
                                             <Col span={4}>
                                             </Col>
                                             <Col span={7}>
-                                                <Link to={'paycomfirm?bookid=' + this.state.bookID +"&bookbuynum="+this.state.bookNum}>
+                                                <Link to={'paycomfirm?book1id=' + this.state.bookID +"&book1buynum="+this.state.bookNum}>
                                                     <Button className="bookDetailBuyNow">立即购买</Button>
                                                 </Link>
                                             </Col>

@@ -12,8 +12,9 @@ import LoginPageBase from "./view/LoginPageBase";
 
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import {history} from "./components/PublicHistory";
-import PayComfirm from "./view/PayComfirm";
+import OrderComfirm from "./view/Order/OrderComfirm";
 import PrivateRoute from "./route/PrivateRoute";
+import OrderPay from "./view/Order/OrderPay";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -48,7 +49,8 @@ class App extends React.Component{
                         <Route exact path="/LoginPageBase" component={LoginPageBase}/>
 
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
-                        <PrivateRoute exact path="/eBook/paycomfirm" component={PayComfirm}/>
+                        <PrivateRoute exact path="/eBook/paycomfirm" component={OrderComfirm}/>
+                        <PrivateRoute exact path="/eBook/order/" component={OrderPay}/>
 
                         {/*<PrivateRoute exact path="/" component={HomeView} />*/}
                         <Redirect from="/*" to="/eBook/MainPage" />

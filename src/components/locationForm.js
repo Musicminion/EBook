@@ -21,13 +21,13 @@ const formItemLayout = {
 };
 
 class LocationForm extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            receivename: "",
-            phonenumber: "",
-            postcode: "",
-            receiveaddress: "",
+            receivename: this.props.receivename,
+            phonenumber: this.props.phonenumber,
+            postcode: this.props.postcode,
+            receiveaddress: this.props.receiveaddress,
             loading: false,
             visible: false,
         };
@@ -47,8 +47,6 @@ class LocationForm extends React.Component{
     // };
 
     handleOk = () => {
-        
-
         this.props.confirmChange(
             this.state.receivename,
             this.state.phonenumber,
@@ -83,7 +81,7 @@ class LocationForm extends React.Component{
     render() {
         return (
             <>
-                <Button type="primary" onClick={this.showModal}>修改地址</Button>
+                <Button type="primary" onClick={this.showModal}>修改信息</Button>
 
                 <Modal
                     visible={this.state.visible}
@@ -106,7 +104,7 @@ class LocationForm extends React.Component{
                             rules={[{required: true,},]}
                             onChange={(data) => this.nameChange(data,1)}
                         >
-                            <Input/>
+                            <Input defaultValue={this.state.receivename}/>
                         </Form.Item>
                         <Form.Item
                             name="phonenumber"
@@ -114,7 +112,7 @@ class LocationForm extends React.Component{
                             rules={[{required: true,},]}
                             onChange={(data) => this.nameChange(data,2)}
                         >
-                            <Input/>
+                            <Input defaultValue={this.state.phonenumber}/>
                         </Form.Item>
 
                         <Form.Item
@@ -123,7 +121,7 @@ class LocationForm extends React.Component{
                             rules={[{required: true,},]}
                             onChange={(data) => this.nameChange(data,3)}
                         >
-                            <Input/>
+                            <Input maxLength={6} defaultValue={this.state.postcode}/>
                         </Form.Item>
 
                         <Form.Item
@@ -132,7 +130,12 @@ class LocationForm extends React.Component{
                             rules={[{required: true,},]}
                             onChange={(data) => this.nameChange(data,4)}
                         >
-                            <Input.TextArea allowClear showCount maxLength={80}/>
+                            <Input.TextArea
+                                allowClear
+                                showCount
+                                maxLength={80}
+                                defaultValue = {this.state.receiveaddress}
+                            />
                         </Form.Item>
                     </Form>
 

@@ -15,6 +15,7 @@ import {history} from "./components/PublicHistory";
 import OrderComfirm from "./view/Order/OrderComfirm";
 import PrivateRoute from "./route/PrivateRoute";
 import OrderPay from "./view/Order/OrderPay";
+import myCart from "./view/iEbook/myCart";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -51,6 +52,7 @@ class App extends React.Component{
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
                         <PrivateRoute exact path="/eBook/paycomfirm" component={OrderComfirm}/>
                         <PrivateRoute exact path="/eBook/order/" component={OrderPay}/>
+                        <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
 
                         {/*<PrivateRoute exact path="/" component={HomeView} />*/}
                         <Redirect from="/*" to="/eBook/MainPage" />

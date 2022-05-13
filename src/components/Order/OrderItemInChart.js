@@ -1,7 +1,8 @@
 import React from "react";
 
-// 订单支付的逻辑 首先在用户进入到PayComfirm页面之前的时候，都是不会与服务器交互的
-// 进入到 eBook/paycomfirm?bookid=XXX&bookbuynum=XXX的时候，可以选择填写购买的信息，单击按钮后，想服务器申请创建订单
+//  订单支付的逻辑 首先在用户进入到PayComfirm页面之前的时候，都是不会与服务器交互的，
+//  进入到 eBook/paycomfirm?bookid=XXX&bookbuynum=XXX的时候，可以
+//  选择填写购买的信息，单击按钮后，想服务器申请创建订单，这样可以避免恶意刷单
 //
 //      |-----------------------------------------------|
 //      |interaction 1                                  |
@@ -29,7 +30,7 @@ import React from "react";
 
 
 
-class Payorder extends React.Component{
+class OrderItemInChart extends React.Component{
 
 
     render() {

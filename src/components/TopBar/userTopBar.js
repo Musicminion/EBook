@@ -1,7 +1,7 @@
 import React from "react";
 import {Avatar, Badge, Menu} from "antd";
 import {Link} from "react-router-dom";
-import {ShoppingCartOutlined, ShoppingOutlined, SoundOutlined, UserOutlined} from "@ant-design/icons";
+import {AppstoreOutlined, ShoppingCartOutlined, ShoppingOutlined, SoundOutlined, UserOutlined} from "@ant-design/icons";
 import LoginPassport from "../Login/LoginPassport";
 import loginPassport from "../Login/LoginPassport";
 
@@ -44,7 +44,7 @@ class userTopBar extends React.Component{
                         <Menu.Item key="PayMethod">支付方式</Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>
-                <SubMenu key="iEBook" icon={<ShoppingCartOutlined />} title="iEBook">
+                <SubMenu key="iEBook" icon={<AppstoreOutlined/>} title="iEBook">
                     <Menu.ItemGroup>
                         <Menu.Item key="myCart" >我的购物车</Menu.Item>
                         <Menu.Item key="myFavorites" >我的收藏夹</Menu.Item>

@@ -26,7 +26,7 @@ class PayComfirm extends React.Component{
             bookID: '1',
             bookNum: 1,
             allBookPrice: 0,
-            username: LoginPassport.getUserName(),
+            receivename: LoginPassport.getUserName(),
             phonenumber : "",
             postcode: "400000",
             receiveaddress: "",
@@ -66,10 +66,21 @@ class PayComfirm extends React.Component{
                 receiveaddress : respdata.data.useraddress
             });
         });
+        // this.setSelfState =this.setSelfState.bind(this);
+        this.infoChange = this.infoChange.bind(this);
     }
 
     componentDidMount() {
 
+    }
+
+    infoChange(receivename, phonenumber, postcode, receiveaddress){
+        this.setState({
+            receivename: receivename,
+            phonenumber: phonenumber,
+            postcode: postcode,
+            receiveaddress: receiveaddress,
+        });
     }
 
     render() {
@@ -96,7 +107,7 @@ class PayComfirm extends React.Component{
                             <Tabs defaultActiveKey="1">
                                 <TabPane tab={<><AppstoreOutlined/>订单确认</>} key="1">
                                     <h2>请确认订单信息</h2>
-                                    <Card size={"small"} title={"收件人："+this.state.username} style={{ width: 400 }}>
+                                    <Card size={"small"} title={"收件人："+this.state.receivename} style={{ width: 400 }}>
                                         <p>联系方式：{this.state.phonenumber}</p>
                                         <p>邮政编码：{this.state.postcode}</p>
                                         <p>收件地址：{this.state.receiveaddress}</p>
@@ -162,7 +173,7 @@ class PayComfirm extends React.Component{
 
                                         </Col>
                                         <Col span={2}>
-                                            <LocationForm/>
+                                            <LocationForm confirmChange = {this.infoChange}/>
                                         </Col>
                                     </Row>
                                 </TabPane>

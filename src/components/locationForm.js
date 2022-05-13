@@ -21,10 +21,17 @@ const formItemLayout = {
 };
 
 class LocationForm extends React.Component{
-    state = {
-        loading: false,
-        visible: false,
-    };
+    constructor() {
+        super();
+        this.state = {
+            receivename: "",
+            phonenumber: "",
+            postcode: "",
+            receiveaddress: "",
+            loading: false,
+            visible: false,
+        };
+    }
 
     showModal = () => {
         this.setState({
@@ -33,23 +40,45 @@ class LocationForm extends React.Component{
         });
     };
 
-    showModal = () => {
-        this.setState({
-            visible: true,
-        });
-    };
+    // showModal = () => {
+    //     this.setState({
+    //         visible: true,
+    //     });
+    // };
 
     handleOk = () => {
+        
+
+        this.props.confirmChange(
+            this.state.receivename,
+            this.state.phonenumber,
+            this.state.postcode,
+            this.state.receiveaddress,
+        );
         this.setState({ loading: true });
         setTimeout(() => {
             this.setState({ loading: false, visible: false });
-        }, 3000);
+        }, 0);
     };
 
     handleCancel = () => {
         this.setState({ visible: false });
     };
 
+    nameChange = ({ target: { value } },typeNum) => {
+        switch (typeNum) {
+            case 1:
+                this.setState({ receivename: value});break;
+            case 2:
+                this.setState({ phonenumber: value});break;
+            case 3:
+                this.setState({ postcode: value}); break;
+            case 4:
+                this.setState({receiveaddress: value});break;
+            default:
+                break;
+        }
+    }
 
     render() {
         return (
@@ -75,6 +104,7 @@ class LocationForm extends React.Component{
                             name="receivername"
                             label="收货人姓名"
                             rules={[{required: true,},]}
+                            onChange={(data) => this.nameChange(data,1)}
                         >
                             <Input/>
                         </Form.Item>
@@ -82,6 +112,7 @@ class LocationForm extends React.Component{
                             name="phonenumber"
                             label="电话号码"
                             rules={[{required: true,},]}
+                            onChange={(data) => this.nameChange(data,2)}
                         >
                             <Input/>
                         </Form.Item>
@@ -90,6 +121,7 @@ class LocationForm extends React.Component{
                             name="postcode"
                             label="邮政编码"
                             rules={[{required: true,},]}
+                            onChange={(data) => this.nameChange(data,3)}
                         >
                             <Input/>
                         </Form.Item>
@@ -98,8 +130,9 @@ class LocationForm extends React.Component{
                             name="place"
                             label="详细地址"
                             rules={[{required: true,},]}
+                            onChange={(data) => this.nameChange(data,4)}
                         >
-                            <Input.TextArea allowClear showCount/>
+                            <Input.TextArea allowClear showCount maxLength={80}/>
                         </Form.Item>
                     </Form>
 

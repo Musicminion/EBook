@@ -38,7 +38,12 @@ class LoginPassport extends React.Component{
     // 用户的业务逻辑层面
     // 令牌登录时候的操作
     static login(loginInfo, SuccessCallback, FailureCallback) {
-        userLogin(loginInfo,SuccessCallback,FailureCallback,LocalToken);
+        if(this.checkStatus() ===1){
+            SuccessCallback();
+        }
+        else{
+            userLogin(loginInfo,SuccessCallback,FailureCallback,LocalToken);
+        }
     }
 
     static logout(SuccessCallBack) {
@@ -73,7 +78,7 @@ class LoginPassport extends React.Component{
             let loginInterval = (nowTime - lastLoginTime) / 1000;
 
             if(loginInterval < 600){
-                localStorage.setItem('ebookLogintime',Date.now());
+                localStorage.setItem(LocalToken.Logintime,Date.now());
                 // 再次设置过期时间
                 return 1;
             }

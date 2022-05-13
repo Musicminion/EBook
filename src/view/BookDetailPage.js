@@ -70,7 +70,7 @@ class BookDetailPage extends React.Component{
                         bookremainNum: data.inventory,
                         bookPublisher: data.publisher,
                         bookPlace: data.departure,
-                        bookSellnum: data.sellnum,
+                        bookSellnum: data.sellnumber,
                         bookPrice: data.price,
                         bookISBN: data.isbn,
                         bookDescription: data.description,

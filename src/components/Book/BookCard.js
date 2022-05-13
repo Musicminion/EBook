@@ -40,7 +40,7 @@ class BookCard extends React.Component{
                     bookremainNum: data.inventory,
                     bookPublisher: data.publisher,
                     bookPlace: data.departure,
-                    bookSellnum: data.sellnum,
+                    bookSellnum: data.sellnumber,
                     bookPrice: data.price.toFixed(2),
                     bookISBN: data.isbn,
                     bookDescription: data.description,
@@ -49,7 +49,6 @@ class BookCard extends React.Component{
             });
         }
     }
-
 
     render() {
         const { loading } = this.state;

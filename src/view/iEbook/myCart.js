@@ -1,25 +1,79 @@
 import React from 'react';
 import TopBar from "../../components/TopBar/TopBar";
 import LogoEBook from "../../asset/background/ebookLogo.svg";
-import {Tabs} from "antd";
-import {AppstoreOutlined, ShoppingCartOutlined} from "@ant-design/icons";
+import {Button, Col, Row, Tabs} from "antd";
+import {ShoppingCartOutlined} from "@ant-design/icons";
 import BookRowHeader from "../../components/Book/BookRowHeader";
 import {orderQueryUserShopCart} from "../../service/orderService";
-
+import {getBookByID} from "../../service/bookservice";
+import BookShopCartRow from "../../components/Book/BookShopCartRow";
+import BookShopCartHead from "../../components/Book/BookShopCartHead";
+import {Link} from "react-router-dom";
 
 const { TabPane } = Tabs;
 
+// 注意 这个页面的item编号是 0-base
 class myCart extends React.Component{
+    bookID = [];
+    bookNum = [];
+    bookPrice = [];
+
     constructor() {
         super();
+        this.state = {
+            respData: [],
+            cartItem: [],
+            allBookPrice: 0
+        }
 
         orderQueryUserShopCart(
             (resp) =>{
-                console.log(resp);
+                this.setState(
+                    { respData : resp}
+                );
+                for(let i=0; i<resp.length; i++){
+                    console.log(resp[i]);
+                    // 此步买的书籍
+                    this.bookNum[i] = resp[i].buynum;
+                    this.bookID[i] = resp[i].bookID;
+                    getBookByID(resp[i].bookID,(data)=>{
+                        this.bookPrice[i] = data.price.toFixed(2);
+                        this.setState({
+                            allBookPrice: this.state.allBookPrice +  this.bookNum[i] * this.bookPrice[i],
+                        });
+                    });
+
+                    this.setState(
+                        { cartItem :
+                                [...this.state.cartItem,
+                                    <BookShopCartRow
+                                        parent={this}
+                                        bookID={resp[i].bookID}
+                                        buynum={resp[i].buynum}
+                                        pageItemID={i}
+                                        DBitemID={resp[i].itemID}
+                                    />
+                                ]
+                        }
+                    );
+
+                }
             });
 
+        this.cartCheckout = this.cartCheckout.bind(this);
     }
 
+    cartCheckout(){
+        let redirectURL = "/eBook/shopCartOrderComfirm?";
+        console.log(this.bookID.length);
+        for(let i=0; i<this.bookID.length; i++){
+            let tmp = i+1
+            redirectURL += "book" + tmp +"id=" + this.bookID[i] + "&book" + tmp +"buynum=" + this.bookNum[i];
+            if(i !== this.bookID.length - 1)
+                redirectURL += "&";
+        }
+        window.location.href = redirectURL;
+    }
     render() {
         return (
             <div className="eBookPageContainer">
@@ -31,19 +85,40 @@ class myCart extends React.Component{
 
                     <Tabs defaultActiveKey="1">
                         <TabPane tab={<><ShoppingCartOutlined/>我的购物车</>} key="1">
+                            <BookShopCartHead/>
+                            {this.state.cartItem}
 
+                            <Row>
+                                <Col span={18}>
 
+                                </Col>
+                                <Col span={2}>
+                                    <p className="payComfirmPriceTotalLabel">总价格：</p>
+                                </Col>
+                                <Col span={4}>
+                                    <p className="payComfirmPriceTotalNum">
+                                        ￥{this.state.allBookPrice.toFixed(2)}
+                                    </p>
+                                </Col>
+                            </Row>
+
+                            <Row>
+                                <Col span={20}>
+                                </Col>
+                                <Col span={3}>
+                                    <Button className="bookDetailAddToChart" onClick={this.cartCheckout}>
+                                        确认下单
+                                    </Button>
+
+                                </Col>
+                            </Row>
 
                         </TabPane>
                     </Tabs>
-
-
                 </div>
-
                 <div className="clearOnly_compact">
 
                 </div>
-
                 <div className="Pagefooter">
                     <p>CopyRight © 2022 AllRights Reserved.ALL Developed By ZhangZiqian.</p>
                 </div>

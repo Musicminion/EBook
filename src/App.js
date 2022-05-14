@@ -12,10 +12,12 @@ import LoginPageBase from "./view/LoginPageBase";
 
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import {history} from "./components/PublicHistory";
-import OrderComfirm from "./view/Order/OrderComfirm";
+import SingleOrderComfirm from "./view/Order/singleOrderComfirm";
 import PrivateRoute from "./route/PrivateRoute";
 import OrderPay from "./view/Order/OrderPay";
 import myCart from "./view/iEbook/myCart";
+import ShopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
+import shopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -50,7 +52,8 @@ class App extends React.Component{
                         <Route exact path="/LoginPageBase" component={LoginPageBase}/>
 
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
-                        <PrivateRoute exact path="/eBook/paycomfirm" component={OrderComfirm}/>
+                        <PrivateRoute exact path="/eBook/singelOrderComfirm" component={SingleOrderComfirm}/>
+                        <PrivateRoute exact path="/eBook/shopCartOrderComfirm" component={shopCartOrderComfirm}/>
                         <PrivateRoute exact path="/eBook/order/" component={OrderPay}/>
                         <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
 

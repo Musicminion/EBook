@@ -7,7 +7,7 @@ import {
     Image,
     InputNumber,
     Menu,
-    Modal,
+    Modal, notification,
     Row,
     Tabs,
     Typography
@@ -22,8 +22,29 @@ import Demo from "../components/bookComment";
 import {Link} from "react-router-dom";
 import {getBookByID} from "../service/bookservice";
 import {urlDecoder} from "../utils/urlDecoder";
+import {addOneBookToShopCart} from "../service/orderService";
 
 const { TabPane } = Tabs;
+
+
+const AddToCartSuccess = (info) => {
+    notification["success"]({
+        message: '提示',
+        description:
+            info,
+    });
+};
+
+const AddToCartFail = (info) => {
+    notification["error"]({
+        message: '提示',
+        description:
+            info,
+    });
+};
+
+
+
 
 
 // -----------------------------------------------------------
@@ -74,6 +95,23 @@ class BookDetailPage extends React.Component{
                 }
                 );
         }
+        this.addToShopCart = this.addToShopCart.bind(this);
+    }
+
+    addToShopCart() {
+        // console.log(this.state.bookNum);
+        // console.log(this.state.bookID);
+        // AddToCartFail();
+        // AddToCartSuccess;
+        addOneBookToShopCart(this.state.bookID,this.state.bookNum,
+            (data) => {
+                console.log(data);
+                if(data.status >= 0)
+                    AddToCartSuccess(data.msg);
+                else
+                    AddToCartFail(data.msg);
+            }
+            );
     }
 
     componentDidMount() {
@@ -117,19 +155,14 @@ class BookDetailPage extends React.Component{
                                                 <p>商品单价：</p>
                                             </Col>
                                             <Col span={5}>
-                                                <p className="bookDetailPrice">￥{this.state.allPrice.toFixed(2)}</p>
+                                                <p className="bookDetailPrice">￥{this.state.bookPrice.toFixed(2)}</p>
                                             </Col>
 
                                             <Col span={3}>
-                                                <p>版本选择：</p>
+                                                <p>商品总价：</p>
                                             </Col>
                                             <Col span={13}>
-                                                <Radio.Group buttonStyle="solid" defaultValue="1">
-                                                    <Radio.Button value="1" className="bookVersonChoser">版本1</Radio.Button>
-                                                    <Radio.Button value="2" className="bookVersonChoser">版本2</Radio.Button>
-                                                    <Radio.Button value="3" className="bookVersonChoser">版本3</Radio.Button>
-                                                    <Radio.Button value="4" className="bookVersonChoser">版本4</Radio.Button>
-                                                </Radio.Group>
+                                                <p className="bookDetailPrice">￥{this.state.allPrice.toFixed(2)}</p>
                                             </Col>
                                         </Row>
 
@@ -155,22 +188,21 @@ class BookDetailPage extends React.Component{
                                             <Col span={4}>
                                             </Col>
                                             <Col span={7}>
-                                                <Link to={'paycomfirm?book1id=' + this.state.bookID +"&book1buynum="+this.state.bookNum}>
+                                                <Link to={'singelOrderComfirm?book1id=' + this.state.bookID
+                                                    +"&book1buynum="+this.state.bookNum}>
                                                     <Button className="bookDetailBuyNow">立即购买</Button>
                                                 </Link>
                                             </Col>
                                             <Col span={2}>
                                             </Col>
                                             <Col span={7}>
-                                                <Button className="bookDetailAddToChart">加入购物车</Button>
+                                                <Button className="bookDetailAddToChart" onClick={this.addToShopCart}>加入购物车</Button>
                                             </Col>
                                             <Col span={4}>
                                             </Col>
                                         </Row>
                                     </div>
-
                                 </div>
-
 
                                 <div className="clearBoth">
                                 </div>

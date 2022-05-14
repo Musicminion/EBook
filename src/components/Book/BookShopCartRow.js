@@ -8,7 +8,7 @@ import BookPriceDisplay from "./BookPriceDisplay";
 import {getBookByID} from "../../service/bookservice";
 
 
-class BookOrderRow extends React.Component{
+class BookShopCartRow extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -16,6 +16,7 @@ class BookOrderRow extends React.Component{
             buynum: this.props.buynum,
             pageItemID: this.props.pageItemID,
             itemPrice: 0,
+            DBItemID:this.props.DBitemID,
         };
 
         let that = this;
@@ -61,6 +62,8 @@ class BookOrderRow extends React.Component{
         this.props.parent.setState({
             allBookPrice: tmpsum,
         });
+
+
     }
 
     render() {
@@ -92,21 +95,21 @@ class BookOrderRow extends React.Component{
                             <p className="BookRow_bookStorageStatus">库存：{this.state.bookremainNum}</p>
                             <p className="BookRow_bookSellnum">&nbsp;销量 {this.state.bookSellnum}</p>
                         </Col>
-                        <Col span={8}>
+                        <Col span={10}>
 
                             <Row>
-                                <Col span={10}>
+                                <Col span={7}>
                                     <InputNumber
                                         size="large" min={1} max={this.state.bookremainNum}
                                         defaultValue={this.state.buynum}
                                         onChange={this.buyNumChange}
                                     />
                                 </Col>
-                                <Col span={10}>
-                                    <p>无特殊优惠</p>
-                                </Col>
-                                <Col span={4}>
+                                <Col span={7}>
                                     <p className="payComfirmPriceAll">￥{this.state.itemPrice.toFixed(2)}</p>
+                                </Col>
+                                <Col span={10}>
+                                    <p>无操作可用</p>
                                 </Col>
                             </Row>
 
@@ -121,4 +124,4 @@ class BookOrderRow extends React.Component{
     }
 }
 
-export default BookOrderRow;
+export default BookShopCartRow;

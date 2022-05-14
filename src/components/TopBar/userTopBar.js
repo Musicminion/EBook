@@ -46,7 +46,7 @@ class userTopBar extends React.Component{
                 </SubMenu>
                 <SubMenu key="iEBook" icon={<AppstoreOutlined/>} title="iEBook">
                     <Menu.ItemGroup>
-                        <Menu.Item key="myCart" >我的购物车</Menu.Item>
+                        <Menu.Item key="myCart" ><Link to={{pathname:'/eBook/myCart'}}>我的购物车</Link></Menu.Item>
                         <Menu.Item key="myFavorites" >我的收藏夹</Menu.Item>
                         <Menu.Item key="myFootPrint" >我的足迹</Menu.Item>
                         <Menu.Item key="myOrder" >我的订单</Menu.Item>

@@ -22,7 +22,7 @@ import {getBookByID} from "../../service/bookservice";
 const { Step } = Steps;
 const { TabPane } = Tabs;
 
-const openNotificationWithIcon = type => {
+const reminderInfoCheck = type => {
     notification[type]({
         message: '提示',
         description:
@@ -30,15 +30,19 @@ const openNotificationWithIcon = type => {
     });
 };
 
-
-// 注意 这个页面只能下单单个商品！不能下单多个商品
-class OrderComfirm extends React.Component{
+//
+class ShopCartOrderComfirm extends React.Component{
     constructor() {
         super();
         this.bookPrice = [];
         this.bookID = [];
         this.bookNum = [];
         this.orderItem = [];
+        this.state = {
+            allBookPrice: 0,
+            receivename: LoginPassport.getNickName(),
+            postcode: "400000",
+        }
 
         let that = this;
         // 请求用户的信息接口：
@@ -47,17 +51,14 @@ class OrderComfirm extends React.Component{
 
             setTimeout(()=>{
                 that.setState({
+                    receivename : respdata.data.name,
                     phonenumber : respdata.data.telephone,
                     receiveaddress : respdata.data.useraddress
                 });
             }, 0);
         });
 
-        this.state = {
-            allBookPrice: 0,
-            receivename: LoginPassport.getUserName(),
-            postcode: "400000",
-        }
+
 
         // 解析url的参数
         let url = decodeURI(window.location.search);
@@ -105,7 +106,7 @@ class OrderComfirm extends React.Component{
     }
 
     componentDidMount() {
-        openNotificationWithIcon('warning');
+        reminderInfoCheck('warning');
     }
 
     // ！这个函数下发给子组件，子组件操作父亲组件的页面的 用户订单信息！
@@ -204,7 +205,6 @@ class OrderComfirm extends React.Component{
                                 </Col>
                             </Row>
 
-
                         </div>
 
                     </div>
@@ -220,7 +220,7 @@ class OrderComfirm extends React.Component{
     }
 }
 
-export default OrderComfirm;
+export default ShopCartOrderComfirm;
 
 
 // {/*<Card*/}

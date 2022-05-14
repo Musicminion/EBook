@@ -23,15 +23,15 @@ const data = [
 ];
 
 class SearchResultPage extends React.Component{
+    keyword ="";
+    searchby = 0;
+
     constructor() {
         super();
         this.state = {
             searchContent: "",
             searchWay: 0,
         }
-    }
-
-    componentDidMount() {
         let url = decodeURI(window.location.search); //获取url中"?"符后的字串 ('?modFlag=business&role=1')
         let theRequest = urlDecoder(url);
 
@@ -43,12 +43,17 @@ class SearchResultPage extends React.Component{
             this.setState({searchWay: parseInt(theRequest['searchby'])});
         }, 0);
 
+        this.keyword = theRequest['keyword'];
+        this.searchby = parseInt(theRequest["searchby"]);
+    }
+
+    componentDidMount() {
+
     }
 
     render() {
         // alert(this.state.searchContent);
-        if(this.state.searchContent!=null)
-
+        // if(this.state.searchContent!=null)
             return (
                 <div className="eBookPageContainer">
                     <TopBar/>
@@ -112,21 +117,18 @@ class SearchResultPage extends React.Component{
                         <Tabs defaultActiveKey="1">
                             <TabPane tab={<><AppstoreOutlined/>卡片</>} key="1">
                                 <BookOperation
-                                    searchKeyName={this.state.searchContent}
-                                    searchTarget = {this.state.searchWay}
+                                    searchKeyName={this.keyword}
+                                    searchTarget={this.searchby}
                                     requestType = "BookCard"
                                 />
 
                                 {/*<BookCard bookID="1"/>*/}
 
-                                <div className="PageSelector">
-                                    <Pagination showSizeChanger defaultCurrent={1} total={50} />
-                                </div>
                             </TabPane>
                             <TabPane tab={<><BarsOutlined/>列表</>} key="2">
                                 <BookOperation
-                                    searchKeyName={this.state.searchContent}
-                                    searchTarget={this.state.searchWay}
+                                    searchKeyName={this.keyword}
+                                    searchTarget={this.searchby}
                                     requestType="BookRow"
                                 />
                             </TabPane>

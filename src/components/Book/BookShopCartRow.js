@@ -6,6 +6,7 @@ import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import BookOperation from "./BookOperation";
 import BookPriceDisplay from "./BookPriceDisplay";
 import {getBookByID} from "../../service/bookservice";
+import {refreshShopCartItem} from "../../service/orderService";
 
 
 class BookShopCartRow extends React.Component{
@@ -63,7 +64,10 @@ class BookShopCartRow extends React.Component{
             allBookPrice: tmpsum,
         });
 
-
+        refreshShopCartItem(ID,e,
+            (data)=>{
+                console.log(data);
+            });
     }
 
     render() {

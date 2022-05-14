@@ -39,7 +39,6 @@ class BookRow extends React.Component{
 
     }
 
-
     render() {
         let ID = parseInt(this.props.bookID);
         if(ID != null)

@@ -21,6 +21,7 @@ import React from "react";
 
 import BookCard from "./BookCard";
 import BookRow from "./BookRow";
+import {Pagination} from "antd";
 
 export const AllBooks =[
     {id:'0',bookID:0,bookTitle:"",bookPrice:"",bookPlace:"", bookShoper: "",bookISBN:"",bookSellnum:"",bookremainNum:""},
@@ -133,19 +134,57 @@ export const AllBooks =[
 
 
 class BookOperation extends React.Component{
-    constructor() {
-        super();
-        this.props = {
-            // searchKeyName: "",
-            // searchTarget: "",
-            // requestType: "",
+    constructor(props) {
+        super(props);
+        this.state = {
+            displayItem: [],
         };
+
+        if(this.props.searchKeyName != null)
+        {
+            switch (this.props.searchTarget) {
+                case 0:
+                    this.findBookGlobal(this.props.searchKeyName);
+                    break;
+                case 1:
+                    this.findBookByName(this.props.searchKeyName)
+                    break;
+                case 2:
+                    this.findBookByShoper(this.props.searchKeyName)
+                    break;
+                case 3:
+                    this.findBookByPublisher(this.props.searchKeyName);
+                    break;
+                case 4:
+                    this.findBookByAuthor(this.props.searchKeyName);
+                    break;
+                default:
+                    break;
+            }
+
+            if(this.props.requestType === "BookCard"){
+                for (let i=0; i<Math.min(12,this.resultID[i]); i++)
+                {
+                    this.state.displayItem.push(<BookCard bookID={this.resultID[i].toString()}/>);
+                }
+            }
+
+            if(this.props.requestType === "BookRow"){
+                for (let j=0; j<Math.min(12,this.resultID[j]); j++)
+                {
+                    this.state.displayItem.push(<BookRow bookID={this.resultID[j].toString()}/>);
+                }
+            }
+        }
+        this.pageChange = this.pageChange.bind(this);
     }
 
-    findBookGlobal(KeyName){
-        let result = [];
-        let i = 1;
+    resultID=[];
+    resultBook=[];
 
+    findBookGlobal(KeyName){
+
+        let i = 1;
         for (i=1;i<AllBooks.length;i++)
         {
             if(
@@ -155,14 +194,12 @@ class BookOperation extends React.Component{
                 AllBooks[i].bookAuthor.indexOf(KeyName)>=0
             )
             {
-                result.push(i);
+                this.resultID.push(i);
             }
         }
-        return result;
     }
 
     findBookByName(bookKeyName){
-
         let result = [];
         let i = 1;
 
@@ -170,111 +207,98 @@ class BookOperation extends React.Component{
         {
             if(AllBooks[i].bookTitle.indexOf(bookKeyName)>=0)
             {
-                result.push(i);
+                this.resultID.push(i);
             }
         }
         return result;
     }
 
     findBookByShoper(shoperKeyName){
-
-        let result = [];
         let i = 1;
 
         for (i=1;i<AllBooks.length;i++)
         {
             if(AllBooks[i].bookShoper.indexOf(shoperKeyName)>=0)
             {
-                result.push(i);
+                this.resultID.push(i);
             }
         }
-        return result;
     }
 
     findBookByPublisher(publisherKeyName){
-        let result = [];
         let i = 1;
 
         for (i=1;i<AllBooks.length;i++)
         {
             if(AllBooks[i].bookPublisher.indexOf(publisherKeyName)>=0)
             {
-                result.push(i);
+                this.resultID.push(i);
             }
         }
-        return result;
     }
 
     findBookByAuthor(authorKeyName){
-        let result = [];
         let i = 1;
-
         for (i=1;i<AllBooks.length;i++)
         {
             if(AllBooks[i].bookAuthor.indexOf(authorKeyName)>=0)
             {
-                result.push(i);
+                this.resultID.push(i);
             }
         }
-        return result;
+    }
+
+    componentWillMount() {
+
     }
 
     componentDidMount() {
-
+        this.render();
     }
 
 
-    render() {
+    obj = [];
 
-        let resultID=[];
-        let resultBook=[];
-        if(this.props.searchKeyName != null)
-        {
-            switch (this.props.searchTarget) {
-                case 0:
-                    resultID=this.findBookGlobal(this.props.searchKeyName);
-                    break;
-                case 1:
-                    resultID=this.findBookByName(this.props.searchKeyName)
-                    break;
-                case 2:
-                    resultID=this.findBookByShoper(this.props.searchKeyName)
-                    break;
-                case 3:
-                    resultID=this.findBookByPublisher(this.props.searchKeyName);
-                    break;
-                case 4:
-                    resultID=this.findBookByAuthor(this.props.searchKeyName);
-                    break;
-                default:
-                    break;
+    pageChange(pageNumber){
+
+        // this.state.displayItem = [];
+        this.obj = [];
+
+        // alert(pageNumber);
+        let start = (pageNumber-1) * 12;
+        let end= Math.min(pageNumber * 12,this.resultID.length);
+
+        if(this.props.requestType === "BookRow"){
+            for(let i=start; i<end; i++){
+                this.obj.push(<BookRow bookID={this.resultID[i].toString()}/>);
             }
-
-            if(this.props.requestType === "BookCard"){
-                let i=0;
-                for (i=0;i<resultID.length;i++)
-                {
-                    resultBook.push(<BookCard bookID={resultID[i].toString()}/>)
-                }
-            }
-
-            if(this.props.requestType === "BookRow"){
-                let j=0;
-                for (j=0;j<resultID.length;j++)
-                {
-                    resultBook.push(<BookRow bookID={resultID[j].toString()}/>)
-                }
-            }
-
-            return(
-                <>{resultBook}</>
-            );
         }
 
-        else
-            return(
-                <></>
-            );
+        if(this.props.requestType === "BookCard"){
+            for(let i=start; i<end; i++){
+                this.obj.push(<BookCard bookID={this.resultID[i].toString()}/>);
+            }
+        }
+
+        this.setState({
+            displayItem : this.obj,
+        });
+    }
+
+    render() {
+
+        return(
+            <>
+                {this.state.displayItem}
+                <div className="PageSelector">
+                    <Pagination
+                        defaultCurrent={1}
+                        total={this.resultID.length}
+                        onChange={this.pageChange}
+                    />
+                </div>
+            </>
+        );
     }
 
 }

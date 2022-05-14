@@ -105,7 +105,7 @@ class SingleOrderComfirm extends React.Component{
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         reminderInfoCheck('warning');
     }
 

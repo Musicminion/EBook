@@ -18,6 +18,8 @@ import OrderPay from "./view/Order/OrderPay";
 import myCart from "./view/iEbook/myCart";
 import ShopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
 import shopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
+import purchaseSuccess from "./view/result/purchaseSuccess";
+import errorPage from "./view/result/errorPage";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -51,11 +53,16 @@ class App extends React.Component{
                         <Route exact path="/login/about" component={LoginPageAbout}/>
                         <Route exact path="/LoginPageBase" component={LoginPageBase}/>
 
+                        <Route exact path="/eBook/purchaseSuccess" component={purchaseSuccess}/>
+                        <Route exact path="/eBook/errorPage" component={errorPage}/>
+                        {/*errorPage*/}
+
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
                         <PrivateRoute exact path="/eBook/singelOrderComfirm" component={SingleOrderComfirm}/>
                         <PrivateRoute exact path="/eBook/shopCartOrderComfirm" component={shopCartOrderComfirm}/>
                         <PrivateRoute exact path="/eBook/order/" component={OrderPay}/>
                         <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
+
 
                         {/*<PrivateRoute exact path="/" component={HomeView} />*/}
                         <Redirect from="/*" to="/eBook/MainPage" />

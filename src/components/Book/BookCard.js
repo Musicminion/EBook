@@ -9,27 +9,15 @@ import {AllBooks} from "./tmpBookData";
 import {getBookByID} from "../../service/bookservice";
 
 
-
-
 class BookCard extends React.Component{
     constructor(props) {
-        super();
-        this.props = {
-            bookID : "0",
+        super(props);
+        this.state = {
+            bookID : this.props.bookID
         }
-    }
 
-    state = {
-        loading: true,
-    };
-
-    onChange = checked => {
-        this.setState({ loading: !checked });
-    };
-
-    componentDidMount() {
-        let that = this;
         let id = parseInt(this.props.bookID);
+        let that = this;
         if(id > 0){
             getBookByID(id, (data) => {
                 console.log(data);
@@ -51,31 +39,25 @@ class BookCard extends React.Component{
     }
 
     render() {
-        const { loading } = this.state;
         let ID = parseInt(this.props.bookID);
-
-        return (
-            <>
-                <Switch checked={!loading} onChange={this.onChange} />
-
-                <Link to={'bookdetail?bookid='+ID}>
-                    <Card className="BookCard">
+        if(ID != null)
+            return (
+                <Card className="BookCard">
+                    <Link to={'bookdetail?bookid='+ID}>
                         <Image className="BookCard_Image" src={require('../../asset/img/book/'+ ID +'.jpg')}/>
-                        <p className="BookCard_bookPrice">{"￥" + this.state.bookPrice}</p>
+                        <p className="BookCard_bookPrice">{"￥" +this.state.bookPrice}</p>
                         <div className="BookCard_TitleArea">
-                            <p className="BookCard_TitleHref">{this.state.bookTitle}</p>
+                            <p className="BookCard_TitleHref">{AllBooks[ID].bookTitle}</p>
                         </div>
                         <div>
                             <p className="BookCard_Shoper"><UnorderedListOutlined/>&nbsp;{this.state.bookPublisher}</p>
                             <p className="BookCard_Place"><EnvironmentOutlined/>&nbsp;{this.state.bookPlace}</p>
                         </div>
-                    </Card>
-                </Link>
-
-            </>
-
-
-        );
+                    </Link>
+                </Card>
+            );
+        else
+            return (<></>);
     }
 }
 

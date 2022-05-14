@@ -31,7 +31,6 @@ let addOneBookToShopCart = (bookID,buyNum,callBack) => {
 
 export {addOneBookToShopCart}
 
-
 let refreshShopCartItem = (bookID,newbuynum,callBack) => {
     const url = apiURL + "/order/refreshShopCartItem";
     let user = loginPassport.getUserName();
@@ -47,3 +46,34 @@ let refreshShopCartItem = (bookID,newbuynum,callBack) => {
 
 
 export {refreshShopCartItem};
+
+
+let orderMakeFromShopCart = (bookIDGroup, bookNumGroup,orderInfo,callBack) => {
+
+    let user = loginPassport.getUserName();
+    let url = apiURL + "/order/makeorder/shopcart";
+
+    let obj = {
+        orderFrom : "ShopCart",
+        username: user,
+        receivename: orderInfo.receivename,
+        postcode:orderInfo.postcode,
+        phonenumber:orderInfo.phonenumber,
+        receiveaddress:orderInfo.receiveaddress,
+    };
+
+    for(let i=1; i<bookIDGroup.length; i++){
+        let objkey = "bookIDGroup" + i;
+        let objvalue = bookIDGroup[i].toString();
+        obj[objkey] = objvalue;
+    }
+
+    for(let i=1; i<bookNumGroup.length; i++){
+        let objkey = "bookNumGroup" + i;
+        let objvalue = bookNumGroup[i].toString();
+        obj[objkey] = objvalue;
+    }
+
+    postRequest(url,obj,callBack);
+}
+export {orderMakeFromShopCart}

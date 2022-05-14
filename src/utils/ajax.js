@@ -2,6 +2,8 @@ import LoginPassport from "../components/Login/LoginPassport";
 
 
 let postRequest = (url, json, callback) => {
+    console.log(json);
+
     let opts = {
         method: "POST",
         body: JSON.stringify(json),

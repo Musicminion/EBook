@@ -16,6 +16,8 @@ import {urlDecoder} from "../../utils/urlDecoder";
 import {paste} from "@testing-library/user-event/dist/paste";
 import {parse} from "config/parser";
 import {getBookByID} from "../../service/bookservice";
+import MakeOrderModal from "./MakeOrderModal";
+import BookShopCartRow from "../../components/Book/BookShopCartRow";
 
 
 
@@ -93,19 +95,25 @@ class ShopCartOrderComfirm extends React.Component{
             // 儿子组件的编号可以用来和父亲组件通讯，这样，父亲组件就能知道子的编号，写入到对应的价格状态
 
             this.orderItem.push(
-                <BookOrderRow
+                <BookShopCartRow
                     parent={this}
                     bookID={bookid}
                     buynum={bookidbuynum}
                     pageItemID={i}
                 />
+                // <BookOrderRow
+                //     parent={this}
+                //     bookID={bookid}
+                //     buynum={bookidbuynum}
+                //     pageItemID={i}
+                // />
             );
             this.bookID[i] = bookid;
             this.bookNum[i] = bookidbuynum;
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         reminderInfoCheck('warning');
     }
 
@@ -201,7 +209,11 @@ class ShopCartOrderComfirm extends React.Component{
 
                                 </Col>
                                 <Col span={3}>
-                                    <Button className="bookDetailAddToChart" onClick={this.buyimmediately}>立即购买</Button>
+                                    <MakeOrderModal
+                                        bookIDGroup={this.bookID}
+                                        bookNumGroup={this.bookNum}
+                                        parentNode={this}
+                                    />
                                 </Col>
                             </Row>
 

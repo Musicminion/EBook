@@ -49,7 +49,7 @@ class TopBar extends React.Component {
 
 
 
-    componentDidMount() {
+    componentWillMount() {
         let userPrivilege = loginPassport.getPrivilege();
         if(userPrivilege!=null)
         {

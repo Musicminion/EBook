@@ -6,7 +6,7 @@ import LoginPage from "./LoginPage";
 import loginPassport from "../components/Login/LoginPassport";
 
 class BookTablePage extends React.Component{
-    componentDidMount() {
+    componentWillMount() {
         if(loginPassport.getPrivilege() > 0)
         {
             window.location.href="/login";

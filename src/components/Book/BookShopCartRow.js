@@ -56,8 +56,12 @@ class BookShopCartRow extends React.Component{
 
         let tmpsum = 0;
 
-        for(let i=1;i<this.props.parent.bookNum.length;i++){
-            tmpsum += this.props.parent.bookPrice[i] * this.props.parent.bookNum[i];
+
+        // console.log(this.props.parent.bookNum);
+
+        for(let i=0;i<this.props.parent.bookNum.length;i++){
+            if(this.props.parent.bookPrice[i] != null)
+                tmpsum += this.props.parent.bookPrice[i] * this.props.parent.bookNum[i];
         }
 
         this.props.parent.setState({

@@ -18,6 +18,7 @@ import {parse} from "config/parser";
 import {getBookByID} from "../../service/bookservice";
 import MakeOrderModal from "./MakeOrderModal";
 import BookShopCartRow from "../../components/Book/BookShopCartRow";
+import BookShopCartHead from "../../components/Book/BookShopCartHead";
 
 
 
@@ -129,10 +130,6 @@ class ShopCartOrderComfirm extends React.Component{
     }
 
 
-    buyimmediately(){
-
-    }
-
     render() {
         console.log(this.bookPrice);
 
@@ -184,7 +181,7 @@ class ShopCartOrderComfirm extends React.Component{
 
                             <Tabs defaultActiveKey="1">
                                 <TabPane tab={<><AppstoreOutlined/>确认订单信息</>} key="1">
-                                    <BookRowHeader/>
+                                    <BookShopCartHead/>
 
                                     <>{this.orderItem}</>
                                 </TabPane>

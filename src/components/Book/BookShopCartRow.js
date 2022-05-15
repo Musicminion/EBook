@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Divider, Image, InputNumber, Row} from "antd";
+import {Button, Col, Divider, Image, InputNumber, Row} from "antd";
 import {Link} from "react-router-dom";
 import {AllBooks} from "./tmpBookData";
 import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
@@ -41,7 +41,15 @@ class BookShopCartRow extends React.Component{
                     itemPrice:data.price * (this.props.buynum),
                 });
             });
+
+            if(this.props.buynum != null){
+                refreshShopCartItem(id,this.props.buynum,
+                    (data)=>{
+                        console.log(data);
+                    });
+            }
         }
+        this.deleteItem = this.deleteItem.bind(this);
     }
 
     componentDidMount() {
@@ -73,6 +81,16 @@ class BookShopCartRow extends React.Component{
                 console.log(data);
             });
     }
+
+    deleteItem(){
+        // alert(this.props.bookID);
+        refreshShopCartItem(this.props.bookID,0,
+            (data)=>{
+                console.log(data);
+                window.location.reload();
+            });
+    }
+
 
     render() {
         let ID = parseInt(this.props.bookID);
@@ -116,8 +134,11 @@ class BookShopCartRow extends React.Component{
                                 <Col span={7}>
                                     <p className="payComfirmPriceAll">￥{this.state.itemPrice.toFixed(2)}</p>
                                 </Col>
-                                <Col span={10}>
-                                    <p>无操作可用</p>
+                                <Col span={2}>
+
+                                </Col>
+                                <Col span={8}>
+                                    <Button danger onClick={this.deleteItem}>删除</Button>
                                 </Col>
                             </Row>
 

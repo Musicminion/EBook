@@ -1,7 +1,7 @@
 import React from "react";
-import '../css/login.css'
-import LoginStaticBackground from "../components/Login/LoginStaticBackground";
-import Hellologin from "../asset/img/login/hello.png";
+import '../../css/login.css'
+import LoginStaticBackground from "../../components/Login/LoginStaticBackground";
+import Hellologin from "../../asset/img/login/hello.png";
 
 class LoginPageBase extends React.Component{
 

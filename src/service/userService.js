@@ -54,3 +54,10 @@ export const userInfoRequest = (callBack) => {
 
     postRequest(url, obj, callBack);
 }
+
+
+export const userRegister = (registerInfo, callBack) => {
+    const url = apiURL + "/register";
+
+    postRequest(url, registerInfo, callBack);
+}

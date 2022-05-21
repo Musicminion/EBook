@@ -2,7 +2,7 @@ import React from "react";
 import TopBar from "../components/TopBar/TopBar";
 import BookTable from '../components/Book/BookTable.tsx';
 import {history} from "../components/PublicHistory";
-import LoginPage from "./LoginPage";
+import LoginPage from "./login/LoginPage";
 import loginPassport from "../components/Login/LoginPassport";
 
 class BookTablePage extends React.Component{

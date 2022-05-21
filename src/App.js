@@ -1,14 +1,14 @@
 import React from "react";
-import LoginPage from "./view/LoginPage";
+import LoginPage from "./view/login/LoginPage";
 import MainPage from "./view/MainPage";
 
-import LoginPageAbout from "./view/LoginPageAbout";
-import LoginShopRegisterPage from "./components/Login/LoginCompPageShopRegister";
-import LoginPageFeedBack from "./view/LoginPageFeedBack";
+import LoginPageAbout from "./view/login/LoginPageAbout";
+import LoginShopRegisterPage from "./components/Login/ShopRegister";
+import LoginPageFeedBack from "./view/login/LoginPageFeedBack";
 import BookDetailPage from "./view/BookDetailPage";
 import SearchResultPage from "./view/SearchResultPage";
 import BookTablePage from "./view/BookTablePage";
-import LoginPageBase from "./view/LoginPageBase";
+import LoginPageBase from "./view/login/LoginPageBase";
 
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import {history} from "./components/PublicHistory";

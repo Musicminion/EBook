@@ -1,6 +1,6 @@
 import LoginPassport from "../components/Login/LoginPassport";
 
-
+// post请求需要传入json对象
 let postRequest = (url, json, callback) => {
     console.log(json);
 
@@ -27,6 +27,7 @@ let postRequest = (url, json, callback) => {
 
 export {postRequest};
 
+// 特别提醒，写get请求的时候请把url写完整
 let getRequest = (url,callback) => {
     fetch(url,{
         method: 'GET',

@@ -1,9 +1,9 @@
 import React from 'react';
-import LoginStaticBackground from "../components/Login/LoginStaticBackground";
-import '../css/login.css'
-import '../css/login_childPage.css'
-import '../css/Common.css'
-import Hellologin from "../asset/img/login/hello.png";
+import LoginStaticBackground from "../../components/Login/LoginStaticBackground";
+import '../../css/login.css'
+import '../../css/login_childPage.css'
+import '../../css/Common.css'
+import Hellologin from "../../asset/img/login/hello.png";
 import {Input} from "antd";
 import TextArea from "antd/es/input/TextArea";
 

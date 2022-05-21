@@ -1,9 +1,9 @@
 import React from 'react';
-import LoginStaticBackground from "../components/Login/LoginStaticBackground";
-import '../css/login.css'
-import '../css/login_childPage.css'
-import '../css/Common.css'
-import Hellologin from "../asset/img/login/hello.png";
+import LoginStaticBackground from "../../components/Login/LoginStaticBackground";
+import '../../css/login.css'
+import '../../css/login_childPage.css'
+import '../../css/Common.css'
+import Hellologin from "../../asset/img/login/hello.png";
 
 
 class LoginPageAbout extends React.Component{
@@ -29,13 +29,13 @@ class LoginPageAbout extends React.Component{
                         感谢<a href="https://www.w3school.com.cn">W3School网站</a>，为网页搭建的学习提供了Html、CSS、JavaScript的技术教程！
                     </li>
                     <li>
-                        感谢<a href="https://zh-hans.reactjs.org/">React</a>框架的所有Contributor，提供了完整的中文开发技术文档！
+                        感谢<a href="src/view/login/LoginPageAbout">React</a>框架的所有Contributor，提供了完整的中文开发技术文档！
                     </li>
                     <li>
                         感谢<a href="https://ant.design/index-cn">©Ant Design</a>，为网页的图形界面优化、部分动画效果、部分图标素材提供了强大的支持！
                     </li>
                     <li>
-                        感谢<a href="https://www.apple.com/">©Apple苹果公司</a>、©socialmarketings广告达人公司，为登录界面的Hello的Logo提供了素材来源！
+                        感谢<a href="src/view/login/LoginPageAbout">©Apple苹果公司</a>、©socialmarketings广告达人公司，为登录界面的Hello的Logo提供了素材来源！
                     </li>
 
                     <li>

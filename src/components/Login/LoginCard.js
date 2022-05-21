@@ -1,6 +1,6 @@
 import React from "react";
 import {message, Button, Space, Input, Form, Checkbox, Row, Col} from 'antd';
-import {UserRegister} from "./UserRegister";
+import UserRegister from "./UserRegister";
 import LoginPassport from "./LoginPassport";
 import {history} from "../PublicHistory";
 import {Icon} from "@fluentui/react";
@@ -19,6 +19,7 @@ const MesgloginFail = (errinfo) => {
 
 
 class LoginCard extends React.Component{
+
     constructor(props) {
         super(props);
         this.state = {
@@ -48,7 +49,7 @@ class LoginCard extends React.Component{
             let formInfo = {
                 username : this.state.loginUserName,
                 password : this.state.loginPassword,
-            }
+            };
 
             console.log(formInfo);
             LoginPassport.login(formInfo,
@@ -76,7 +77,6 @@ class LoginCard extends React.Component{
     //         }
     //     });
     // };
-
 
     render() {
         return (

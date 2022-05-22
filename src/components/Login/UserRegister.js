@@ -1,6 +1,8 @@
 
 import React, {useEffect, useRef, useState} from 'react';
 import {Modal, Button, Form, Input, Checkbox} from 'antd';
+import {checkUserExit, userRegister} from "../../service/userService";
+import {postRequestReturnCallback} from "../../utils/ajax";
 
 const layout = {
     labelCol: {
@@ -38,16 +40,18 @@ const tailFormItemLayout = {
 
 class UserRegister extends React.Component{
 
-    state = {
-        visible: false,
-        usernameValidate: ""
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            visible: false,
+            usernameValidate: "",
+            usernameHelp: "",
+        };
+    }
 
     onFinish = (values: any) => {
         console.log(values);
         // Register 借口从这里开始写
-
-
     };
 
     showModal = () => {
@@ -65,6 +69,25 @@ class UserRegister extends React.Component{
     handleCancel = () => {
         this.setState({ visible: false });
     };
+
+    usernameVerify = (data) => {
+        if(data.target.value.length >= 6){
+            this.setState({usernameValidate:"validating"});
+
+            checkUserExit(data.target.value, (resp) => {
+                console.log(resp);
+                if(resp.status >=0){
+                    this.setState({usernameValidate:"success",usernameHelp: "恭喜！用户名可用，赶紧注册吧~"});
+                }
+                else {
+                    this.setState({usernameValidate:"error",usernameHelp: "用户名重复啦，请重新选择"});
+                }
+                //
+            });
+        }
+        else
+            this.setState({usernameValidate:"error",usernameHelp: "用户名需要六位以上才可以！"});
+    }
 
 
     render() {
@@ -85,15 +108,23 @@ class UserRegister extends React.Component{
                     footer={null}
                 >
                     <Form {...layout} name="" onFinish={this.onFinish} validateMessages={validateMessages}>
-                        <Form.Item name="username" label="用户名" validateStatus={this.state.usernameValidate} hasFeedback
-                                   rules={[{ required: true,},
+
+                        {/*<Form.Item label="用户名" hasFeedback validateStatus={this.state.usernameValidate}*/}
+                        {/*    help={this.state.usernameHelp} rules={[{ required: true}]}*/}
+                        {/*>*/}
+                        {/*    <Input/>*/}
+                        {/*</Form.Item>*/}
+
+                        <Form.Item
+                            hasFeedback name="username" label="用户名" validateMessages={validateMessages}
+                            validateStatus={this.state.usernameValidate} help={this.state.usernameHelp} rules={[{ required: true,},
                             ({ getFieldValue }) => ({
                                 validator(_, value) {
                                     if (value) {
                                         if(value.length <= 5)
                                             return Promise.reject(new Error('用户名长度至少6位，请重新输入'));
                                         else{
-                                            return Promise.resolve();
+                                            return ;
                                         }
                                     }
                                     return Promise.reject(new Error('请输入长度六位以上的用户名'));
@@ -101,7 +132,7 @@ class UserRegister extends React.Component{
                             }),
                         ]}
                         >
-                            <Input />
+                            <Input onChange={this.usernameVerify} />
                         </Form.Item>
 
                         <Form.Item

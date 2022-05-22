@@ -17,7 +17,6 @@ const MesgloginFail = (errinfo) => {
     message.error(errinfo)
 }
 
-
 class LoginCard extends React.Component{
 
     constructor(props) {

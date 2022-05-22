@@ -50,7 +50,6 @@ class ShopCartOrderComfirm extends React.Component{
         let that = this;
         // 请求用户的信息接口：
         userInfoRequest((respdata) => {
-            console.log(respdata);
 
             setTimeout(()=>{
                 that.setState({
@@ -86,7 +85,8 @@ class ShopCartOrderComfirm extends React.Component{
             let bookidbuynum = parseInt(theRequest[bookidbuynumstr]);
 
             getBookByID(bookid,(data)=>{
-                this.bookPrice[i] = data.price.toFixed(2);
+                let actualPrice = parseInt(data.price) / 100;
+                this.bookPrice[i] = actualPrice.toFixed(2);
                 this.setState({
                     allBookPrice: this.state.allBookPrice +  bookidbuynum * this.bookPrice[i],
                 });
@@ -102,12 +102,6 @@ class ShopCartOrderComfirm extends React.Component{
                     buynum={bookidbuynum}
                     pageItemID={i}
                 />
-                // <BookOrderRow
-                //     parent={this}
-                //     bookID={bookid}
-                //     buynum={bookidbuynum}
-                //     pageItemID={i}
-                // />
             );
             this.bookID[i] = bookid;
             this.bookNum[i] = bookidbuynum;
@@ -126,12 +120,10 @@ class ShopCartOrderComfirm extends React.Component{
             postcode: postcode,
             receiveaddress: receiveaddress,
         });
-        console.log(this.bookID);
     }
 
 
     render() {
-        console.log(this.bookPrice);
 
         if(this.state.allBookPrice != null)
             return (

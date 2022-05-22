@@ -1,13 +1,9 @@
 import React from "react";
 import {Button, Col, Divider, Image, InputNumber, Row} from "antd";
-import {Link} from "react-router-dom";
-import {AllBooks} from "./tmpBookData";
 import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
-import BookOperation from "./BookOperation";
-import BookPriceDisplay from "./BookPriceDisplay";
+import {Link} from "react-router-dom";
 import {getBookByID} from "../../service/bookservice";
 import {refreshShopCartItem} from "../../service/orderService";
-
 
 class BookShopCartRow extends React.Component{
     constructor(props) {
@@ -25,7 +21,7 @@ class BookShopCartRow extends React.Component{
 
         if(id > 0){
             getBookByID(id, (data) => {
-                console.log(data);
+                let actualPrice = parseInt(data.price) / 100;
                 // alert(data.price);
                 that.setState({
                     bookTitle: data.displaytitle,
@@ -35,10 +31,10 @@ class BookShopCartRow extends React.Component{
                     bookPublisher: data.publisher,
                     bookPlace: data.departure,
                     bookSellnum: data.sellnumber,
-                    bookPrice: data.price.toFixed(2),
+                    bookPrice: actualPrice.toFixed(2),
                     bookISBN: data.isbn,
                     bookDescription: data.description,
-                    itemPrice:data.price * (this.props.buynum),
+                    itemPrice: actualPrice * (this.props.buynum),
                 });
             });
 
@@ -64,8 +60,6 @@ class BookShopCartRow extends React.Component{
 
         let tmpsum = 0;
 
-
-        // console.log(this.props.parent.bookNum);
 
         for(let i=0;i<this.props.parent.bookNum.length;i++){
             if(this.props.parent.bookPrice[i] != null)

@@ -37,7 +37,8 @@ class myCart extends React.Component{
                     this.bookNum[i] = resp[i].buynum;
                     this.bookID[i] = resp[i].bookID;
                     getBookByID(resp[i].bookID,(data)=>{
-                        this.bookPrice[i] = data.price.toFixed(2);
+                        let actualPrice = parseInt(data.price) / 100;
+                        this.bookPrice[i] = actualPrice.toFixed(2);
                         this.setState({
                             allBookPrice: this.state.allBookPrice +  this.bookNum[i] * this.bookPrice[i],
                         });

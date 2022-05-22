@@ -77,7 +77,9 @@ class BookDetailPage extends React.Component{
             let BookIDnum = parseInt(theRequest['bookid']);
             let that = this;
             getBookByID(BookIDnum,(data) => {
-                    console.log(data);
+                    /// console.log(data);
+                    let actualPrice = parseInt(data.price) / 100;
+
                     that.setState({
                         bookID: BookIDnum,
                         bookTitle: data.displaytitle,
@@ -87,10 +89,10 @@ class BookDetailPage extends React.Component{
                         bookPublisher: data.publisher,
                         bookPlace: data.departure,
                         bookSellnum: data.sellnumber,
-                        bookPrice: data.price,
+                        bookPrice: actualPrice,
                         bookISBN: data.isbn,
                         bookDescription: data.description,
-                        allPrice:data.price,
+                        allPrice: actualPrice,
                     });
                 }
                 );

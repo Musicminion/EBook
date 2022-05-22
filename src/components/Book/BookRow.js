@@ -20,7 +20,9 @@ class BookRow extends React.Component{
         let that = this;
         if(id > 0){
             getBookByID(id, (data) => {
-                console.log(data);
+
+                let actualPrice = parseInt(data.price) / 100;
+
                 that.setState({
                     bookTitle: data.displaytitle,
                     bookName:  data.bookname,
@@ -29,7 +31,7 @@ class BookRow extends React.Component{
                     bookPublisher: data.publisher,
                     bookPlace: data.departure,
                     bookSellnum: data.sellnumber,
-                    bookPrice: data.price.toFixed(2),
+                    bookPrice: actualPrice.toFixed(2),
                     bookISBN: data.isbn,
                     bookDescription: data.description,
                     allPrice:data.price,

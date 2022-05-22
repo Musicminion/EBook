@@ -20,6 +20,8 @@ import ShopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
 import shopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
 import purchaseSuccess from "./view/result/purchaseSuccess";
 import errorPage from "./view/result/errorPage";
+import AdminRoute from "./route/AdminRoute";
+import userManage from "./view/admin/userManage";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -62,6 +64,9 @@ class App extends React.Component{
                         <PrivateRoute exact path="/eBook/shopCartOrderComfirm" component={shopCartOrderComfirm}/>
                         <PrivateRoute exact path="/eBook/order/" component={OrderPay}/>
                         <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
+
+                        {/* ---------  下面的部分是管理员路由  带有权限鉴定 --------------- */}
+                        <AdminRoute exact path="/eBook/admin/userManage" component={userManage}/>
 
 
                         {/*<PrivateRoute exact path="/" component={HomeView} />*/}

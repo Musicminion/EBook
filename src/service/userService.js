@@ -1,5 +1,5 @@
 import {apiURL} from "../config/URLconfig";
-import {postRequest} from "../utils/ajax";
+import {postRequest, postRequestReturnCallback} from "../utils/ajax";
 import {message} from "antd";
 import LoginPassport from "../components/Login/LoginPassport";
 import loginPassport from "../components/Login/LoginPassport";
@@ -60,4 +60,14 @@ export const userRegister = (registerInfo, callBack) => {
     const url = apiURL + "/register";
 
     postRequest(url, registerInfo, callBack);
+}
+
+
+export const checkUserExit = (username,callBack) => {
+    const url = apiURL + "/user/checkUserExit";
+    let usernameInfo = {
+        username: username,
+    };
+
+    postRequest(url,usernameInfo, callBack);
 }

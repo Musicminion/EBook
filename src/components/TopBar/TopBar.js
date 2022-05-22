@@ -16,20 +16,7 @@ import ShoperTopBar from "./shoperTopBar";
 import AdminTopBar from "./adminTopBar";
 import loginPassport from "../Login/LoginPassport";
 
-
-
 const { SubMenu } = Menu;
-
-function testClick1(){
-    const winId=window.open('about:blank');
-    winId.location.href="/ebook/booktable"
-}
-
-function testClick2(){
-    const winId=window.open('about:blank');
-    winId.location.href="/login/feedback"
-}
-
 
 class TopBar extends React.Component {
     constructor() {
@@ -46,7 +33,6 @@ class TopBar extends React.Component {
         console.log('click ', e);
         this.setState({ current: e.key });
     };
-
 
 
     componentWillMount() {

@@ -58,8 +58,6 @@ class SingleOrderComfirm extends React.Component{
             }, 0);
         });
 
-
-
         // 解析url的参数
         let url = decodeURI(window.location.search);
         let theRequest = urlDecoder(url);
@@ -83,7 +81,8 @@ class SingleOrderComfirm extends React.Component{
             let bookidbuynum = parseInt(theRequest[bookidbuynumstr]);
 
             getBookByID(bookid,(data)=>{
-                this.bookPrice[i] = data.price.toFixed(2);
+                let actualPrice = parseInt(data.price) / 100;
+                this.bookPrice[i] = actualPrice.toFixed(2);
                 this.setState({
                     allBookPrice: this.state.allBookPrice +  bookidbuynum * this.bookPrice[i],
                 });

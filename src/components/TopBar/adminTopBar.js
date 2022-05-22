@@ -2,6 +2,7 @@ import React from "react";
 import {Avatar, Badge, Menu} from "antd";
 import {Link} from "react-router-dom";
 import {
+    AppstoreOutlined,
     LineChartOutlined,
     SettingOutlined,
     ShoppingCartOutlined,
@@ -43,10 +44,23 @@ class adminTopBar extends React.Component{
                 <Menu.Item>
                     <Link to={{pathname:'/eBook'}}>eBook 管理后台</Link>
                 </Menu.Item>
+
+                <SubMenu key="iEBook" icon={<AppstoreOutlined/>} title="iEBook">
+                    <Menu.ItemGroup>
+                        <Menu.Item key="myCart" ><Link to={{pathname:'/eBook/myCart'}}>我的购物车</Link></Menu.Item>
+                        <Menu.Item key="myOrder" >我的订单</Menu.Item>
+                        {/*<Menu.Item key="myFavorites" >我的收藏夹</Menu.Item>*/}
+                        {/*<Menu.Item key="myFootPrint" >我的足迹</Menu.Item>*/}
+                        {/*<Menu.Item key="myComment" >我的评价</Menu.Item>*/}
+                    </Menu.ItemGroup>
+                </SubMenu>
+
                 <SubMenu key="account" icon={<SettingOutlined/>} title="全局系统管理">
                     <Menu.ItemGroup>
-                        <Menu.Item key="shoperManage">商家账户管理</Menu.Item>
-                        <Menu.Item key="userAccountManage">用户账户管理</Menu.Item>
+                        {/*<Menu.Item key="shoperManage">商家账户管理</Menu.Item>*/}
+                        <Menu.Item key="userAccountManage">
+                            <Link to={{pathname:'/eBook/admin/userManage'}}>用户账户管理</Link>
+                        </Menu.Item>
                         <Menu.Item key="adminAccount">管理员账户</Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>

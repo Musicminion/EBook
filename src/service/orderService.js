@@ -1,4 +1,4 @@
-import {apiURL} from "../config/URLconfig";
+import {apiURL} from "../config/BaseConfig";
 import loginPassport from "../components/Login/LoginPassport";
 import {postRequest} from "../utils/ajax";
 

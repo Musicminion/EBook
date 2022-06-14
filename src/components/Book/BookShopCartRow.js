@@ -35,6 +35,7 @@ class BookShopCartRow extends React.Component{
                     bookISBN: data.isbn,
                     bookDescription: data.description,
                     itemPrice: actualPrice * (this.props.buynum),
+                    imageUrl:data.imgtitle
                 });
             });
 
@@ -94,7 +95,7 @@ class BookShopCartRow extends React.Component{
                 <>
                     <Row>
                         <Col span={3}>
-                            <Image className="BookRow_Image" src={require('../../asset/img/book/'+ ID +'.jpg')}/>
+                            <Image className="BookRow_Image" src={this.state.imageUrl}/>
                         </Col>
                         <Col span={6}>
                             <Link

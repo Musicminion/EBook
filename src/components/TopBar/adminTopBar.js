@@ -64,9 +64,11 @@ class adminTopBar extends React.Component{
                         <Menu.Item key="adminAccount">管理员账户</Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>
-                <SubMenu key="shoppingCart" icon={<ShoppingOutlined />} title="全局商户管理">
+                <SubMenu key="shoppingCart" icon={<ShoppingOutlined />} title="全局商品管理">
                     <Menu.ItemGroup>
-                        <Menu.Item key="newGoods" >新品发布</Menu.Item>
+                        <Menu.Item key="newGoods" >
+                            <Link to={{pathname:'/eBook/admin/newBook'}}>新品发布</Link>
+                        </Menu.Item>
                         <Menu.Item key="manageGoods" >商品管理</Menu.Item>
                         <Menu.Item key="manageOrder" >订单管理</Menu.Item>
                         <Menu.Item key="goodsComment" >商品评价</Menu.Item>

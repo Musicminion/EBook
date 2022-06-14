@@ -21,7 +21,7 @@ class BookCard extends React.Component{
         if(id > 0){
             getBookByID(id, (data) => {
                 let actualPrice = parseInt(data.price) / 100;
-
+                // console.log(data);
                 that.setState({
                     bookTitle: data.displaytitle,
                     bookName:  data.bookname,
@@ -34,6 +34,7 @@ class BookCard extends React.Component{
                     bookISBN: data.isbn,
                     bookDescription: data.description,
                     allPrice:data.price,
+                    imageUrl:data.imgtitle
                 });
             });
 
@@ -46,7 +47,8 @@ class BookCard extends React.Component{
             return (
                 <Card className="BookCard">
                     <Link to={'bookdetail?bookid='+ID}>
-                        <Image className="BookCard_Image" src={require('../../asset/img/book/'+ ID +'.jpg')}/>
+                        {/*<Image className="BookCard_Image" src={require('../../asset/img/book/'+ ID +'.jpg')}/>*/}
+                        <Image className="BookCard_Image" src={this.state.imageUrl}/>
                         <p className="BookCard_bookPrice">{"￥" +this.state.bookPrice}</p>
                         <div className="BookCard_TitleArea">
                             <p className="BookCard_TitleHref">{AllBooks[ID].bookTitle}</p>

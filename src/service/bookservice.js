@@ -1,7 +1,7 @@
 
 // 获取单个书的信息 返回一个json对象 这个对象包含书本相关的信息
 
-import {apiURL} from "../config/URLconfig";
+import {apiURL} from "../config/BaseConfig";
 import {getRequest} from "../utils/ajax";
 
 let getBookByID = (ID , callback) => {

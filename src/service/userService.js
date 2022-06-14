@@ -1,4 +1,4 @@
-import {apiURL} from "../config/URLconfig";
+import {apiURL} from "../config/BaseConfig";
 import {postRequest, postRequestReturnCallback} from "../utils/ajax";
 import {message} from "antd";
 import LoginPassport from "../components/Login/LoginPassport";

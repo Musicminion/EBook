@@ -8,6 +8,7 @@ import Base64  from 'base-64';
 import "../../utils/tools/crypto1/crypto/crypto.js";
 import "../../utils/tools/crypto1/hmac/hmac.js";
 import "../../utils/tools/crypto1/sha1/sha1.js";
+import {picKey} from "../../config/BaseConfig";
 
 const { TabPane } = Tabs;
 
@@ -27,8 +28,7 @@ const AliyunOSSUpload = ({ value, onChange }) => {
     });
 
     let getSignature = () => {
-        let bytes =   Crypto.HMAC(Crypto.SHA1,PolicyData, "SYJyEWPLOAmQ0rYVgKW5gUMFkCciO0",
-            { asBytes: true });
+        let bytes =   Crypto.HMAC(Crypto.SHA1,PolicyData, picKey, { asBytes: true });
         return Crypto.util.bytesToBase64(bytes);
     };
 

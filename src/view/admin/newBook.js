@@ -8,7 +8,7 @@ import Base64  from 'base-64';
 import "../../utils/tools/crypto1/crypto/crypto.js";
 import "../../utils/tools/crypto1/hmac/hmac.js";
 import "../../utils/tools/crypto1/sha1/sha1.js";
-import {picKey} from "../../config/BaseConfig";
+import {accessId, picKey} from "../../config/BaseConfig";
 
 const { TabPane } = Tabs;
 
@@ -22,7 +22,7 @@ const AliyunOSSUpload = ({ value, onChange }) => {
         dir: 'image/',
         // expire: '1577811661',
         host: 'https://ebookpicture.oss-cn-hangzhou.aliyuncs.com',
-        accessId: 'LTAI5tKjUVSoEdD7FjWGFVEh',
+        accessId: accessId,
         policy: getPolicy(),
         signature: getSignature(),
     });

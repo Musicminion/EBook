@@ -33,11 +33,12 @@ class FileUploader extends React.Component{
 
     getExpirationTime = () => {
         let nowTime = new Date();
-        let expTime = nowTime.setMinutes(nowTime.getMinutes() + 1);
+        let expTime = nowTime.setMinutes(nowTime.getMinutes() + 5);
         return new Date(expTime).toJSON();
     }
 
     getSignature(){
+
         getSignatureForUpload(this.PolicyData,(data)=>{
             let obj = Object.assign(this.state.OSSData, { signature: data.data.Signature });
             this.setState({OSSData : obj});
@@ -127,7 +128,7 @@ export default FileUploader;
 
 
 
-
+// 后面的是调试的代码，仅供有需要的时候参考
 //
 // const AliyunOSSUpload = ({ value, onChange }) => {
 //     const [OSSData, setOSSData] = useState(); // Mock get OSS api

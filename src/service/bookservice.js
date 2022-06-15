@@ -2,7 +2,7 @@
 // 获取单个书的信息 返回一个json对象 这个对象包含书本相关的信息
 
 import {apiURL} from "../config/BaseConfig";
-import {getRequest} from "../utils/ajax";
+import {getRequest, postRequest, postRequestWithTowCallBack} from "../utils/ajax";
 
 let getBookByID = (ID , callback) => {
     let getBookURL = apiURL + "/queryBookdetail/" + ID;
@@ -10,11 +10,35 @@ let getBookByID = (ID , callback) => {
     console.log(respData);
     getRequest(getBookURL, callback);
     console.log(respData);
-}
+};
 
 export {getBookByID};
 
 let addToShoppingChart = (ID , callback) => {
 
 
-}
+};
+
+
+let getSignatureForUpload = (PolicyData,callback) =>{
+    let url = apiURL + "/addBook/requestSignature";
+    let obj = {
+        PolicyData: PolicyData
+    };
+
+    postRequest(url,obj,callback);
+};
+
+export {getSignatureForUpload};
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,7 +4,6 @@ import LogoEBook from "../../asset/background/ebookLogo.svg";
 import {Button, Result} from "antd";
 import {Link} from "react-router-dom";
 
-
 class errorPage extends React.Component{
 
     render() {
@@ -13,7 +12,7 @@ class errorPage extends React.Component{
                 <TopBar/>
                 <div className="MainContentsCard_compact">
                     <div className="PayComfirm_logoArea">
-                        <img src={LogoEBook} className="PayComfirm_logo"/>
+                        <img src={LogoEBook} className="PayComfirm_logo" alt={""}/>
                     </div>
 
                     <Result

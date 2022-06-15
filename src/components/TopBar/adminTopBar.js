@@ -69,7 +69,9 @@ class adminTopBar extends React.Component{
                         <Menu.Item key="newGoods" >
                             <Link to={{pathname:'/eBook/admin/newBook'}}>新品发布</Link>
                         </Menu.Item>
-                        <Menu.Item key="manageGoods" >商品管理</Menu.Item>
+                        <Menu.Item key="manageGoods" >
+                            <Link to={{pathname:'/eBook/admin/bookManage'}}>商品管理</Link>
+                        </Menu.Item>
                         <Menu.Item key="manageOrder" >订单管理</Menu.Item>
                         <Menu.Item key="goodsComment" >商品评价</Menu.Item>
                     </Menu.ItemGroup>

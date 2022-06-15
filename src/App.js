@@ -24,6 +24,8 @@ import AdminRoute from "./route/AdminRoute";
 import userManage from "./view/admin/userManage";
 import newBook from "./view/admin/newBook";
 import publishSuccess from "./view/result/publishSuccess";
+import bookManage from "./view/admin/BookManage";
+import editBook from "./view/admin/editBook";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -48,7 +50,7 @@ class App extends React.Component{
                         <Route exact path="/eBook/MainPage" component={MainPage}/>
                         <Route exact path="/eBook/bookdetail" component={BookDetailPage}/>
                         <Route exact path="/eBook/searchresult" component={SearchResultPage}/>
-                        <Route exact path="/eBook/booktable" component={BookTablePage}/>
+                        {/*<Route exact path="/eBook/booktable" component={BookTablePage}/>*/}
 
 
                         <Route exact path="/login" component={LoginPage}/>
@@ -71,6 +73,8 @@ class App extends React.Component{
                         {/* ---------  下面的部分是管理员路由  带有权限鉴定 --------------- */}
                         <AdminRoute exact path="/eBook/admin/userManage" component={userManage}/>
                         <AdminRoute exact path="/eBook/admin/newBook" component={newBook}/>
+                        <AdminRoute exact path="/eBook/admin/bookManage" component={bookManage}/>
+                        <AdminRoute exact path="/eBook/admin/editbook" component={editBook}/>
                         {/*    /eBook/admin/newBook*/}
 
 

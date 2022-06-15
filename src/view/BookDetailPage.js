@@ -93,6 +93,7 @@ class BookDetailPage extends React.Component{
                         bookISBN: data.isbn,
                         bookDescription: data.description,
                         allPrice: actualPrice,
+                        imageUrl:data.imgtitle
                     });
                 }
                 );
@@ -135,7 +136,7 @@ class BookDetailPage extends React.Component{
 
                             <div className="BookDetailTop">
                                 <div className="BookDetailImg">
-                                    <Image src={require('../asset/img/book/'+ this.state.bookID +'.jpg')}/>
+                                    <Image src={this.state.imageUrl}/>
                                 </div>
 
                                 <div className="BookDescription">

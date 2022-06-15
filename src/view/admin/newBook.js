@@ -4,6 +4,8 @@ import {Tabs, Form, Input, InputNumber, Button} from "antd";
 import {ShopOutlined} from "@ant-design/icons";
 import FileUploader from "../../components/Book/BookImgUploader";
 import TextArea from "antd/es/input/TextArea";
+import {picHost} from "../../config/BaseConfig";
+import {addBook} from "../../service/bookservice";
 
 
 const { TabPane } = Tabs;
@@ -13,17 +15,17 @@ class newBook extends React.Component{
     formRef = React.createRef();
 
     onFinish = (values: any) => {
-        this.formRef.current.setFieldsValue({
-            img: this.imgUrl,
+        let sendData = values;
+        sendData.imgtitle = picHost + "/" +sendData.imgtitle;
+
+        console.log(sendData);
+        addBook(sendData,(data) => {
+            if(data.status >= 0)
+                window.location.href = "/eBook/publishSuccess?targetbookid=" + data.data.bookID;
+            else
+                window.location.href = "/eBook/errorPage";
         });
-        console.log('Success:', values);
     };
-
-
-    // getImgUrl = (e: any) => {
-    //     // alert("@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-    //     return this.imgUrl;
-    // }
 
     render() {
         return (
@@ -37,7 +39,7 @@ class newBook extends React.Component{
                                   onFinish={this.onFinish} ref={this.formRef}
                             >
 
-                                <Form.Item label="封面上传" name="img" valuePropName="fileList"
+                                <Form.Item label="封面上传" name="imgtitle" valuePropName="fileList"
                                            rules={[{
                                                required: true,
                                                message: '需要上传书籍的封面!',

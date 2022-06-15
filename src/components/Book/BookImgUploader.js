@@ -89,7 +89,7 @@ class FileUploader extends React.Component{
         if(fileList != null && fileList.length >0){
             this.props.parentNode.imgUrl = fileList[0].url;
             this.props.parentNode.formRef.current.setFieldsValue({
-                img: fileList[0].url
+                imgtitle: fileList[0].url
             });
         }
     };

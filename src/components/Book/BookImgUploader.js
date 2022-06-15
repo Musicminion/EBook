@@ -76,7 +76,6 @@ class FileUploader extends React.Component{
     };
 
     getExtraData = (file) => {
-        console.log(this.state.OSSData);
 
         return {
             key: file.url,
@@ -87,8 +86,12 @@ class FileUploader extends React.Component{
     };
 
     handleChange = ({ fileList }) => {
-        // console.log('Aliyun OSS:', fileList);
-        // onChange?.([...fileList]);
+        if(fileList != null && fileList.length >0){
+            this.props.parentNode.imgUrl = fileList[0].url;
+            this.props.parentNode.formRef.current.setFieldsValue({
+                img: fileList[0].url
+            });
+        }
     };
 
     onRemove = (file) => {
@@ -116,7 +119,7 @@ class FileUploader extends React.Component{
 
     render() {
         return (
-            <Upload {...this.uploadProps}  listType="picture" >
+            <Upload {...this.uploadProps}  listType="picture" maxCount={1} >
                 <Button icon={<UploadOutlined/>}>Click to Upload</Button>
             </Upload>
 

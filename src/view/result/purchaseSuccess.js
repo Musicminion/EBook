@@ -6,6 +6,8 @@ import {Link} from "react-router-dom";
 
 
 class purchaseSuccess extends React.Component{
+
+
     render() {
         return(
             <div className="eBookPageContainer">

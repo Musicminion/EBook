@@ -23,6 +23,7 @@ import errorPage from "./view/result/errorPage";
 import AdminRoute from "./route/AdminRoute";
 import userManage from "./view/admin/userManage";
 import newBook from "./view/admin/newBook";
+import publishSuccess from "./view/result/publishSuccess";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -58,6 +59,7 @@ class App extends React.Component{
 
                         <Route exact path="/eBook/purchaseSuccess" component={purchaseSuccess}/>
                         <Route exact path="/eBook/errorPage" component={errorPage}/>
+                        <Route exact path="/eBook/publishSuccess" component={publishSuccess}/>
                         {/*errorPage*/}
 
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}

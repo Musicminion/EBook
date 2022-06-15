@@ -61,7 +61,6 @@ class ShopCartOrderComfirm extends React.Component{
         });
 
 
-
         // 解析url的参数
         let url = decodeURI(window.location.search);
         let theRequest = urlDecoder(url);

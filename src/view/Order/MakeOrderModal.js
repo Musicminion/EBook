@@ -67,7 +67,6 @@ class MakeOrderModal extends React.Component{
                         </Button>,
                     ]}
                 >
-
                     <p>单击"确认"将会为您创建订单</p>
                     <p>单击"取消"将会放弃创建订单</p>
                 </Modal>

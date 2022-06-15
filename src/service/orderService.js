@@ -77,3 +77,10 @@ let orderMakeFromShopCart = (bookIDGroup, bookNumGroup,orderInfo,callBack) => {
     postRequest(url,obj,callBack);
 }
 export {orderMakeFromShopCart}
+
+// 管理员，获取所有订单项目数据
+export const getAllOrderItem =(callback) =>{
+
+    let url = apiURL + "/order/getAllOrderItem"
+    postRequest(url,{},callback);
+};

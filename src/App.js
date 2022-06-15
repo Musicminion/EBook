@@ -26,6 +26,7 @@ import newBook from "./view/admin/newBook";
 import publishSuccess from "./view/result/publishSuccess";
 import bookManage from "./view/admin/BookManage";
 import editBook from "./view/admin/editBook";
+import orderManage from "./view/admin/orderManage";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -75,6 +76,7 @@ class App extends React.Component{
                         <AdminRoute exact path="/eBook/admin/newBook" component={newBook}/>
                         <AdminRoute exact path="/eBook/admin/bookManage" component={bookManage}/>
                         <AdminRoute exact path="/eBook/admin/editbook" component={editBook}/>
+                        <AdminRoute exact path="/eBook/admin/orderManage" component={orderManage}/>
                         {/*    /eBook/admin/newBook*/}
 
 

@@ -12,7 +12,7 @@ const { TabPane } = Tabs;
 
 
 class BookManage extends React.Component{
-    searchInput = null;
+
 
     constructor() {
         super();
@@ -26,10 +26,11 @@ class BookManage extends React.Component{
             this.setState({
                 bookData:data.concat([])
             });
-            console.log(data);
+            // console.log(data);
         });
     }
 
+    searchInput = null;
     setSearchText(val){
         this.setState({ searchText:val});
     }

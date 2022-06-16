@@ -19,8 +19,7 @@ class OrderItemTable extends React.Component{
 
         if(this.props.idAdmin){
             getAllOrderItem((data)=>{
-                console.log(data);
-
+                // console.log(data);
                 this.setState({
                     orderData:data.concat([])
                 });
@@ -191,13 +190,17 @@ class OrderItemTable extends React.Component{
 
     columns = [
         {
+            title: '图片',
+            dataIndex: 'imgtitle',
+            key: 'imgtitle',
+            render: (text) => <Image src={text} width={60}/>
+        },
+        {
             title: '书本名称',
             dataIndex: 'displaytitle',
             key: 'displaytitle',
             ...this.getColumnSearchProps("displaytitle"),
         },
-
-        // status
         {
             title: '状态',
             dataIndex: 'status',
@@ -246,9 +249,7 @@ class OrderItemTable extends React.Component{
             render: (text) => {return new Date(text.time).toLocaleString();},
             ...this.getColumnSearchTimeProps('create_Itemtime')
         },
-
     ];
-
 
     render() {
         return (

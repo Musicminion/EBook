@@ -29,6 +29,7 @@ class userManage extends React.Component{
             this.setState({
                 userData:data.concat([])
             });
+            console.log(data);
         });
     }
 

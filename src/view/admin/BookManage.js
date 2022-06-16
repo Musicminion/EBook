@@ -26,7 +26,7 @@ class BookManage extends React.Component{
             this.setState({
                 bookData:data.concat([])
             });
-            // console.log(data);
+            console.log(data);
         });
     }
 
@@ -162,8 +162,19 @@ class BookManage extends React.Component{
             title: '库存',
             dataIndex: 'inventory',
             key: 'inventory',
-            width: 65,
+            width: 75,
         },
+        {
+            title: '销量',
+            dataIndex: 'sellnumber',
+            key: 'sellnumber',
+            width: 75,
+            sorter: {
+                compare: (a, b) => a.sellnumber - b.sellnumber,
+                multiple: 1,
+            },
+        },
+        //
         {
             title: '操作',
             width: 250,
@@ -197,6 +208,11 @@ class BookManage extends React.Component{
 
     }
 
+
+    onChange = (pagination, filters, sorter, extra) => {
+        console.log('params', pagination, filters, sorter, extra);
+    };
+
     render() {
         return (
             <div className="eBookPageContainer">
@@ -204,7 +220,7 @@ class BookManage extends React.Component{
                 <div className="MainContentsCard_compact">
                     <Tabs defaultActiveKey="1">
                         <TabPane tab={<><UnorderedListOutlined />书籍管理</>} key="1">
-                            <Table columns={this.columns} dataSource={this.state.bookData} />
+                            <Table columns={this.columns} dataSource={this.state.bookData} onChange={this.onChange}/>
                         </TabPane>
                     </Tabs>
                 </div>

@@ -1,12 +1,12 @@
 import React from "react";
-import TopBar from "../../components/TopBar/TopBar";
+import TopBar from "../../../components/TopBar/TopBar";
 import {Tabs, Form, Input, InputNumber, Button, Image} from "antd";
 import {ShopOutlined} from "@ant-design/icons";
-import FileUploader from "../../components/Book/BookImgUploader";
+import FileUploader from "../../../components/Book/BookImgUploader";
 import TextArea from "antd/es/input/TextArea";
-import {picHost} from "../../config/BaseConfig";
-import {addBook, editOneBook, getBookByID} from "../../service/bookservice";
-import {urlDecoder} from "../../utils/urlDecoder";
+import {picHost} from "../../../config/BaseConfig";
+import {addBook, editOneBook, getBookByID} from "../../../service/bookservice";
+import {urlDecoder} from "../../../utils/urlDecoder";
 
 
 const { TabPane } = Tabs;

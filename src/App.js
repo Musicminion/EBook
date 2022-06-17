@@ -21,12 +21,14 @@ import shopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
 import purchaseSuccess from "./view/result/purchaseSuccess";
 import errorPage from "./view/result/errorPage";
 import AdminRoute from "./route/AdminRoute";
-import userManage from "./view/admin/userManage";
-import newBook from "./view/admin/newBook";
+import userManage from "./view/admin/Manage/userManage";
+import newBook from "./view/admin/Manage/newBook";
 import publishSuccess from "./view/result/publishSuccess";
-import bookManage from "./view/admin/BookManage";
-import editBook from "./view/admin/editBook";
-import orderManage from "./view/admin/orderManage";
+import bookManage from "./view/admin/Manage/BookManage";
+import editBook from "./view/admin/Manage/editBook";
+import orderManage from "./view/admin/Manage/orderManage";
+import userConsumption from "./view/admin/Statistics/UserConsumption";
+import myOrder from "./view/iEbook/myOrder";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -70,6 +72,8 @@ class App extends React.Component{
                         <PrivateRoute exact path="/eBook/shopCartOrderComfirm" component={shopCartOrderComfirm}/>
                         <PrivateRoute exact path="/eBook/order/" component={OrderPay}/>
                         <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
+                        <PrivateRoute exact path="/eBook/myOrder/" component={myOrder}/>
+
 
                         {/* ---------  下面的部分是管理员路由  带有权限鉴定 --------------- */}
                         <AdminRoute exact path="/eBook/admin/userManage" component={userManage}/>
@@ -77,6 +81,8 @@ class App extends React.Component{
                         <AdminRoute exact path="/eBook/admin/bookManage" component={bookManage}/>
                         <AdminRoute exact path="/eBook/admin/editbook" component={editBook}/>
                         <AdminRoute exact path="/eBook/admin/orderManage" component={orderManage}/>
+
+                        <AdminRoute exact path="/eBook/admin/statistics/userConsumption" component={userConsumption}/>
                         {/*    /eBook/admin/newBook*/}
 
 

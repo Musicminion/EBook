@@ -1,7 +1,7 @@
 import React from "react";
-import TopBar from "../../components/TopBar/TopBar";
+import TopBar from "../../../components/TopBar/TopBar";
 import {Button, Input, Select, Space, Table, Tabs, Tag} from "antd";
-import {getAllUserList, setUserLoginPermit} from "../../service/adminService_user";
+import {getAllUserList, setUserLoginPermit} from "../../../service/adminService_user";
 import {ShoppingCartOutlined, UserOutlined} from "@ant-design/icons";
 import { SearchOutlined } from '@ant-design/icons';
 

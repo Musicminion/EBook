@@ -1,27 +1,131 @@
 import React from "react";
-import {Image, Table} from "antd";
-import {getAllOrder} from "../../service/orderService";
-
+import {Button, DatePicker, Image, Space, Table} from "antd";
+import {getAllOrder, getUserOrder} from "../../service/orderService";
+import {SearchOutlined} from "@ant-design/icons";
+const { RangePicker } = DatePicker;
 
 //return <Table columns={columns} dataSource={data} pagination={false} />;
-
-
 
 class OrderTable extends React.Component{
     constructor(props) {
         super(props);
+
         this.state = {
             orderData: [],
+            searchText: {},
+            searchedColumn: "",
+            searchTime: [],
         };
 
-        getAllOrder((data) => {
-            console.log(data);
-            this.setState({
-                orderData:data.concat([])
+        if(this.props.idAdmin === 1){
+            getAllOrder((data) => {
+                this.setState({
+                    orderData:data.concat([])
+                });
             });
-        });
-
+        }
+        else{
+            getUserOrder((data) => {
+                this.setState({
+                    orderData:data.concat([])
+                });
+            });
+        }
     }
+
+
+    searchInput = null;
+    setSearchText(val){
+        this.setState({ searchText:val});
+    }
+
+    setSearchedColumn(val){
+        this.setState({ searchedColumn:val});
+    }
+
+    setSearchTime(val){
+        this.setState({searchTime:val});
+    }
+
+    handleSearch = (selectedKeys, confirm, dataIndex) => {
+        confirm();
+        this.setSearchText(selectedKeys[0]);
+        this.setSearchedColumn(dataIndex);
+    };
+
+    handleReset = (clearFilters) => {
+        clearFilters();
+        this.setSearchText('');
+    };
+
+    getColumnSearchTimeProps = (dataIndex) => ({
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+            <div style={{padding: 8,}}>
+                {/*<Input*/}
+                {/*    ref={this.searchInput} placeholder={`Search ${dataIndex}`} value={selectedKeys[0]}*/}
+                {/*    onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}*/}
+                {/*    onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}*/}
+                {/*    style={{marginBottom: 8, display: 'block',}}*/}
+                {/*/>*/}
+                <Space>
+                    <RangePicker renderExtraFooter={() => '请选择时间来精确查询~'}
+                                 onChange={ (value, dateString) => {
+                                     let startTime = new Date(dateString[0]).getTime();
+                                     let endTime = new Date(dateString[1]).getTime();
+
+                                     let comb = startTime + ":" + endTime;
+                                     let obj = [];
+                                     obj.push(comb);
+                                     setSelectedKeys(obj);
+                                 }}
+                                 showTime showNow allowClear/>
+                    <Button
+                        type="primary" onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+                        icon={<SearchOutlined />} size="small" style={{width: 90,}}
+                    >
+                        搜索
+                    </Button>
+                    <Button
+                        onClick={() => clearFilters && this.handleReset(clearFilters)} size="small"
+                        style={{width: 90,}}
+                    >
+                        重置
+                    </Button>
+                    <Button
+                        type="link" size="small"
+                        onClick={() => {
+                            confirm({closeDropdown: false,});
+                            this.setSearchText(selectedKeys[0]);
+                            this.setSearchedColumn(dataIndex);
+                        }}
+                    >
+                        过滤
+                    </Button>
+                </Space>
+            </div>
+        ),
+        filterIcon: (filtered) => (
+            <SearchOutlined
+                style={{
+                    color: filtered ? '#1890ff' : undefined,
+                }}
+            />
+        ),
+        onFilter: (value, record) => {
+
+            let tmp = value.split(":");
+            console.log(tmp);
+
+            let recordVal = parseInt(record[dataIndex].time);
+
+            return parseInt(tmp[0]) <= recordVal && parseInt(tmp[1]) >= recordVal
+        },
+        onFilterDropdownVisibleChange: (visible) => {
+            if (visible) {
+                // setTimeout(() => this.searchInput.current?.select(), 10);
+            }
+        },
+    });
 
     columns = [
         {
@@ -66,6 +170,7 @@ class OrderTable extends React.Component{
             dataIndex: 'create_time',
             key: 'create_time',
             render: (text) => {return new Date(text.time).toLocaleString();},
+            ...this.getColumnSearchTimeProps('create_time')
         },
 
         //
@@ -92,6 +197,13 @@ class OrderTable extends React.Component{
                 title: '购买数量',
                 dataIndex: 'buynum',
                 key: 'buynum',
+            },
+            {
+                title: '单价',
+                render: (text,record) =>
+                    <p className="bookDetailPrice">
+                        ￥{(parseInt(record.payprice)/parseInt(record.buynum)/100).toFixed(2)}
+                    </p>
             },
             {
                 title: '支付金额',

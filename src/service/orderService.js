@@ -88,6 +88,17 @@ export const getAllOrderItem =(callback) =>{
 // 管理员
 export const getAllOrder =(callback) =>{
 
-    let url = apiURL + "/order/getAllOrder"
+    let url = apiURL + "/order/getAllOrder";
     postRequest(url,{},callback);
 };
+
+export const getUserOrder = (callback) =>{
+    let url = apiURL + "/order/getUserOrder";
+    postRequest(url,{},callback);
+}
+
+
+export const getUserOrderItem = (callback) =>{
+    let url = apiURL + "/order/getUserOrderItem";
+    postRequest(url,{},callback);
+}

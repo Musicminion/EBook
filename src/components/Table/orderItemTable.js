@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Image, Input, Space, Table, Tag} from "antd";
 import {SearchOutlined} from "@ant-design/icons";
 import Highlighter from "react-highlight-words";
-import {getAllOrderItem} from "../../service/orderService";
+import {getAllOrderItem, getUserOrderItem} from "../../service/orderService";
 import { DatePicker} from 'antd';
 const { RangePicker } = DatePicker;
 
@@ -25,6 +25,15 @@ class OrderItemTable extends React.Component{
                 });
 
             });
+        }
+        else {
+            getUserOrderItem((data)=>{
+                // console.log(data);
+                this.setState({
+                    orderData:data.concat([])
+                });
+            });
+
         }
         // this.dateChange.bind(this);
     //    /order/getAllOrderItem

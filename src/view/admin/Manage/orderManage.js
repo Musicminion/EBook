@@ -1,9 +1,9 @@
 import React from "react";
-import TopBar from "../../components/TopBar/TopBar";
+import TopBar from "../../../components/TopBar/TopBar";
 import {Table, Tabs} from "antd";
 import {UnorderedListOutlined} from "@ant-design/icons";
-import OrderItemTable from "../../components/Table/orderItemTable";
-import OrderTable from "../../components/Table/orderTable";
+import OrderItemTable from "../../../components/Table/orderItemTable";
+import OrderTable from "../../../components/Table/orderTable";
 
 const { TabPane } = Tabs;
 

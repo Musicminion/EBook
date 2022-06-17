@@ -81,7 +81,9 @@ class adminTopBar extends React.Component{
 
                 <SubMenu key="myPurchase" icon={<LineChartOutlined/>} title="全局数据统计">
                     <Menu.ItemGroup>
-                        <Menu.Item key="userData" >用户数据统计</Menu.Item>
+                        <Menu.Item key="userData" >
+                            <Link to={{pathname:'/eBook/admin/statistics/userConsumption'}}>用户消费统计</Link>
+                        </Menu.Item>
                         <Menu.Item key="goodsData" >商品销量统计</Menu.Item>
                         <Menu.Item key="goodCLick" >商品浏览统计</Menu.Item>
                         <Menu.Item key="goodCommentData" >商品评价统计</Menu.Item>

@@ -49,7 +49,7 @@ class userTopBar extends React.Component{
                         <Menu.Item key="myCart" ><Link to={{pathname:'/eBook/myCart'}}>我的购物车</Link></Menu.Item>
                         <Menu.Item key="myFavorites" >我的收藏夹</Menu.Item>
                         <Menu.Item key="myFootPrint" >我的足迹</Menu.Item>
-                        <Menu.Item key="myOrder" >我的订单</Menu.Item>
+                        <Menu.Item key="myOrder" ><Link to={{pathname:'/eBook/myOrder'}}>我的订单</Link></Menu.Item>
                         <Menu.Item key="myComment" >我的评价</Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>

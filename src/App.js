@@ -30,6 +30,7 @@ import orderManage from "./view/admin/Manage/orderManage";
 import userConsumption from "./view/admin/Statistics/UserConsumption";
 import myOrder from "./view/iEbook/myOrder";
 import BookSellnum from "./view/admin/Statistics/BookSellnum";
+import myStatistics from "./view/iEbook/myStatistics";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -74,6 +75,7 @@ class App extends React.Component{
                         <PrivateRoute exact path="/eBook/order/" component={OrderPay}/>
                         <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
                         <PrivateRoute exact path="/eBook/myOrder/" component={myOrder}/>
+                        <PrivateRoute exact path="/eBook/myStatistics/" component={myStatistics}/>
 
 
                         {/* ---------  下面的部分是管理员路由  带有权限鉴定 --------------- */}

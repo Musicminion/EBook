@@ -59,6 +59,23 @@ class BookSellnum extends React.Component{
     ];
 
 
+    onChange = (date, dateString) => {
+        if(dateString.length >=2){
+            let obj = {
+                startDate: dateString[0],
+                endDate: dateString[1],
+            };
+            getBookSellData(obj,(data)=>{
+                console.log(data);
+                this.setState({
+                    userData:data.concat([])
+                });
+            });
+            // console.log(obj);
+        }
+    };
+
+
 
     render() {
         return (

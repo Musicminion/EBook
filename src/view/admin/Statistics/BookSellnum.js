@@ -1,8 +1,9 @@
 import React from "react";
 import TopBar from "../../../components/TopBar/TopBar";
-import {Button, DatePicker, Image, Table, Tabs} from "antd";
-import {UnorderedListOutlined} from "@ant-design/icons";
+import {Button, DatePicker, Image, Input, Space, Table, Tabs} from "antd";
+import {SearchOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import {getBookSellData, getuserConsumeData} from "../../../service/statisticService";
+import {Column} from "@ant-design/charts";
 
 const { RangePicker } = DatePicker;
 const { TabPane } = Tabs;
@@ -15,18 +16,122 @@ class BookSellnum extends React.Component{
             searchText: {},
             searchedColumn: "",
             searchTime: [],
+            chartData: []
         }
 
     //    getBookSellData
         getBookSellData({},(data)=>{
-            console.log(data);
+            // console.log(data);
             this.setState({
                 sellData:data.concat([])
+            });
+
+            let tmpChartData = [];
+            for(let i=0;i<data.length; i++){
+                let obj = {
+                    book: data[i][2],
+                    bookSellnum: data[i][1]
+                }
+                tmpChartData.push(obj);
+            }
+
+            this.setState({
+                chartData: tmpChartData
             });
         });
 
     }
 
+
+    searchInput = null;
+    setSearchText(val){
+        this.setState({ searchText:val});
+    }
+
+    setSearchedColumn(val){
+        this.setState({ searchedColumn:val});
+    }
+
+    handleSearch = (selectedKeys, confirm, dataIndex) => {
+        confirm();
+        this.setSearchText(selectedKeys[0]);
+        this.setSearchedColumn(dataIndex);
+    };
+
+    handleReset = (clearFilters) => {
+        clearFilters();
+        this.setSearchText('');
+    };
+
+    getColumnSearchProps = (dataIndex) => ({
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+            <div
+                style={{
+                    padding: 8,
+                }}
+            >
+                <Input
+                    ref={this.searchInput}
+                    placeholder={`Search ${dataIndex}`} value={selectedKeys[0]}
+                    onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                    onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+                    style={{marginBottom: 8, display: 'block',}}
+                />
+                <Space>
+                    <Button
+                        type="primary" onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+                        icon={<SearchOutlined />} size="small" style={{width: 90,}}
+                    >
+                        Search
+                    </Button>
+                    <Button
+                        onClick={() => clearFilters && this.handleReset(clearFilters)} size="small"
+                        style={{width: 90,}}
+                    >
+                        Reset
+                    </Button>
+                    <Button
+                        type="link" size="small"
+                        onClick={() => {
+                            confirm({closeDropdown: false,});
+                            this.setSearchText(selectedKeys[0]);
+                            this.setSearchedColumn(dataIndex);
+                        }}
+                    >
+                        Filter
+                    </Button>
+                </Space>
+            </div>
+        ),
+        filterIcon: (filtered) => (
+            <SearchOutlined
+                style={{
+                    color: filtered ? '#1890ff' : undefined,
+                }}
+            />
+        ),
+        onFilter: (value, record) =>
+            record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+        onFilterDropdownVisibleChange: (visible) => {
+            if (visible) {
+                setTimeout(() => this.searchInput.current?.select(), 10);
+            }
+        },
+        // render: (text) =>
+        //     this.state.searchedColumn === dataIndex ? (
+        //         <Highlighter
+        //             highlightStyle={{
+        //                 backgroundColor: '#ffc069',
+        //                 padding: 0,
+        //             }}
+        //             searchWords={[this.state.searchText]}
+        //             autoEscape
+        //             textToHighlight={text ? text.toString() : ''}
+        //         />
+        //     ) : (
+        //         text
+        //     ),
+    });
 
 
     columns = [
@@ -40,7 +145,7 @@ class BookSellnum extends React.Component{
             title: '书本名称',
             dataIndex: 2,
             key: 'bookname',
-            // ...this.getColumnSearchProps(0),
+            ...this.getColumnSearchProps(2),
         },
         {
             title: '书本销量',
@@ -70,7 +175,21 @@ class BookSellnum extends React.Component{
                 this.setState({
                     userData:data.concat([])
                 });
+
+                let tmpChartData = [];
+                for(let i=0;i<data.length; i++){
+                    let obj = {
+                        book: data[i][2],
+                        bookSellnum: data[i][1]
+                    }
+                    tmpChartData.push(obj);
+                }
+
+                this.setState({
+                    chartData: tmpChartData
+                });
             });
+
             // console.log(obj);
         }
     };
@@ -90,7 +209,32 @@ class BookSellnum extends React.Component{
 
                         </TabPane>
                         <TabPane tab={<><UnorderedListOutlined />书籍销量统计图</>} key="2">
-
+                            <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <Column data={this.state.chartData}
+                                    xField={"book"}
+                                    yField={"bookSellnum"}
+                                    label={{                                    // 可手动配置 label 数据标签位置
+                                        position: 'middle',
+                                        style: {fill: '#FFFFFF',},
+                                    }}
+                                    color={"#FFC0CB"}
+                                    xAxis={{
+                                        label: {
+                                            autoHide: false,
+                                            autoRotate: false,
+                                            // formatter: function(value) {
+                                            //     return value.split('').join('\n')
+                                            // }
+                                        },
+                                    }}
+                                    slider={{
+                                        start: 0.0,
+                                        end: 1.0,
+                                    }}
+                            />
                         </TabPane>
                     </Tabs>
                 </div>

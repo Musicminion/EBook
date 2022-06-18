@@ -23,7 +23,7 @@ class UserConsumption extends React.Component{
         }
 
         getuserConsumeData({},(data)=>{
-            console.log(data);
+            // console.log(data);
             this.setState({
                 userData:data.concat([])
             });
@@ -205,7 +205,9 @@ class UserConsumption extends React.Component{
                         </TabPane>
                         <TabPane tab={<><UnorderedListOutlined />用户消费统计图</>} key="2">
                             <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
-
+                            <br/>
+                            <br/>
+                            <br/>
                             <Column data={this.state.chartData}
                                     xField={"user"}
                                     yField={"payAll"}
@@ -219,6 +221,10 @@ class UserConsumption extends React.Component{
                                             autoHide: true,
                                             autoRotate: false,
                                         },
+                                    }}
+                                    slider={{
+                                        start: 0.0,
+                                        end: 1.0,
                                     }}
                             />
 

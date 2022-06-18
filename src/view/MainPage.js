@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 import '../css/mainPage.css';
 import {history} from "../App";
 import ShopDisplay from "../components/ShopDisplay";
-import BookDisplay from "../components/BookDisplay";
+import BookDisplay from "../components/Book/BookDisplay";
 import Recommendation from "../components/Recommendation";
 
 

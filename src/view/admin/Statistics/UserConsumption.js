@@ -4,6 +4,7 @@ import {Button, DatePicker, Image, Input, Space, Table, Tabs} from "antd";
 import {SearchOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import {getuserConsumeData} from "../../../service/statisticService";
 import Highlighter from "react-highlight-words";
+import {Column} from "@ant-design/charts";
 
 const { TabPane } = Tabs;
 const { RangePicker } = DatePicker;
@@ -18,12 +19,29 @@ class UserConsumption extends React.Component{
             searchText: {},
             searchedColumn: "",
             searchTime: [],
+            chartData: [],
         }
 
         getuserConsumeData({},(data)=>{
             console.log(data);
             this.setState({
                 userData:data.concat([])
+            });
+
+            let tmpChartData = [];
+
+            for(let i=0;i<data.length; i++){
+                let obj = {
+                    user: data[i][0],
+                    // payAll: (parseInt(data[i][1])/100).toFixed(0),
+                    payAll: parseInt(data[i][1])/100
+                }
+                tmpChartData.push(obj);
+            }
+            console.log(tmpChartData);
+
+            this.setState({
+                chartData: tmpChartData
             });
         });
 
@@ -131,6 +149,23 @@ class UserConsumption extends React.Component{
                 this.setState({
                     userData:data.concat([])
                 });
+
+                let tmpChartData = [];
+
+                for(let i=0;i<data.length; i++){
+                    let obj = {
+                        user: data[i][0],
+                        // payAll: (parseInt(data[i][1])/100).toFixed(0),
+                        payAll: parseInt(data[i][1])/100
+                    }
+                    tmpChartData.push(obj);
+                }
+                console.log(tmpChartData);
+
+                this.setState({
+                    chartData: tmpChartData
+                });
+
             });
             console.log(obj);
         }
@@ -165,10 +200,27 @@ class UserConsumption extends React.Component{
                         <TabPane tab={<><UnorderedListOutlined />用户消费统计表</>} key="1">
                             <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
 
-                            <Table columns={this.columns} dataSource={this.state.userData}/>;
+                            <Table columns={this.columns} dataSource={this.state.userData}/>
 
                         </TabPane>
                         <TabPane tab={<><UnorderedListOutlined />用户消费统计图</>} key="2">
+                            <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
+
+                            <Column data={this.state.chartData}
+                                    xField={"user"}
+                                    yField={"payAll"}
+                                    label={{                                    // 可手动配置 label 数据标签位置
+                                        position: 'middle',
+                                        style: {fill: '#FFFFFF',},
+                                    }}
+                                    color={"#FFC0CB"}
+                                    xAxis={{
+                                        label: {
+                                            autoHide: true,
+                                            autoRotate: false,
+                                        },
+                                    }}
+                            />
 
                         </TabPane>
                     </Tabs>

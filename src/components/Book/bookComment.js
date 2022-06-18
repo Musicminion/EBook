@@ -2,7 +2,7 @@ import React, { createElement, useState } from 'react';
 import {Comment, Tooltip, Avatar, Divider} from 'antd';
 import moment from 'moment';
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
-import '../css/BookComment.css'
+import '../../css/BookComment.css'
 
 const Demo = () => {
     const [likes, setLikes] = useState(0);

@@ -18,7 +18,7 @@ import { Radio } from 'antd';
 import {AllBooks} from "../components/Book/tmpBookData";
 import {BookOutlined, CommentOutlined} from "@ant-design/icons";
 import Paragraph from "antd/es/typography/Paragraph";
-import Demo from "../components/bookComment";
+import Demo from "../components/Book/bookComment";
 import {Link} from "react-router-dom";
 import {getBookByID} from "../service/bookservice";
 import {urlDecoder} from "../utils/urlDecoder";

@@ -29,6 +29,7 @@ import editBook from "./view/admin/Manage/editBook";
 import orderManage from "./view/admin/Manage/orderManage";
 import userConsumption from "./view/admin/Statistics/UserConsumption";
 import myOrder from "./view/iEbook/myOrder";
+import BookSellnum from "./view/admin/Statistics/BookSellnum";
 
 // import { createBrowserHistory } from 'history';
 // import LoginPassport from "./components/Login/LoginPassport";
@@ -83,6 +84,10 @@ class App extends React.Component{
                         <AdminRoute exact path="/eBook/admin/orderManage" component={orderManage}/>
 
                         <AdminRoute exact path="/eBook/admin/statistics/userConsumption" component={userConsumption}/>
+                        <AdminRoute exact path="/eBook/admin/statistics/bookSellnum" component={BookSellnum}/>
+
+
+                        {/*BookSellnum*/}
                         {/*    /eBook/admin/newBook*/}
 
 

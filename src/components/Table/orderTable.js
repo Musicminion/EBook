@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DatePicker, Image, Space, Table} from "antd";
+import {Button, DatePicker, Image, Space, Table, Tag} from "antd";
 import {getAllOrder, getUserOrder} from "../../service/orderService";
 import {SearchOutlined} from "@ant-design/icons";
 const { RangePicker } = DatePicker;
@@ -19,6 +19,7 @@ class OrderTable extends React.Component{
 
         if(this.props.idAdmin === 1){
             getAllOrder((data) => {
+                console.log(data);
                 this.setState({
                     orderData:data.concat([])
                 });
@@ -188,6 +189,34 @@ class OrderTable extends React.Component{
                 render: (text) => <Image src={text} width={60}/>
             },
             {
+                title: '状态',
+                dataIndex: 'status',
+                key: 'status',
+                render: (_, { tags }) => {
+                    if(parseInt(_) === -1)
+                        return (
+                            <Tag color={"red"}>已取消</Tag>
+                        );
+                    else if(parseInt(_) === 0)
+                        return (
+                            <Tag color={"orange"} >购物车</Tag>
+                        );
+                    else if(parseInt(_) === 1)
+                        return (
+                            <Tag color={"orange"} >未支付</Tag>
+                        );
+
+                    else if(parseInt(_) === 2)
+                        return (
+                            <Tag color={"green"} >已支付</Tag>
+                        );
+                    else if(parseInt(_) === 3)
+                        return (
+                            <Tag color={"blue"} >已完成</Tag>
+                        );
+                },
+            },
+            {
                 title: '标题',
                 dataIndex: 'booktitle',
                 key: 'booktitle',
@@ -201,9 +230,23 @@ class OrderTable extends React.Component{
             {
                 title: '单价',
                 render: (text,record) =>
-                    <p className="bookDetailPrice">
-                        ￥{(parseInt(record.payprice)/parseInt(record.buynum)/100).toFixed(2)}
-                    </p>
+                {
+                    if(record.buynum!==0)
+                        return (
+                            <p className="bookDetailPrice">
+                                ￥{(parseInt(record.payprice)/parseInt(record.buynum)/100).toFixed(2)}
+                            </p>
+                        );
+                    else{
+                        return (
+                            <p className="bookDetailPrice">
+                                ￥0.00
+                            </p>
+                        );
+                    }
+
+                }
+
             },
             {
                 title: '支付金额',

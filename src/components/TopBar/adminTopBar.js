@@ -84,7 +84,10 @@ class adminTopBar extends React.Component{
                         <Menu.Item key="userData" >
                             <Link to={{pathname:'/eBook/admin/statistics/userConsumption'}}>用户消费统计</Link>
                         </Menu.Item>
-                        <Menu.Item key="goodsData" >商品销量统计</Menu.Item>
+                        <Menu.Item key="goodsData" >
+                            <Link to={{pathname:'/eBook/admin/statistics/bookSellnum'}}>书籍销量统计</Link>
+                        {/*/eBook/admin/statistics/bookSellnum*/}
+                        </Menu.Item>
                         <Menu.Item key="goodCLick" >商品浏览统计</Menu.Item>
                         <Menu.Item key="goodCommentData" >商品评价统计</Menu.Item>
                         <Menu.Item key="shoperSalenum" >商户销售量统计</Menu.Item>

@@ -32,12 +32,6 @@ import myOrder from "./view/iEbook/myOrder";
 import BookSellnum from "./view/admin/Statistics/BookSellnum";
 import myStatistics from "./view/iEbook/myStatistics";
 
-// import { createBrowserHistory } from 'history';
-// import LoginPassport from "./components/Login/LoginPassport";
-// export const history = createBrowserHistory();
-
-
-
 class App extends React.Component{
     constructor(props) {
         super(props);

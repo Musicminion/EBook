@@ -2,7 +2,7 @@ import {apiURL} from "../config/BaseConfig";
 import loginPassport from "../components/Login/LoginPassport";
 import {postRequest} from "../utils/ajax";
 
-let orderQueryUserShopCart = (callBack) => {
+export const orderQueryUserShopCart = (callBack) => {
     const url = apiURL + "/order/queryMyChart";
     let user = loginPassport.getUserName();
 
@@ -13,10 +13,7 @@ let orderQueryUserShopCart = (callBack) => {
     postRequest(url, obj, callBack);
 }
 
-export {orderQueryUserShopCart};
-
-
-let addOneBookToShopCart = (bookID,buyNum,callBack) => {
+export const addOneBookToShopCart = (bookID,buyNum,callBack) => {
     const url = apiURL + "/order/addToChart";
     let user = loginPassport.getUserName();
 
@@ -29,9 +26,7 @@ let addOneBookToShopCart = (bookID,buyNum,callBack) => {
     postRequest(url, obj, callBack);
 }
 
-export {addOneBookToShopCart}
-
-let refreshShopCartItem = (bookID,newbuynum,callBack) => {
+export const refreshShopCartItem = (bookID,newbuynum,callBack) => {
     const url = apiURL + "/order/refreshShopCartItem";
     let user = loginPassport.getUserName();
 
@@ -45,10 +40,7 @@ let refreshShopCartItem = (bookID,newbuynum,callBack) => {
 }
 
 
-export {refreshShopCartItem};
-
-
-let orderMakeFromShopCart = (bookIDGroup, bookNumGroup,orderInfo,callBack) => {
+export const orderMakeFromShopCart = (bookIDGroup, bookNumGroup,orderInfo,callBack) => {
 
     let user = loginPassport.getUserName();
     let url = apiURL + "/order/makeorder/shopcart";
@@ -64,19 +56,18 @@ let orderMakeFromShopCart = (bookIDGroup, bookNumGroup,orderInfo,callBack) => {
 
     for(let i=1; i<bookIDGroup.length; i++){
         let objkey = "bookIDGroup" + i;
-        let objvalue = bookIDGroup[i].toString();
-        obj[objkey] = objvalue;
+        obj[objkey] = bookIDGroup[i].toString();
     }
 
     for(let i=1; i<bookNumGroup.length; i++){
         let objkey = "bookNumGroup" + i;
-        let objvalue = bookNumGroup[i].toString();
-        obj[objkey] = objvalue;
+        obj[objkey] = bookNumGroup[i].toString();
     }
 
     postRequest(url,obj,callBack);
 }
-export {orderMakeFromShopCart}
+
+
 
 // 管理员，获取所有订单项目数据
 export const getAllOrderItem =(callback) =>{

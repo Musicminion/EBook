@@ -1,7 +1,7 @@
 import React from "react";
 import TopBar from "../../../components/TopBar/TopBar";
 import {Button, Input, Select, Space, Table, Tabs, Tag} from "antd";
-import {getAllUserList, setUserLoginPermit} from "../../../service/adminService_user";
+import {getAllUserList, setUserLoginPermit} from "../../../service/admin/adminService_user";
 import {ShoppingCartOutlined, UserOutlined} from "@ant-design/icons";
 import { SearchOutlined } from '@ant-design/icons';
 
@@ -30,7 +30,8 @@ class userManage extends React.Component{
                 userData:data.concat([])
             });
             console.log(data);
-        });
+        })
+
     }
 
     setSearchText(val){
@@ -50,6 +51,11 @@ class userManage extends React.Component{
     handleReset = (clearFilters) => {
         clearFilters();
         this.setSearchText('');
+    };
+
+    handleChange_ForBidLogin = (value,username,rowNum) => {
+        setUserLoginPermit(username,value,(data)=>{console.log(data)});
+        window.location.reload();
     };
 
     getColumnSearchProps = (dataIndex) => ({
@@ -174,20 +180,56 @@ class userManage extends React.Component{
             title: '登录许可',
             dataIndex: 'forbidlogin',
             key: 'forbidlogin',
-            render: (num,record) => (
-                <>
-                    <Select
-                        defaultValue={num === 0 ? "允许":"禁止"}
-                        style={{
-                            width: 80,
-                        }}
-                        onChange={(value)=>handleChange_ForBidLogin(value,record.username)}
-                    >
-                        <Option value="0">允许</Option>
-                        <Option value="1">禁止</Option>
-                    </Select>
-                </>
-            ),
+            render: (num) => {
+                if(parseInt(num) === 0)
+                    return (<Tag color={"green"}>允许登录</Tag>);
+                else{
+                    return (<Tag color={"red"}>禁止登录</Tag>);
+                }
+            }
+        },
+        {
+            title: '修改许可',
+            dataIndex: 'forbidlogin',
+            key: 'loginSet',
+            render: (num, record, rowNum) => {
+                // if(parseInt(num) ===0)
+                //     return (
+                //         <Button danger onClick={(num,record) => this.handleChange_ForBidLogin((num+1)%2,record.username)}>
+                //             禁止登录
+                //         </Button>
+                //     );
+                // else if(parseInt(num) === 1)
+                //     return (
+                //         <Button onClick={this.handleChange_ForBidLogin((num+1)%2,record.username)}>
+                //             允许登录
+                //         </Button>
+                //     );
+                return (
+                    <>
+                        <Button
+                            danger
+                            onClick={() => this.handleChange_ForBidLogin((num+1)%2,record.username)}
+                        >
+                            反转设置
+                        </Button>
+
+                        {/*<Select defaultValue={num.toString()} style={{ width: 80,}}*/}
+                        {/*>*/}
+                        {/*    <Option value="0">允许</Option>*/}
+                        {/*    <Option value="1">禁止</Option>*/}
+                        {/*</Select>*/}
+
+                        {/*<Select defaultValue={num.toString()} style={{ width: 80,}}*/}
+                        {/*        onChange={(value) => this.handleChange_ForBidLogin(value,record.username,rowNum)}*/}
+                        {/*>*/}
+                        {/*    <Option value="0">允许</Option>*/}
+                        {/*    <Option value="1">禁止</Option>*/}
+                        {/*</Select>*/}
+                    </>
+
+                );
+            }
         },
     ];
 

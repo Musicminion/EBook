@@ -2,10 +2,10 @@ import React from "react";
 import TopBar from "../../../components/TopBar/TopBar";
 import {Button, Image, Input, Popconfirm, Space, Table, Tabs} from "antd";
 import {SearchOutlined, UnorderedListOutlined} from "@ant-design/icons";
-import {getAllUserList} from "../../../service/adminService_user";
-import {deleteOneBook, getAllBookList} from "../../../service/bookservice";
+import {getAllUserList} from "../../../service/admin/adminService_user";
+import {getAllBookList} from "../../../service/bookservice";
 import Highlighter from "react-highlight-words";
-import {Link} from "react-router-dom";
+import {deleteOneBook} from "../../../service/admin/adminService_book";
 
 
 const { TabPane } = Tabs;

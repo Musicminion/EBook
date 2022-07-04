@@ -5,7 +5,7 @@ import {ShopOutlined} from "@ant-design/icons";
 import FileUploader from "../../../components/Book/BookImgUploader";
 import TextArea from "antd/es/input/TextArea";
 import {picHost} from "../../../config/BaseConfig";
-import {addBook} from "../../../service/bookservice";
+import {addBook} from "../../../service/admin/adminService_book";
 
 
 const { TabPane } = Tabs;

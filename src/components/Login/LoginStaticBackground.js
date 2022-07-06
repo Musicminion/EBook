@@ -31,8 +31,8 @@ class LoginStaticBackground extends React.Component{
                         <button className="topBarButton">反馈</button>
                     </Link>
                     <Link
-                        to={{pathname:'/login/shopregister'}}>
-                        <button className="topBarButton">商业注册</button>
+                        to={{pathname:'/login/rules'}}>
+                        <button className="topBarButton">条款</button>
                     </Link>
 
                     <Link

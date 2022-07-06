@@ -7,13 +7,9 @@ import Hellologin from "../../asset/img/login/hello.png";
 import {Input} from "antd";
 import TextArea from "antd/es/input/TextArea";
 
-
-
-
 const onChange = e => {
     console.log('Change:', e.target.value);
 };
-
 
 class LoginPageFeedBack extends React.Component{
     render() {
@@ -30,11 +26,8 @@ class LoginPageFeedBack extends React.Component{
 
                     <p>请输入反馈内容</p>
                     <TextArea
-                        showCount
-                        maxLength={100}
-                        onChange={onChange}
-                        placeholder="感谢您的反馈与支持,欢迎在这里留言"
-                        style={{height:'45vh'}}
+                        showCount maxLength={100} onChange={onChange}
+                        placeholder="感谢您的反馈与支持,欢迎在这里留言" style={{height:'45vh'}}
                     />
                     <button className="CommonBottom" id="LoginFeedBackButtom">提交</button>
                 </div>

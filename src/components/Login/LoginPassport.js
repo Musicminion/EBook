@@ -1,9 +1,5 @@
 import React from "react";
-import {message} from "antd";
-import {postRequest} from "../../utils/ajax";
-import {apiURL} from "../../config/BaseConfig";
 import {userCheckSession, userLogin, userLogout} from "../../service/userService";
-// import config from "config";
 
 const LocalToken = {
     USERNAME : "ebookUser",

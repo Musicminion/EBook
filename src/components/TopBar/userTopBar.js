@@ -1,7 +1,7 @@
 import React from "react";
 import {Avatar, Badge, Menu} from "antd";
 import {Link} from "react-router-dom";
-import {AppstoreOutlined, ShoppingCartOutlined, ShoppingOutlined, SoundOutlined, UserOutlined} from "@ant-design/icons";
+import {AppstoreOutlined, SoundOutlined, UserOutlined} from "@ant-design/icons";
 import LoginPassport from "../Login/LoginPassport";
 import loginPassport from "../Login/LoginPassport";
 

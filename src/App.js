@@ -3,12 +3,10 @@ import LoginPage from "./view/login/LoginPage";
 import MainPage from "./view/MainPage";
 
 import LoginPageAbout from "./view/login/LoginPageAbout";
-import LoginShopRegisterPage from "./components/Login/ShopRegister";
+import LoginShopRegisterPage from "./view/login/LoginPageRules";
 import LoginPageFeedBack from "./view/login/LoginPageFeedBack";
 import BookDetailPage from "./view/BookDetailPage";
 import SearchResultPage from "./view/SearchResultPage";
-import BookTablePage from "./view/BookTablePage";
-import LoginPageBase from "./view/login/LoginPageBase";
 
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import {history} from "./components/PublicHistory";
@@ -18,12 +16,12 @@ import OrderPay from "./view/Order/OrderPay";
 import myCart from "./view/iEbook/myCart";
 import ShopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
 import shopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
-import purchaseSuccess from "./view/result/purchaseSuccess";
-import errorPage from "./view/result/errorPage";
+import purchaseSuccess from "./view/Result/purchaseSuccess";
+import errorPage from "./view/Result/errorPage";
 import AdminRoute from "./route/AdminRoute";
 import userManage from "./view/admin/Manage/userManage";
 import newBook from "./view/admin/Manage/newBook";
-import publishSuccess from "./view/result/publishSuccess";
+import publishSuccess from "./view/Result/publishSuccess";
 import bookManage from "./view/admin/Manage/BookManage";
 import editBook from "./view/admin/Manage/editBook";
 import orderManage from "./view/admin/Manage/orderManage";
@@ -31,6 +29,7 @@ import userConsumption from "./view/admin/Statistics/UserConsumption";
 import myOrder from "./view/iEbook/myOrder";
 import BookSellnum from "./view/admin/Statistics/BookSellnum";
 import myStatistics from "./view/iEbook/myStatistics";
+import RulesPage from "./view/login/LoginPageRules";
 
 class App extends React.Component{
     constructor(props) {
@@ -53,10 +52,9 @@ class App extends React.Component{
 
 
                         <Route exact path="/login" component={LoginPage}/>
-                        <Route exact path="/login/shopregister" component={LoginShopRegisterPage}/>
+                        <Route exact path="/login/rules" component={RulesPage}/>
                         <Route exact path="/login/feedback" component={LoginPageFeedBack}/>
                         <Route exact path="/login/about" component={LoginPageAbout}/>
-                        <Route exact path="/LoginPageBase" component={LoginPageBase}/>
 
                         <Route exact path="/eBook/purchaseSuccess" component={purchaseSuccess}/>
                         <Route exact path="/eBook/errorPage" component={errorPage}/>

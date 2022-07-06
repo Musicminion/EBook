@@ -6,11 +6,4 @@ export {picHost}
 
 const accessId = "LTAI5tM9SVRoHcGY8meMzB2c";
 export {accessId};
-// #####################################################
-// #####################################################
 
-// const picKey = "######################";
-// export {picKey};
-//
-// const accessId = "##########################";
-// export {accessId};

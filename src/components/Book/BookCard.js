@@ -21,7 +21,6 @@ class BookCard extends React.Component{
         if(id > 0){
             getBookByID(id, (data) => {
                 let actualPrice = parseInt(data.price) / 100;
-                // console.log(data);
                 that.setState({
                     bookTitle: data.displaytitle,
                     bookName:  data.bookname,
@@ -37,7 +36,6 @@ class BookCard extends React.Component{
                     imageUrl:data.imgtitle
                 });
             });
-
         }
     }
 

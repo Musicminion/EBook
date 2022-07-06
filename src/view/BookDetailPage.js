@@ -88,10 +88,8 @@ class BookDetailPage extends React.Component{
     }
 
     addToShopCart() {
-        // console.log(this.state.bookNum);
-        // console.log(this.state.bookID);
-        // AddToCartFail();
-        // AddToCartSuccess;
+
+
         addOneBookToShopCart(this.state.bookID,this.state.bookNum,
             (data) => {
                 console.log(data);

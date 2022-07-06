@@ -15,7 +15,6 @@ import BookShopCartRow from "../../components/Book/BookShopCartRow";
 import BookShopCartHead from "../../components/Book/BookShopCartHead";
 
 
-
 const { Step } = Steps;
 const { TabPane } = Tabs;
 
@@ -54,17 +53,13 @@ class ShopCartOrderComfirm extends React.Component{
             }, 0);
         });
 
-
         // 解析url的参数
         let url = decodeURI(window.location.search);
         let theRequest = urlDecoder(url);
-
         // 解析结果交付orderListGet处理，产生一组订单
         this.orderListGet(theRequest);
-
         // 绑定！
         this.infoChange = this.infoChange.bind(this);
-
     }
 
     orderListGet(theRequest){
@@ -73,7 +68,6 @@ class ShopCartOrderComfirm extends React.Component{
         for(let i=1; i<=itemNum; i++){
             let bookidstr = "book" + i + "id";
             let bookidbuynumstr = "book" + i + "buynum";
-
             let bookid = parseInt(theRequest[bookidstr]);
             let bookidbuynum = parseInt(theRequest[bookidbuynumstr]);
 

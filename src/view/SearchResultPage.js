@@ -8,6 +8,8 @@ import {AppstoreOutlined, BarsOutlined} from "@ant-design/icons";
 import BookOperation from "../components/Book/tmpBookData";
 import '../css/searchResult.css'
 import {urlDecoder} from "../utils/urlDecoder";
+import BookCard from "../components/Book/BookCard";
+import {getAllBookList, getBookByKeyWord} from "../service/bookservice";
 
 
 const { TabPane } = Tabs;
@@ -31,11 +33,33 @@ class SearchResultPage extends React.Component{
         //获取url中"?"符后的字串 ('?modFlag=business&role=1')
         this.searchKeyWord = theRequest['keyword'];
         this.searchby = parseInt(theRequest["searchby"]);
+
+        this.state = {
+            searchData : [],
+        };
+
+        // 抓书 如果搜索的是空白的话抓取所有的内容
+        if(this.searchKeyWord !== ""){
+            getBookByKeyWord(this.searchby,this.searchKeyWord,
+                (data)=>{
+                    console.log(data);
+                    this.setState({
+                        searchData :data,
+                    });
+                });
+        }
+        else {
+            getAllBookList(
+                (data)=>{
+                    console.log(data);
+                    this.setState({
+                        searchData :data,
+                    });
+                }
+            );
+        }
     }
 
-    componentDidMount() {
-
-    }
 
     render() {
             return (
@@ -47,21 +71,46 @@ class SearchResultPage extends React.Component{
                     <div className="MainContentsCard">
                         <Tabs defaultActiveKey="1">
                             <TabPane tab={<><AppstoreOutlined/>卡片展示</>} key="1">
-                                {/*<BookOperation*/}
-                                {/*    searchKeyName={this.keyword}*/}
-                                {/*    searchTarget={this.searchby}*/}
-                                {/*    requestType = "BookCard"*/}
-                                {/*/>*/}
+                                <List
+                                    grid={{gutter: 10, column: 4}}
+                                    dataSource={this.state.searchData}
+                                    pagination={{
+                                        onChange: page => {
+                                            console.log(page);
+                                        },
+                                        pageSize: 12,
+                                    }}
 
-                                {/*<BookCard bookID="1"/>*/}
+                                    renderItem={(item) => {
+                                        return (
+                                            <List.Item>
+                                                <BookCard bookInfo={item}/>
+                                            </List.Item>
+                                        );
+                                    }}
+                                />
 
                             </TabPane>
                             <TabPane tab={<><BarsOutlined/>列表展示</>} key="2">
-                                {/*<BookOperation*/}
-                                {/*    searchKeyName={this.keyword}*/}
-                                {/*    searchTarget={this.searchby}*/}
-                                {/*    requestType="BookRow"*/}
-                                {/*/>*/}
+                                <List
+                                    grid={{gutter: 10, column: 1}}
+                                    dataSource={this.state.searchData}
+                                    pagination={{
+                                        onChange: page => {
+                                            console.log(page);
+                                        },
+                                        pageSize: 12,
+                                    }}
+
+                                    renderItem={(item) => {
+                                        return (
+                                            <List.Item>
+                                                <BookRow bookInfo={item}/>
+                                            </List.Item>
+                                        );
+                                    }}
+                                />
+
                             </TabPane>
 
                         </Tabs>

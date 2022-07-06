@@ -23,6 +23,7 @@ const formItemLayout = {
 class LocationForm extends React.Component{
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             receivename: this.props.receivename,
             phonenumber: this.props.phonenumber,

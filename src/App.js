@@ -46,10 +46,7 @@ class App extends React.Component{
                     <Switch>
                         {/* -----------------  下面的部分是共有路由  ----------------- */}
                         <Route exact path="/eBook/MainPage" component={MainPage}/>
-                        <Route exact path="/eBook/bookdetail" component={BookDetailPage}/>
                         <Route exact path="/eBook/searchresult" component={SearchResultPage}/>
-                        {/*<Route exact path="/eBook/booktable" component={BookTablePage}/>*/}
-
 
                         <Route exact path="/login" component={LoginPage}/>
                         <Route exact path="/login/rules" component={RulesPage}/>
@@ -59,7 +56,7 @@ class App extends React.Component{
                         <Route exact path="/eBook/purchaseSuccess" component={purchaseSuccess}/>
                         <Route exact path="/eBook/errorPage" component={errorPage}/>
                         <Route exact path="/eBook/publishSuccess" component={publishSuccess}/>
-                        {/*errorPage*/}
+
 
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
                         <PrivateRoute exact path="/eBook/singelOrderComfirm" component={SingleOrderComfirm}/>
@@ -68,6 +65,7 @@ class App extends React.Component{
                         <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
                         <PrivateRoute exact path="/eBook/myOrder/" component={myOrder}/>
                         <PrivateRoute exact path="/eBook/myStatistics/" component={myStatistics}/>
+                        <PrivateRoute path="/eBook/bookdetail" component={BookDetailPage}/>
 
 
                         {/* ---------  下面的部分是管理员路由  带有权限鉴定 --------------- */}
@@ -80,12 +78,6 @@ class App extends React.Component{
                         <AdminRoute exact path="/eBook/admin/statistics/userConsumption" component={userConsumption}/>
                         <AdminRoute exact path="/eBook/admin/statistics/bookSellnum" component={BookSellnum}/>
 
-
-                        {/*BookSellnum*/}
-                        {/*    /eBook/admin/newBook*/}
-
-
-                        {/*<PrivateRoute exact path="/" component={HomeView} />*/}
                         <Redirect from="/*" to="/eBook/MainPage" />
                     </Switch>
                 </Router>

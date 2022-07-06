@@ -1,29 +1,50 @@
 import React from "react";
-import {Card} from "antd";
+import {Card, List} from "antd";
 import BookCard from "./Book/BookCard";
+import {getMainPageBooks} from "../service/bookservice";
 
 
 
 class Recommendation extends React.Component{
+    constructor() {
+        super();
+        this.state = {
+            RecommendationData : [],
+            RecommendationBookCard : []
+        };
+
+        getMainPageBooks(
+            (data) => {
+                this.setState({
+                    RecommendationData : data,
+                });
+            }
+        );
+
+    }
 
     render() {
         return (
             <div className="Recommendation">
-                {/*<BookCard bookID="1"/>*/}
-                {/*<BookCard bookID="2"/>*/}
-                {/*<BookCard bookID="3"/>*/}
-                {/*<BookCard bookID="4"/>*/}
-                {/*<BookCard bookID="5"/>*/}
-                {/*<BookCard bookID="6"/>*/}
-                {/*<BookCard bookID="7"/>*/}
-                {/*<BookCard bookID="8"/>*/}
-                {/*<BookCard bookID="9"/>*/}
-                {/*<BookCard bookID="10"/>*/}
-                {/*<BookCard bookID="11"/>*/}
-                {/*<BookCard bookID="12"/>*/}
-                {/*<BookCard bookID="13"/>*/}
-                {/*<BookCard bookID="14"/>*/}
-                {/*<BookCard bookID="15"/>*/}
+                <List
+                    grid={{gutter: 10, column: 4}}
+                    dataSource={this.state.RecommendationData}
+                    pagination={{
+                        onChange: page => {
+                            console.log(page);
+                        },
+                        pageSize: 4,
+                    }}
+
+                    renderItem={(item) => {
+                        return (
+                            <List.Item>
+                                <BookCard bookInfo={item}/>
+                            </List.Item>
+                        );
+
+                    }}
+                />
             </div>
         );
     }

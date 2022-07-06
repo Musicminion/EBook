@@ -1,7 +1,7 @@
 import LoginPassport from "../components/Login/LoginPassport";
 
 // post请求需要传入json对象
-let postRequest = (url, json, callback) => {
+export const postRequest = (url, json, callback) => {
 
     let opts = {
         method: "POST",
@@ -24,15 +24,14 @@ let postRequest = (url, json, callback) => {
         });
 };
 
-export {postRequest};
 
 // 特别提醒，写get请求的时候请把url写完整
-let getRequest = (url,callback) => {
+export const getRequest = (url,callback) => {
     fetch(url,{
         method: 'GET',
     })
         .then((response) => {
-            return response.json()
+            return response.json();
         })
         .then((data) => {
             callback(data);
@@ -42,10 +41,9 @@ let getRequest = (url,callback) => {
         })
 }
 
-export {getRequest};
 
 // post请求返回回调函数而不是直接的调用回调函数
-function postRequestReturnCallback(url, json, callback){
+export const postRequestReturnCallback = (url, json, callback) => {
 
     let opts = {
         method: "POST",
@@ -69,5 +67,4 @@ function postRequestReturnCallback(url, json, callback){
         });
 }
 
-export {postRequestReturnCallback};
 

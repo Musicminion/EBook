@@ -3,13 +3,16 @@ import {accessId, picHost, picKey} from "../../config/BaseConfig";
 import Base64 from "base-64";
 import {Button, Upload} from "antd";
 import {UploadOutlined} from "@ant-design/icons";
-
 import "../../utils/tools/crypto1/crypto/crypto.js";
 import "../../utils/tools/crypto1/hmac/hmac.js";
 import "../../utils/tools/crypto1/sha1/sha1.js";
 import {getSignatureForUpload} from "../../service/bookservice";
-// import {getSignatureForUpload} from "../../service/bookservice";
 
+//  [组件用途介绍]：用于上传图片的组件，对接阿里云-杭州的存储桶，图片存储在存储桶里面
+//  [组件使用场景]：管理员编辑书籍页面，或者添加书籍页面的时候，有一个上传组件的按钮
+//  [功能详细介绍]：用户打开页面的时候，会基于实时生成一个Policy【包括允许上传的大小、时间】，用户上传图片后，
+//               前端向后端发送Policy数据，后端根据密钥[AccessKey]，完成签名并且下发,这样保护了存储桶密
+//               钥的安全性，回避前端自签名泄露信息的危险。
 class FileUploader extends React.Component{
     PolicyData = "";
     value = {};

@@ -7,7 +7,7 @@ import '../css/mainPage.css';
 import {history} from "../App";
 import ShopDisplay from "../components/ShopDisplay";
 import BookDisplay from "../components/Book/BookDisplay";
-import Recommendation from "../components/Recommendation";
+import BookRecommendation from "../components/Book/BookRecommendation";
 
 
 class MainPage extends React.Component{
@@ -38,7 +38,7 @@ class MainPage extends React.Component{
                     {/*<ShopDisplay/>*/}
                     {/*<BookDisplay/>*/}
 
-                    <Recommendation/>
+                    <BookRecommendation/>
                 </div>
 
                 <div className="clearOnly">

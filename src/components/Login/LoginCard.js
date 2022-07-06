@@ -1,9 +1,7 @@
 import React from "react";
 import {message, Button, Space, Input, Form, Checkbox, Row, Col} from 'antd';
-import UserRegister from "./UserRegister";
+import UserRegister from "../Modal/UserRegister";
 import LoginPassport from "./LoginPassport";
-import {history} from "../PublicHistory";
-import {Icon} from "@fluentui/react";
 
 const MesgBlankError = () => {
     message.error('用户名或密码不能空白哦，请检查一下~');

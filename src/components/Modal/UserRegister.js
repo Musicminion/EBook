@@ -1,40 +1,34 @@
+import React from 'react';
+import {Modal, Button, Form, Input, Checkbox, message} from 'antd';
+import {checkUserExit, userRegister} from "../../service/userService";
 
-import React, {useEffect, useRef, useState} from 'react';
-import {Modal, Button, Form, Input, Checkbox} from 'antd';
-import {checkUserExit} from "../../service/userService";
+//  [组件用途介绍]：用户注册的对话框，里面内嵌一个表格，用户填写完成注册的信息，然后确认后可以向后端注册
+//  [组件使用场景]：登录页面的注册按钮，对接本组件
+//  [功能详细介绍]：对话框常态是隐藏的，单机按钮打开对话框
 
-const layout = {
-    labelCol: {
-        span: 5,
-    },
-    wrapperCol: {
-        span: 16,
-    },
-};
+const registerResult = (result , info) => {
+    if(result ===0){
+        message.success('注册成功啦！请登录 ~')
+    }
+    else{
+        message.error('出错了/(ㄒoㄒ)/~~ ~ 原因可能是：' + info)
+    }
+}
+
+const layout = {labelCol: {span: 5,}, wrapperCol: {span: 16,},};
+
 /* eslint-disable no-template-curly-in-string */
-
 const validateMessages = {
     required: '${label}是必填的项目哦 (*^▽^*)~',
     types: {
-        email: '${label} 不是有效的，请仔细检查哦!',
-        number: '${label} 不是有效的数字!',
+        email: '${label} 不是有效的，请仔细检查哦!', number: '${label} 不是有效的数字!',
     },
-    number: {
-        range: '${label}must be between ${min} and ${max}',
-    },
+    number: {range: '${label}must be between ${min} and ${max}',},
 };
 
 const tailFormItemLayout = {
-    wrapperCol: {
-        xs: {
-            span: 24,
-            offset: 0,
-        },
-        sm: {
-            span: 20,
-            offset: 4,
-        },
-    },
+    wrapperCol: {xs: {span: 24, offset: 0,},
+        sm: {span: 20, offset: 4,},},
 };
 
 class UserRegister extends React.Component{
@@ -50,7 +44,11 @@ class UserRegister extends React.Component{
 
     onFinish = (values: any) => {
         console.log(values);
-        // Register 借口从这里开始写
+        // Register 接口从这里开始写
+        userRegister((data) => {
+
+
+        });
     };
 
     showModal = () => {
@@ -93,10 +91,8 @@ class UserRegister extends React.Component{
         const { visible } = this.state;
         return (
             <>
-                <button
-                className="loginFunction_button"
-                onClick={this.showModal}
-                type="button">注册
+                <button className="loginFunction_button" onClick={this.showModal} type="button">
+                    注册
                 </button>
                 <Modal
                     title="欢迎注册EBook"
@@ -125,7 +121,7 @@ class UserRegister extends React.Component{
                             }),
                         ]}
                         >
-                            <Input onChange={this.usernameVerify} />
+                            <Input onChange={this.usernameVerify} placeholder={"请填写你的账户名称"} />
                         </Form.Item>
 
                         <Form.Item
@@ -144,7 +140,7 @@ class UserRegister extends React.Component{
                                 }),
                             ]}
                         >
-                            <Input.Password />
+                            <Input.Password placeholder={"请填写你的密码"} />
                         </Form.Item>
 
                         <Form.Item
@@ -163,19 +159,19 @@ class UserRegister extends React.Component{
                                 }),
                             ]}
                         >
-                            <Input.Password />
+                            <Input.Password placeholder={"请再一次填写你的密码"} />
                         </Form.Item>
 
-                        <Form.Item name="email" label="电子邮件" rules={[{ type: 'email' }]}>
-                            <Input />
+                        <Form.Item name="email" label="电子邮件" rules={[{ type: 'email',required: true,}]}>
+                            <Input placeholder={"请填写你的常用电子邮件"} />
                         </Form.Item>
 
-                        <Form.Item name="phone" label="电话号码">
-                            <Input style={{width: '100%',}}/>
+                        <Form.Item name="phone" label="电话号码" rules={[{required: true,},]}>
+                            <Input style={{width: '100%',}} placeholder={"请填写你的常用电话"} />
                         </Form.Item>
 
-                        <Form.Item name="location" label="收货地址">
-                            <Input style={{width: '100%',}}/>
+                        <Form.Item name="location" label="收货地址" rules={[{required: true,},]}>
+                            <Input style={{width: '100%',}} placeholder={"请填写你的常用收货地址"} />
                         </Form.Item>
 
                         <Form.Item name="agreement" valuePropName="checked"

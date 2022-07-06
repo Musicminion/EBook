@@ -1,6 +1,6 @@
 import React from "react";
-import {Card, Carousel, Image} from "antd";
-import BookCard from "./BookCard";
+import {Carousel, Image} from "antd";
+
 
 class BookDisplay extends React.Component{
     render() {
@@ -35,11 +35,7 @@ class BookDisplay extends React.Component{
                             </Image>
                         </div>
                     </Carousel>,
-
                 </div>
-
-
-
             </div>
         );
     }

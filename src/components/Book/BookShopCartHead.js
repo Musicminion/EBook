@@ -40,8 +40,6 @@ class BookShopCartHead extends React.Component{
                         <Col span={7}>
                             <p className="PayComfirm_TableHeader">操作</p>
                         </Col>
-
-
                     </Row>
 
                 </Col>

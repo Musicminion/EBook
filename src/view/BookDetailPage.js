@@ -1,21 +1,9 @@
 // 本页面是书籍的详情界面
 import React from 'react';
-import {
-    Button,
-    Card, Col,
-    Descriptions,
-    Image,
-    InputNumber,
-    Menu,
-    Modal, notification,
-    Row,
-    Tabs,
-    Typography
-} from "antd";
+import {Button, Card, Col, Descriptions, Image, InputNumber, notification,
+    Row, Tabs, Typography} from "antd";
 import TopBar from "../components/TopBar/TopBar";
 import "../css/BookDetail.css"
-import { Radio } from 'antd';
-import {AllBooks} from "../components/Book/tmpBookData";
 import {BookOutlined, CommentOutlined} from "@ant-design/icons";
 import Paragraph from "antd/es/typography/Paragraph";
 import Demo from "../components/Book/BookComment";
@@ -23,6 +11,7 @@ import {Link} from "react-router-dom";
 import {getBookByID} from "../service/bookservice";
 import {urlDecoder} from "../utils/urlDecoder";
 import {addOneBookToShopCart} from "../service/orderService";
+import Comment from "../components/Book/BookComment";
 
 const { TabPane } = Tabs;
 
@@ -221,9 +210,7 @@ class BookDetailPage extends React.Component{
                                         </Typography>
                                     </TabPane>
                                     <TabPane tab={<><CommentOutlined/>用户评价</>} key="2">
-                                        <Demo/>
-                                        <Demo/>
-                                        <Demo/>
+                                        <Comment/>
                                     </TabPane>
 
                                 </Tabs>
@@ -234,16 +221,11 @@ class BookDetailPage extends React.Component{
                         </div>
 
 
-                        <div className="clearOnly">
-
-                        </div>
+                        <div className="clearOnly"></div>
 
                         <div className="Pagefooter">
                             <p>CopyRight ©2022 All Rights Reserved.Developed By Zhang Ziqian.</p>
                         </div>
-
-
-
                     </div>
                 </div>
 

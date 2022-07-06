@@ -6,7 +6,6 @@ import loginPassport from "../components/Login/LoginPassport";
 
 export const userLogin = (loginInfo, SuccessCallback, FailureCallback, LocalToken) => {
     const url = apiURL + "/login";
-
     postRequest(url, loginInfo,
         (respdata) => {
             if (respdata.status >= 0) {
@@ -37,15 +36,21 @@ export const userLogout = (SuccessCallBack) => {
     postRequest(url, {}, callback);
 }
 
-
 export const userCheckSession = (callback) => {
     const url = apiURL +"/checkSession";
     postRequest(url, {}, callback);
 };
 
 
+export const userRegister = (registerInfo, callBack) => {
+    const url = apiURL + "/user/register";
+
+    postRequest(url, registerInfo, callBack);
+}
+
+
 export const userInfoRequest = (callBack) => {
-    const url = apiURL + "/user/info";
+    const url = apiURL + "/user/queryMeInfo";
     let user = loginPassport.getUserName();
 
     let obj = {
@@ -54,14 +59,6 @@ export const userInfoRequest = (callBack) => {
 
     postRequest(url, obj, callBack);
 }
-
-
-export const userRegister = (registerInfo, callBack) => {
-    const url = apiURL + "/register";
-
-    postRequest(url, registerInfo, callBack);
-}
-
 
 export const checkUserExit = (username,callBack) => {
     const url = apiURL + "/user/checkUserExit";

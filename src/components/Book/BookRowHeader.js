@@ -19,7 +19,6 @@ class BookRowHeader extends React.Component{
                 </Col>
 
                 <Col span={11}>
-                    {/*<p className="PayComfirm_TableHeader">小计</p>*/}
                     <Row>
                         <Col span={1}>
                         </Col>

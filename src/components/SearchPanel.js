@@ -38,6 +38,7 @@ class SearchPanel extends React.Component{
 
     }
 
+    // 如果是父亲组件是主页，就新开一个页面，否则就在本页面展示结果
     onSearch(value){
         if(this.props.fromPage === "MainPage"){
             const w=window.open('about:blank');
@@ -48,7 +49,7 @@ class SearchPanel extends React.Component{
         }
     }
 
-    SelectChange(value){
+    selectChange(value){
         this.setState(prevState => {
             return {
                 searchWay: value,
@@ -60,11 +61,11 @@ class SearchPanel extends React.Component{
 
         return(
             <Input.Group compact>
-                <Select style={{ width: '15%',textAlign:'center'} } defaultValue="0" onChange={(e) => this.SelectChange(e)}>
+                <Select style={{ width: '15%',textAlign:'center'} } defaultValue="0"
+                        onChange={(e) => this.selectChange(e)}>
                     <Option value="1" style={{ textAlign: 'center'}}>书籍</Option>
-                    <Option value="2" style={{ textAlign: 'center'}}>店铺</Option>
-                    <Option value="3" style={{ textAlign: 'center'}}>出版社</Option>*/}
-                    <Option value="4" style={{ textAlign: 'center'}}>作者</Option>*/}
+                    <Option value="2" style={{ textAlign: 'center'}}>出版社</Option>*/}
+                    <Option value="3" style={{ textAlign: 'center'}}>作者</Option>*/}
                     <Option value="0" style={{ textAlign: 'center'}}>全局搜索</Option>*/}
                 </Select>
 

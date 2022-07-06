@@ -4,7 +4,7 @@ import moment from 'moment';
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
 import '../../css/BookComment.css'
 
-const Demo = () => {
+const BookComment = () => {
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
     const [action, setAction] = useState(null);
@@ -104,14 +104,7 @@ const Demo = () => {
                 actions={actions}
                 author={<a>小李</a>}
                 avatar={<Avatar src={"https://joeschmoe.io/api/v1/4"} alt="Han Solo" />}
-                content={
-                    <>
-                        <p>
-                            很好
-                        </p>
-                    </>
-
-                }
+                content={<><p>很好</p></>}
                 datetime={
                     <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
                         <span>{moment().fromNow()}</span>
@@ -124,4 +117,4 @@ const Demo = () => {
     );
 };
 
-export default Demo;
+export default BookComment;

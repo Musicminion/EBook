@@ -1,11 +1,12 @@
 import React from "react";
 import {Card, Image} from "antd";
-import {Switch} from "react-router-dom";
 import '../../css/mainPage.css'
-import {type} from "@testing-library/user-event/dist/type";
 import {Link} from "react-router-dom";
 import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
 
+//  [组件用途介绍]：书籍卡片，类比淘宝网的每个商品展示的卡片，卡片上方是商品图片，下方是简介，单机卡片可以进入详情页
+//  [组件使用场景]：主页的书籍展示，搜索结果的展示，使用卡片展示比使用单调的列表展示更加优雅
+//  [功能详细介绍]：利用父亲组件传递的 props,作为数据的来源，体现React数据流的单向性。
 
 class BookCard extends React.Component{
     render() {

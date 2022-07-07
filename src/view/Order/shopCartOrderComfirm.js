@@ -31,8 +31,8 @@ class ShopCartOrderComfirm extends React.Component{
 
     constructor() {
         super();
-        reminderInfoCheck('warning');
         this.state = {
+            allBookPrice: 0,
             receivename: LoginPassport.getNickName(),
             phonenumber: LoginPassport.getUserTelephone(),
             postcode : "400000",
@@ -46,9 +46,15 @@ class ShopCartOrderComfirm extends React.Component{
             receivename: receivename,
             phonenumber: phonenumber,
             postcode: postcode,
-            receiveaddress: receiveaddress,
+            receiveaddress: receiveaddress
         });
     }
+
+    componentDidMount() {
+        reminderInfoCheck('warning');
+    }
+
+
 
     render() {
         return (
@@ -95,30 +101,16 @@ class ShopCartOrderComfirm extends React.Component{
                         <Tabs defaultActiveKey="1">
                             <TabPane tab={<><AppstoreOutlined/>确认订单信息</>} key="1">
                                 <OrderPayTable fromType={"shopCartBuy"} ref={this.refOrderPayTable}/>
-
-
                             </TabPane>
                         </Tabs>
 
                         <Row>
-                            <Col span={18}></Col>
-                            <Col span={2}><p className="payComfirmPriceTotalLabel">总价格：</p></Col>
-                            <Col span={4}>
-                                <p className="payComfirmPriceTotalNum">
-                                    ￥{this.state.allBookPrice.toFixed(2)}
-                                </p>
-                            </Col>
-                        </Row>
-
-                        <Row>
                             <Col span={20}></Col>
                             <Col span={3}>
-                                <UserOrderComfirm
-                                    bookIDGroup={this.bookID} bookNumGroup={this.bookNum} parentNode={this}
-                                />
+                                <UserOrderComfirm parentNode={this}/>
+                            {/*    bookIDGroup={this.bookID} bookNumGroup={this.bookNum} */}
                             </Col>
                         </Row>
-
                     </div>
                 </div>
                 <div className="clearOnly_compact"></div>

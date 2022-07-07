@@ -2,7 +2,7 @@ import React from "react";
 import {urlDecoder} from "../../utils/urlDecoder";
 import {orderQueryUserShopCart} from "../../service/orderService";
 import {getBookByID} from "../../service/bookservice";
-import {Col, Divider, List, Row} from "antd";
+import {Col, List, Row} from "antd";
 import OrderPayTableRow from "./element/orderPayTableRow";
 import OrderPayTableHeader from "./element/orderPayTableHeader";
 
@@ -65,6 +65,7 @@ class OrderPayTable extends React.Component{
                 };
                 this.setState({
                     orderData : [...this.state.orderData, info],
+                    totalPrice : this.state.totalPrice + bookBuyNum * data.price / 100,
                 });
             });
         }

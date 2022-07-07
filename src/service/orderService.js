@@ -40,10 +40,12 @@ export const refreshShopCartItem = (bookID,newbuynum,callBack) => {
 }
 
 
+// 【函数注释】：第一个参数是bookID集合的数据，第二个参数是bookNum就是购买数量的集合！
+//            第三个参数是orderInfo，因为用户可能是给别人购买的，所以订单的送达地点、收件人不一定是自己的
+//            第四个参数是回调函数，整个函数完成【从购物车的】订单下单
 export const orderMakeFromShopCart = (bookIDGroup, bookNumGroup,orderInfo,callBack) => {
-
     let user = loginPassport.getUserName();
-    let url = apiURL + "/order/makeorder/shopcart";
+    let url = apiURL + "/order/makeorder";
 
     let obj = {
         orderFrom : "ShopCart",
@@ -54,12 +56,12 @@ export const orderMakeFromShopCart = (bookIDGroup, bookNumGroup,orderInfo,callBa
         receiveaddress:orderInfo.receiveaddress,
     };
 
-    for(let i=1; i<bookIDGroup.length; i++){
+    for(let i=0; i<bookIDGroup.length; i++){
         let objkey = "bookIDGroup" + i;
         obj[objkey] = bookIDGroup[i].toString();
     }
 
-    for(let i=1; i<bookNumGroup.length; i++){
+    for(let i=0; i<bookNumGroup.length; i++){
         let objkey = "bookNumGroup" + i;
         obj[objkey] = bookNumGroup[i].toString();
     }
@@ -68,28 +70,31 @@ export const orderMakeFromShopCart = (bookIDGroup, bookNumGroup,orderInfo,callBa
 }
 
 
+// 【函数注释】：第一个参数是bookID集合的数据，第二个参数是bookNum就是购买数量的集合！
+//            第三个参数是orderInfo，因为用户可能是给别人购买的，所以订单的送达地点、收件人不一定是自己的
+//            第四个参数是回调函数，整个函数完成【直接购买的】订单下单
+export const orderMakeFromDirectBuy = (bookIDGroup, bookNumGroup,orderInfo,callBack) => {
+    let user = loginPassport.getUserName();
+    let url = apiURL + "/order/makeorder";
 
-// // 管理员，获取所有订单项目数据
-// export const getAllOrderItem =(callback) =>{
-//
-//     let url = apiURL + "/order/getAllOrderItem"
-//     postRequest(url,{},callback);
-// };
+    let obj = {
+        orderFrom : "DirectBuy",
+        username: user,
+        receivename: orderInfo.receivename,
+        postcode:orderInfo.postcode,
+        phonenumber:orderInfo.phonenumber,
+        receiveaddress:orderInfo.receiveaddress,
+    };
 
-// 管理员
-// export const getAllOrder =(callback) =>{
-//
-//     let url = apiURL + "/order/getAllOrder";
-//     postRequest(url,{},callback);
-// };
+    for(let i=0; i<bookIDGroup.length; i++){
+        let objkey = "bookIDGroup" + i;
+        obj[objkey] = bookIDGroup[i].toString();
+    }
 
-// export const getUserOrder = (callback) =>{
-//     let url = apiURL + "/order/getUserOrder";
-//     postRequest(url,{},callback);
-// }
-//
-//
-// export const getUserOrderItem = (callback) =>{
-//     let url = apiURL + "/order/getUserOrderItem";
-//     postRequest(url,{},callback);
-// }
+    for(let i=0; i<bookNumGroup.length; i++){
+        let objkey = "bookNumGroup" + i;
+        obj[objkey] = bookNumGroup[i].toString();
+    }
+
+    postRequest(url,obj,callBack);
+}

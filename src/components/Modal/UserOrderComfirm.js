@@ -25,27 +25,29 @@ class UserOrderComfirm extends React.Component{
     };
 
     handleOk = () => {
+        // 关闭对话框
         this.setState({ loading: true });
         setTimeout(() => {
             this.setState({ loading: false, visible: false });
         }, 0);
 
-        let orderInfo = {
-            receivename :this.props.parentNode.state.receivename,
-            phonenumber: this.props.parentNode.state.phonenumber,
-            postcode: this.props.parentNode.state.postcode,
-            receiveaddress : this.props.parentNode.state.receiveaddress,
-        };
-
-        orderMakeFromShopCart(this.props.bookIDGroup,this.props.bookNumGroup, orderInfo,
-            (data) =>{
-                console.log(data);
-                if(data.status>=0)
-                    window.location.href="/eBook/purchaseSuccess";
-                else
-                    window.location.href="/eBook/errorPage";
-            }
-        );
+        //
+        // let orderInfo = {
+        //     receivename :this.props.parentNode.state.receivename,
+        //     phonenumber: this.props.parentNode.state.phonenumber,
+        //     postcode: this.props.parentNode.state.postcode,
+        //     receiveaddress : this.props.parentNode.state.receiveaddress,
+        // };
+        //
+        // orderMakeFromShopCart(this.props.bookIDGroup,this.props.bookNumGroup, orderInfo,
+        //     (data) =>{
+        //         console.log(data);
+        //         if(data.status>=0)
+        //             window.location.href="/eBook/purchaseSuccess";
+        //         else
+        //             window.location.href="/eBook/errorPage";
+        //     }
+        // );
 
     }
 

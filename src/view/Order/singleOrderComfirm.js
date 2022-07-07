@@ -57,7 +57,6 @@ class SingleOrderComfirm extends React.Component{
         });
     }
 
-
     render() {
         return (
             <div className="eBookPageContainer">
@@ -109,21 +108,12 @@ class SingleOrderComfirm extends React.Component{
                         </Tabs>
 
                         <Row>
-                            <Col span={18}></Col>
-                            <Col span={2}><p className="payComfirmPriceTotalLabel">总价格：</p></Col>
-                            <Col span={4}>
-                                <p className="payComfirmPriceTotalNum">
-                                    ￥{this.state.allBookPrice.toFixed(2)}
-                                </p>
-                            </Col>
-                        </Row>
-
-                        <Row>
                             <Col span={20}></Col>
                             <Col span={3}>
                                 <UserOrderComfirm
-                                    bookIDGroup={this.bookID} bookNumGroup={this.bookNum} parentNode={this}
+                                    parentNode={this}
                                 />
+                                {/*     bookIDGroup={this.bookID} bookNumGroup={this.bookNum}  */}
                             </Col>
                         </Row>
 

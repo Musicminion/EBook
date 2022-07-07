@@ -124,7 +124,6 @@ class BookDetailPage extends React.Component{
                                 </div>
 
                                 <div className="BookDescription">
-
                                     <Descriptions title={this.state.bookTitle}>
                                         <Descriptions.Item label="书籍名称">{this.state.bookName}</Descriptions.Item>
                                         <Descriptions.Item label="书籍ISBN">{this.state.bookISBN}</Descriptions.Item>
@@ -161,12 +160,6 @@ class BookDetailPage extends React.Component{
                                                 <InputNumber min={1} max={this.state.bookremainNum}
                                                              onChange={e => this.buyNumChange(e)} defaultValue={1}/>
                                             </Col>
-                                            {/*<Col span={3}>*/}
-                                            {/*    <p>商品总价：</p>*/}
-                                            {/*</Col>*/}
-                                            {/*<Col span={10}>*/}
-                                            {/*    <InputNumber readOnly defaultValue={AllBooks[BookID].bookPrice}/>*/}
-                                            {/*</Col>*/}
                                         </Row>
                                     </Card>
 
@@ -175,7 +168,7 @@ class BookDetailPage extends React.Component{
                                             <Col span={4}>
                                             </Col>
                                             <Col span={7}>
-                                                <Link to={'singelOrderComfirm?book1id=' + this.state.bookID
+                                                <Link to={'/eBook/makeOrder/directBuy?book1id=' + this.state.bookID
                                                     +"&book1buynum="+this.state.bookNum}>
                                                     <Button className="bookDetailBuyNow">立即购买</Button>
                                                 </Link>

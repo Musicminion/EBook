@@ -13,6 +13,7 @@ import UserOrderComfirm from "../../components/Modal/UserOrderComfirm";
 import BookShopCartRow from "../../components/Book/BookShopCartRow";
 import BookShopCartHead from "../../components/Book/BookShopCartHead";
 import OrderPayTable from "../../components/Table/orderPayTable";
+import {orderMakeFromShopCart} from "../../service/orderService";
 
 const { Step } = Steps;
 const { TabPane } = Tabs;
@@ -27,7 +28,7 @@ const reminderInfoCheck = type => {
 
 //
 class ShopCartOrderComfirm extends React.Component{
-    refOrderPayTable = null;
+    refOrderPayTable = React.createRef();
 
     constructor() {
         super();
@@ -38,6 +39,8 @@ class ShopCartOrderComfirm extends React.Component{
             postcode : "400000",
             receiveaddress: LoginPassport.getUserAddress(),
         }
+
+        this.confirmOrder.bind(this);
     }
 
     // ！这个函数下发给子组件，子组件操作父亲组件的页面的 用户订单信息！
@@ -54,6 +57,27 @@ class ShopCartOrderComfirm extends React.Component{
         reminderInfoCheck('warning');
     }
 
+    // 发起订单的组件 通过ref获取订单的实况数据
+    confirmOrder = () => {
+        // console.log(this.refOrderPayTable.current.state.orderData);
+        let finalOrderData = this.refOrderPayTable.current.state.orderData;
+        let bookIDGroup = [];
+        let bookNumGroup = [];
+        for(let i=0; i<finalOrderData.length; i++){
+            bookIDGroup.push(finalOrderData[i].bookID);
+            bookNumGroup.push(finalOrderData[i].buynum);
+        }
+
+        orderMakeFromShopCart(bookIDGroup,bookNumGroup,this.state,
+            (data)=>{
+                console.log(data);
+                if(data.status>=0)
+                    window.location.href="/eBook/purchaseSuccess";
+                else
+                    window.location.href="/eBook/errorPage";
+            });
+
+    }
 
 
     render() {
@@ -107,8 +131,9 @@ class ShopCartOrderComfirm extends React.Component{
                         <Row>
                             <Col span={20}></Col>
                             <Col span={3}>
-                                <UserOrderComfirm parentNode={this}/>
-                            {/*    bookIDGroup={this.bookID} bookNumGroup={this.bookNum} */}
+                                <UserOrderComfirm
+                                    parentNode={this} orderConfirm={this.confirmOrder}
+                                />
                             </Col>
                         </Row>
                     </div>

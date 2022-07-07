@@ -31,13 +31,19 @@ class UserOrderComfirm extends React.Component{
             this.setState({ loading: false, visible: false });
         }, 0);
 
-        //
-        // let orderInfo = {
-        //     receivename :this.props.parentNode.state.receivename,
-        //     phonenumber: this.props.parentNode.state.phonenumber,
-        //     postcode: this.props.parentNode.state.postcode,
-        //     receiveaddress : this.props.parentNode.state.receiveaddress,
-        // };
+        // 和后端通讯
+        let orderInfo = {
+            receivename :this.props.parentNode.state.receivename,
+            phonenumber: this.props.parentNode.state.phonenumber,
+            postcode: this.props.parentNode.state.postcode,
+            receiveaddress : this.props.parentNode.state.receiveaddress,
+        };
+
+        console.log(orderInfo);
+
+        this.props.orderConfirm();
+
+
         //
         // orderMakeFromShopCart(this.props.bookIDGroup,this.props.bookNumGroup, orderInfo,
         //     (data) =>{

@@ -26,6 +26,9 @@ export const addOneBookToShopCart = (bookID,buyNum,callBack) => {
     postRequest(url, obj, callBack);
 }
 
+
+// 【函数注释】：函数用来刷新购物车里面的商品数量，比如商品购买的数量发生了改变，需要同步到后端
+//            第一个的参数是数的ID号码，第二个是新的买的数量，第三个是回调函数
 export const refreshShopCartItem = (bookID,newbuynum,callBack) => {
     const url = apiURL + "/order/refreshShopCartItem";
     let user = loginPassport.getUserName();
@@ -57,12 +60,12 @@ export const orderMakeFromShopCart = (bookIDGroup, bookNumGroup,orderInfo,callBa
     };
 
     for(let i=0; i<bookIDGroup.length; i++){
-        let objkey = "bookIDGroup" + i;
+        let objkey = "bookIDGroup" + (i + 1);
         obj[objkey] = bookIDGroup[i].toString();
     }
 
     for(let i=0; i<bookNumGroup.length; i++){
-        let objkey = "bookNumGroup" + i;
+        let objkey = "bookNumGroup" + (i + 1);
         obj[objkey] = bookNumGroup[i].toString();
     }
 
@@ -87,12 +90,12 @@ export const orderMakeFromDirectBuy = (bookIDGroup, bookNumGroup,orderInfo,callB
     };
 
     for(let i=0; i<bookIDGroup.length; i++){
-        let objkey = "bookIDGroup" + i;
+        let objkey = "bookIDGroup" + (i + 1);
         obj[objkey] = bookIDGroup[i].toString();
     }
 
     for(let i=0; i<bookNumGroup.length; i++){
-        let objkey = "bookNumGroup" + i;
+        let objkey = "bookNumGroup" + (i + 1);
         obj[objkey] = bookNumGroup[i].toString();
     }
 

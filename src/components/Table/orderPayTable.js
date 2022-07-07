@@ -37,6 +37,9 @@ class OrderPayTable extends React.Component{
         else{
             orderQueryUserShopCart(
                 (data) => {
+                    if(data.length ===0)
+                        window.location.href="/eBook/noItemPage";
+
                     let sum = 0;
                     for(let i = 0; i < data.length; i++){
                         sum += data[i].bookinfo.price * data[i].buynum;
@@ -53,6 +56,8 @@ class OrderPayTable extends React.Component{
     // 通过url参数抓取书籍信息，生成订单
     bookInfoGet = (theRequest) => {
         let itemNum = (Object.keys(theRequest).length) / 2;
+        if(itemNum ===0)
+            window.location.href="/eBook/noItemPage";
 
         for(let i=1; i<=itemNum; i++){
             let bookID = parseInt(theRequest["book" + i + "id"]);
@@ -93,41 +98,41 @@ class OrderPayTable extends React.Component{
 
     render() {
         console.log(this.state.orderData);
+        if(this.state.orderData.length > 0)
+            return (
+                <>
+                    {this.tableHeadGet()}
+                    <List grid={{gutter: 10, column: 1}} dataSource={this.state.orderData}
+                        renderItem={(item, key) => {
 
-        return (
-            <>
-                {this.tableHeadGet()}
-                <List grid={{gutter: 10, column: 1}} dataSource={this.state.orderData}
-                    renderItem={(item, key) => {
+                            return (
+                                <List.Item>
+                                    <OrderPayTableRow
+                                        bookInfo={item.bookinfo}
+                                        fromType={this.props.fromType}
+                                        defaultBuyNum={item.buynum}
+                                        childKey={key}
+                                        buyNumChangeCallBack={this.buyNumChangeCallBack}
+                                    />
+                                </List.Item>
+                            );
+                        }}
+                    />
 
-                        return (
-                            <List.Item>
-                                <OrderPayTableRow
-                                    bookInfo={item.bookinfo}
-                                    fromType={this.props.fromType}
-                                    defaultBuyNum={item.buynum}
-                                    childKey={key}
-                                    buyNumChangeCallBack={this.buyNumChangeCallBack}
-                                />
-                            </List.Item>
-                        );
-                    }}
-                />
-
-                <Row>
-                    <Col span={18}>
-                    </Col>
-                    <Col span={2}>
-                        <p className="payComfirmPriceTotalLabel">总价格：</p>
-                    </Col>
-                    <Col span={4}>
-                        <p className="payComfirmPriceTotalNum">
-                            ￥{this.state.totalPrice.toFixed(2)}
-                        </p>
-                    </Col>
-                </Row>
-            </>
-        );
+                    <Row>
+                        <Col span={18}>
+                        </Col>
+                        <Col span={2}>
+                            <p className="payComfirmPriceTotalLabel">总价格：</p>
+                        </Col>
+                        <Col span={4}>
+                            <p className="payComfirmPriceTotalNum">
+                                ￥{this.state.totalPrice.toFixed(2)}
+                            </p>
+                        </Col>
+                    </Row>
+                </>
+            );
     }
 }
 

@@ -28,6 +28,7 @@ import myOrder from "./view/iEbook/myOrder";
 import BookSellnum from "./view/admin/Statistics/BookSellnum";
 import myStatistics from "./view/iEbook/myStatistics";
 import RulesPage from "./view/login/LoginPageRules";
+import noItemPage from "./view/Result/noItemPage";
 
 class App extends React.Component{
     constructor(props) {
@@ -54,7 +55,7 @@ class App extends React.Component{
                         <Route exact path="/eBook/purchaseSuccess" component={purchaseSuccess}/>
                         <Route exact path="/eBook/errorPage" component={errorPage}/>
                         <Route exact path="/eBook/publishSuccess" component={publishSuccess}/>
-
+                        <Route exact path="/eBook/noItemPage" component={noItemPage}/>
 
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
                         <PrivateRoute exact path="/eBook/makeOrder/directBuy" component={SingleOrderComfirm}/>

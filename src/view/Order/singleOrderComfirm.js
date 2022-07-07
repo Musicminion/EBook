@@ -57,6 +57,11 @@ class SingleOrderComfirm extends React.Component{
         });
     }
 
+    // 发起订单的组件 通过ref获取订单的实况数据
+    confirmOrder = () => {
+        console.log(this.refOrderPayTable.state.orderData);
+    }
+
     render() {
         return (
             <div className="eBookPageContainer">
@@ -111,9 +116,8 @@ class SingleOrderComfirm extends React.Component{
                             <Col span={20}></Col>
                             <Col span={3}>
                                 <UserOrderComfirm
-                                    parentNode={this}
+                                    parentNode={this} orderConfirm={this.confirmOrder}
                                 />
-                                {/*     bookIDGroup={this.bookID} bookNumGroup={this.bookNum}  */}
                             </Col>
                         </Row>
 

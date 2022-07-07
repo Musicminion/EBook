@@ -13,6 +13,7 @@ class myCart extends React.Component{
         window.location.href = "/eBook/makeOrder/shopCart";
     }
     render() {
+
         return (
             <div className="eBookPageContainer">
                 <TopBar/>
@@ -36,13 +37,12 @@ class myCart extends React.Component{
                         </TabPane>
                     </Tabs>
                 </div>
-
                 <div className="clearOnly_compact"></div>
                 <div className="Pagefooter">
                     <p>CopyRight © 2022 AllRights Reserved.ALL Developed By ZhangZiqian.</p>
                 </div>
-
             </div>
+
         );
 
     }

@@ -1,7 +1,8 @@
 import React from "react";
-import {Button, Col, Divider, Image, InputNumber, Row} from "antd";
+import {Button, Col, Divider, Image, InputNumber, Popconfirm, Row} from "antd";
 import {Link} from "react-router-dom";
 import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
+import {refreshShopCartItem} from "../../../service/orderService";
 
 //  [组件用途介绍]：订单支付页面表格的一行，指示商品信息、单价、购买数量等，同时，用户变更购物车的数据后，要和后端联动
 //  -------------------------------------------------------------------------------------------------------
@@ -23,7 +24,7 @@ class OrderPayTableRow extends React.Component{
         super(props);
 
         this.state = {
-            rowSumPrice : (this.props.bookInfo.price/100),
+            rowSumPrice : (this.props.defaultBuyNum * this.props.bookInfo.price/100),
             rowCurBuyNum : this.props.defaultBuyNum
         };
     }
@@ -33,7 +34,27 @@ class OrderPayTableRow extends React.Component{
     buyNumChange = (value) => {
         // 更新父组件里面的数据
         this.props.buyNumChangeCallBack(this.props.childKey,value);
+        // 更新当前行的小计总价
+        this.setState({
+            rowSumPrice: (value * this.props.bookInfo.price/100),
+        });
 
+        // 如果是来自购物车的行 或者是购物车下单前的行，那么用户更新的数据要更改到后端
+        if (this.props.fromType === "shopCartDisplay" || this.props.fromType === "shopCartBuy"){
+            refreshShopCartItem(this.props.bookInfo.id, value,
+                (data) => {
+                    console.log(data);
+                });
+        }
+    }
+
+    // 删除掉这个项目
+    deleteItemFromShopCart = () => {
+        refreshShopCartItem(this.props.bookInfo.id,0,
+            (data)=>{
+                console.log(data);
+                window.location.reload();
+            });
     }
 
     render() {
@@ -79,7 +100,12 @@ class OrderPayTableRow extends React.Component{
                             <Col span={2}>
                             </Col>
                             <Col span={8}>
-                                <Button danger>删除</Button>
+                                <Popconfirm
+                                    title="确认从购物车里面移除?" onConfirm={this.deleteItemFromShopCart}
+                                    okText="删除" cancelText="取消"
+                                >
+                                    <Button danger>删除</Button>
+                                </Popconfirm>
                             </Col>
                         </Row>
                     </Col>

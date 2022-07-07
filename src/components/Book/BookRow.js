@@ -3,10 +3,7 @@ import {Button, Col, Divider, Image, Row} from "antd";
 import '../../css/BookRow.css';
 import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import {Link} from "react-router-dom";
-import {AllBooks} from "./tmpBookData";
 import BookOperation from "./BookOperation";
-import BookPriceDisplay from "./BookPriceDisplay";
-import {getBookByID} from "../../service/bookservice";
 
 
 class BookRow extends React.Component{

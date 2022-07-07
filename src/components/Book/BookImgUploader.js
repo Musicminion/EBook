@@ -13,6 +13,7 @@ import {getSignatureForUpload} from "../../service/bookservice";
 //  [功能详细介绍]：用户打开页面的时候，会基于实时生成一个Policy【包括允许上传的大小、时间】，用户上传图片后，
 //               前端向后端发送Policy数据，后端根据密钥[AccessKey]，完成签名并且下发,这样保护了存储桶密
 //               钥的安全性，回避前端自签名泄露信息的危险。
+
 class FileUploader extends React.Component{
     PolicyData = "";
     value = {};

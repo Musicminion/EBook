@@ -37,7 +37,7 @@ class BookRow extends React.Component{
                             {"￥" +(this.props.bookInfo.price/100).toFixed(2)}
                         </p>
                         <p className="BookRow_bookStorageStatus">库存：{this.props.bookInfo.inventory}</p>
-                        <p className="BookRow_bookSellnum">&nbsp;销量 {this.props.bookInfo.sellnumber}</p>
+                        <p className="BookRow_bookSellnum">&nbsp;销量：{this.props.bookInfo.sellnumber}</p>
                     </Col>
                     <Col span={8}>
                         <BookOperation/>

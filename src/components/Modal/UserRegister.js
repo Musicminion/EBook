@@ -6,6 +6,7 @@ import {checkUserExit, userRegister} from "../../service/userService";
 //  [组件使用场景]：登录页面的注册按钮，对接本组件
 //  [功能详细介绍]：对话框常态是隐藏的，单机按钮打开对话框
 
+
 const registerResult = (result , info) => {
     if(result ===0){
         message.success('注册成功啦！请登录 ~')

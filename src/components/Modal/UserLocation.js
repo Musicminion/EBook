@@ -1,26 +1,17 @@
 import React from "react";
 import {Button, Form, Input, Modal} from "antd";
 
+
+//  [组件用途介绍]：用户支付订单前的，如果修改地址将会打开的对话框，对话框需要与父组件交互
+//  [组件使用场景]：用户支付订单的页面
+//  [功能详细介绍]：对话框常态是隐藏的，单机按钮打开对话框
+
 const formItemLayout = {
-    labelCol: {
-        xs: {
-            span: 24,
-        },
-        sm: {
-            span: 6,
-        },
-    },
-    wrapperCol: {
-        xs: {
-            span: 24,
-        },
-        sm: {
-            span: 12,
-        },
-    },
+    labelCol: {xs: {span: 24,}, sm: {span: 6,},},
+    wrapperCol: {xs: {span: 24,}, sm: {span: 12,},},
 };
 
-class LocationForm extends React.Component{
+class UserLocation extends React.Component{
     constructor(props) {
         super(props);
         console.log(props);
@@ -147,4 +138,4 @@ class LocationForm extends React.Component{
     }
 }
 
-export default LocationForm;
+export default UserLocation;

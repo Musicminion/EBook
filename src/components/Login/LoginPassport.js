@@ -10,7 +10,9 @@ const LocalToken = {
     USERNAME : "ebookUser",
     NICKNAME : "ebookNickname",
     PRIVILEGE : "ebookPrivilege",
-    Logintime : "ebookLogintime"
+    Logintime : "ebookLogintime",
+    TELEPHONE : "ebookTelephone",
+    USERADDRESS : "ebookAddress",
 }
 
 
@@ -23,12 +25,14 @@ class LoginPassport extends React.Component{
         localStorage.removeItem(LocalToken.PRIVILEGE);
         localStorage.removeItem(LocalToken.NICKNAME);
         localStorage.removeItem(LocalToken.Logintime);
+        localStorage.removeItem(LocalToken.TELEPHONE);
+        localStorage.removeItem(LocalToken.USERADDRESS);
     }
 
+    // ---------------查--------询--------数--------据----------------
     static getUserName(){
         return localStorage.getItem(LocalToken.USERNAME);
     }
-
     static getPrivilege(){
         return localStorage.getItem(LocalToken.PRIVILEGE);
     }
@@ -36,6 +40,15 @@ class LoginPassport extends React.Component{
     static getNickName(){
         return localStorage.getItem(LocalToken.NICKNAME);
     }
+    static getUserTelephone(){
+        return localStorage.getItem(LocalToken.TELEPHONE);
+    }
+
+    static getUserAddress(){
+        return localStorage.getItem(LocalToken.USERADDRESS);
+    }
+
+    // -------------------------------------------------------------
 
     // 用户的业务逻辑层面
     // 令牌登录时候的操作

@@ -12,6 +12,8 @@ export const userLogin = (loginInfo, SuccessCallback, FailureCallback, LocalToke
                 localStorage.setItem(LocalToken.USERNAME,respdata.data.username);
                 localStorage.setItem(LocalToken.NICKNAME, respdata.data.name);
                 localStorage.setItem(LocalToken.PRIVILEGE,respdata.data.privilege);
+                localStorage.setItem(LocalToken.USERADDRESS,respdata.data.useraddress);
+                localStorage.setItem(LocalToken.TELEPHONE,respdata.data.telephone);
                 localStorage.setItem(LocalToken.Logintime,Date.now());
                 SuccessCallback();
             } else {

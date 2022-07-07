@@ -3,7 +3,7 @@ import {Button, Modal} from "antd";
 import {orderMakeFromShopCart} from "../../service/orderService";
 
 
-class MakeOrderModal extends React.Component{
+class UserOrderComfirm extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -75,4 +75,4 @@ class MakeOrderModal extends React.Component{
     }
 }
 
-export default MakeOrderModal;
+export default UserOrderComfirm;

@@ -59,8 +59,8 @@ class App extends React.Component{
 
 
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
-                        <PrivateRoute exact path="/eBook/singelOrderComfirm" component={SingleOrderComfirm}/>
-                        <PrivateRoute exact path="/eBook/shopCartOrderComfirm" component={shopCartOrderComfirm}/>
+                        <PrivateRoute exact path="/eBook/makeOrder/directBuy" component={SingleOrderComfirm}/>
+                        <PrivateRoute exact path="/eBook/makeOrder/shopCart" component={shopCartOrderComfirm}/>
                         <PrivateRoute exact path="/eBook/order/" component={OrderPay}/>
                         <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
                         <PrivateRoute exact path="/eBook/myOrder/" component={myOrder}/>

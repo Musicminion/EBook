@@ -5,7 +5,7 @@ import "../../css/PayComfirm.css"
 import LogoEBook from "../../asset/background/ebookLogo.svg";
 import BookRow from "../../components/Book/BookRow";
 import {AppstoreOutlined} from "@ant-design/icons";
-import LocationForm from "../../components/locationForm";
+import UserLocation from "../../components/Modal/UserLocation";
 import { Radio } from 'antd';
 import BookRowHeader from "../../components/Book/BookRowHeader";
 import BookOrderRow from "../../components/Book/BookOrderRow";
@@ -30,7 +30,9 @@ const reminderInfoCheck = type => {
     });
 };
 
-// 注意 这个页面只能下单单个商品！不能下单多个商品
+
+
+//  这个页面下单单个商品！不能下单多个商品
 class SingleOrderComfirm extends React.Component{
     constructor() {
         super();
@@ -161,7 +163,7 @@ class SingleOrderComfirm extends React.Component{
 
                                         </Col>
                                         <Col span={2}>
-                                            <LocationForm
+                                            <UserLocation
                                                 confirmChange = {this.infoChange}
                                                 receivename = {this.state.receivename}
                                                 phonenumber = {this.state.phonenumber}

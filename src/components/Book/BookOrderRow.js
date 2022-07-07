@@ -1,7 +1,6 @@
 import React from "react";
 import {Col, Divider, Image, InputNumber, Row} from "antd";
 import {Link} from "react-router-dom";
-import {AllBooks} from "./tmpBookData";
 import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import {getBookByID} from "../../service/bookservice";
 

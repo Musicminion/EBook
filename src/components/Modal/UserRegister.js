@@ -45,15 +45,6 @@ class UserRegister extends React.Component{
         };
     }
 
-    onFinish = (values: any) => {
-        console.log(values);
-        // Register 接口从这里开始写
-        userRegister((data) => {
-
-
-        });
-    };
-
     showModal = () => {
         this.setState({
             visible: true,
@@ -89,6 +80,14 @@ class UserRegister extends React.Component{
             this.setState({usernameValidate:"error",usernameHelp: "用户名需要六位以上才可以！"});
     }
 
+    submitFrom = (values) => {
+        console.log(values);
+        // Register 函数从这里开始写
+        userRegister(values,(data) => {
+            registerResult(data.status,data.msg);
+            this.hideModal();
+        });
+    };
 
     render() {
         const { visible } = this.state;
@@ -98,15 +97,12 @@ class UserRegister extends React.Component{
                     注册
                 </button>
                 <Modal
-                    title="欢迎注册EBook"
+                    title="欢迎注册 EBook"
                     onCancel={this.handleCancel}
                     visible={visible}
-                    okText="确认"
-                    cancelText="取消"
                     footer={null}
                 >
-                    <Form {...layout} name="" onFinish={this.onFinish} validateMessages={validateMessages}>
-
+                    <Form {...layout} name="" onFinish={this.submitFrom} validateMessages={validateMessages}>
                         <Form.Item
                             hasFeedback name="username" label="用户名" validateMessages={validateMessages}
                             validateStatus={this.state.usernameValidate} help={this.state.usernameHelp} rules={[{ required: true,},
@@ -116,7 +112,7 @@ class UserRegister extends React.Component{
                                         if(value.length <= 5)
                                             return Promise.reject(new Error('用户名长度至少6位，请重新输入'));
                                         else{
-                                            return ;
+                                            return Promise.resolve();
                                         }
                                     }
                                     return Promise.reject(new Error('请输入长度六位以上的用户名'));
@@ -193,7 +189,7 @@ class UserRegister extends React.Component{
                         </Form.Item>
 
                         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 14 }}>
-                            <Button type="primary" htmlType="submit">注册</Button>
+                            <Button type="primary" htmlType="submit">注册账户</Button>
                             <span> &nbsp;&nbsp;</span>
                             <Button onClick={this.hideModal}>取消</Button>
                         </Form.Item>

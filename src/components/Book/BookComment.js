@@ -89,9 +89,7 @@ const BookComment = () => {
                             书略微有些陈旧而已，但是不影响阅读。用了半个月吧 里面的赏析还有作文都很符合现在的高考命题趋势
                             社会主义核心价值观什么的 有专门的框框积累素材 内容真的很好哦
                         </p>
-
                     </>
-
                 }
                 datetime={
                     <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>

@@ -2,9 +2,7 @@ import React from "react";
 import {Carousel, Image} from "antd";
 
 
-
-
-class BookDisplay extends React.Component{
+class BookCarousel extends React.Component{
     render() {
         return (
             <div className="BookDisplay">
@@ -42,4 +40,4 @@ class BookDisplay extends React.Component{
         );
     }
 }
-export default BookDisplay;
+export default BookCarousel;

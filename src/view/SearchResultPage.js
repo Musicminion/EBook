@@ -5,7 +5,6 @@ import TopBar from "../components/TopBar/TopBar";
 import {Button, Col, Collapse, Divider, Form, Input, List, Pagination, Row, Tabs, Typography} from 'antd';
 import BookRow from "../components/Book/BookRow";
 import {AppstoreOutlined, BarsOutlined} from "@ant-design/icons";
-import BookOperation from "../components/Book/tmpBookData";
 import '../css/searchResult.css'
 import {urlDecoder} from "../utils/urlDecoder";
 import BookCard from "../components/Book/BookCard";

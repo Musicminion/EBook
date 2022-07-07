@@ -6,12 +6,7 @@ import LogoEBook from "../../asset/background/ebookLogo.svg";
 import {AppstoreOutlined} from "@ant-design/icons";
 import UserLocation from "../../components/Modal/UserLocation";
 import LoginPassport from "../../components/Login/LoginPassport";
-import {userInfoRequest} from "../../service/userService";
-import {urlDecoder} from "../../utils/urlDecoder";
-import {getBookByID} from "../../service/bookservice";
 import UserOrderComfirm from "../../components/Modal/UserOrderComfirm";
-import BookShopCartRow from "../../components/Book/BookShopCartRow";
-import BookShopCartHead from "../../components/Book/BookShopCartHead";
 import OrderPayTable from "../../components/Table/orderPayTable";
 import {orderMakeFromShopCart} from "../../service/orderService";
 

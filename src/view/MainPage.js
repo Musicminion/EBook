@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 import '../css/mainPage.css';
 import {history} from "../App";
 import ShopDisplay from "../components/ShopDisplay";
-import BookDisplay from "../components/Book/BookDisplay";
+import BookCarousel from "../components/Book/BookCarousel";
 import BookRecommendation from "../components/Book/BookRecommendation";
 
 
@@ -31,12 +31,12 @@ class MainPage extends React.Component{
 
                     <div className="MainPageTopArea">
                         <ShopDisplay/>
-                        <BookDisplay/>
+                        <BookCarousel/>
                     </div>
 
 
                     {/*<ShopDisplay/>*/}
-                    {/*<BookDisplay/>*/}
+                    {/*<BookCarousel/>*/}
 
                     <BookRecommendation/>
                 </div>

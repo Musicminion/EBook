@@ -9,6 +9,7 @@ import UserLocation from "../../components/Modal/UserLocation";
 import LoginPassport from "../../components/Login/LoginPassport";
 import OrderPayTable from "../../components/Table/orderPayTable";
 import UserOrderComfirm from "../../components/Modal/UserOrderComfirm";
+import {orderMakeFromDirectBuy} from "../../service/orderService";
 
 
 
@@ -25,17 +26,18 @@ const reminderInfoCheck = type => {
 
 //  这个页面下单单个商品！不能下单多个商品
 class SingleOrderComfirm extends React.Component{
-    refOrderPayTable = null;
+    refOrderPayTable = React.createRef();
 
     constructor() {
         super();
-        reminderInfoCheck('warning');
+
         this.state = {
             receivename: LoginPassport.getNickName(),
             phonenumber: LoginPassport.getUserTelephone(),
             postcode : "400000",
             receiveaddress: LoginPassport.getUserAddress(),
         }
+        this.confirmOrder.bind(this);
     }
 
     // ！这个函数下发给子组件，子组件操作父亲组件的页面的 用户订单信息！
@@ -48,9 +50,28 @@ class SingleOrderComfirm extends React.Component{
         });
     }
 
+    componentDidMount() {
+        reminderInfoCheck('warning');
+    }
+
     // 发起订单的组件 通过ref获取订单的实况数据
     confirmOrder = () => {
-        console.log(this.refOrderPayTable.state.orderData);
+        let finalOrderData = this.refOrderPayTable.current.state.orderData;
+        let bookIDGroup = [];
+        let bookNumGroup = [];
+        for(let i=0; i<finalOrderData.length; i++){
+            bookIDGroup.push(finalOrderData[i].bookID);
+            bookNumGroup.push(finalOrderData[i].buynum);
+        }
+
+        orderMakeFromDirectBuy(bookIDGroup,bookNumGroup,this.state,
+            (data)=>{
+                console.log(data);
+                if(data.status>=0)
+                    window.location.href="/eBook/purchaseSuccess";
+                else
+                    window.location.href="/eBook/errorPage";
+            });
     }
 
     render() {
@@ -98,7 +119,6 @@ class SingleOrderComfirm extends React.Component{
                         <Tabs defaultActiveKey="1">
                             <TabPane tab={<><AppstoreOutlined/>确认订单信息</>} key="1">
                                 <OrderPayTable fromType={"directBuy"} ref={this.refOrderPayTable}/>
-
 
                             </TabPane>
                         </Tabs>

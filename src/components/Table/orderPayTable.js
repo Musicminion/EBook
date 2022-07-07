@@ -97,42 +97,40 @@ class OrderPayTable extends React.Component{
     }
 
     render() {
-        console.log(this.state.orderData);
-        if(this.state.orderData.length > 0)
-            return (
-                <>
-                    {this.tableHeadGet()}
-                    <List grid={{gutter: 10, column: 1}} dataSource={this.state.orderData}
-                        renderItem={(item, key) => {
+        return (
+            <>
+                {this.tableHeadGet()}
+                <List grid={{gutter: 10, column: 1}} dataSource={this.state.orderData}
+                      renderItem={(item, key) => {
 
-                            return (
-                                <List.Item>
-                                    <OrderPayTableRow
-                                        bookInfo={item.bookinfo}
-                                        fromType={this.props.fromType}
-                                        defaultBuyNum={item.buynum}
-                                        childKey={key}
-                                        buyNumChangeCallBack={this.buyNumChangeCallBack}
-                                    />
-                                </List.Item>
-                            );
-                        }}
-                    />
+                          return (
+                              <List.Item>
+                                  <OrderPayTableRow
+                                      bookInfo={item.bookinfo}
+                                      fromType={this.props.fromType}
+                                      defaultBuyNum={item.buynum}
+                                      childKey={key}
+                                      buyNumChangeCallBack={this.buyNumChangeCallBack}
+                                  />
+                              </List.Item>
+                          );
+                      }}
+                />
 
-                    <Row>
-                        <Col span={18}>
-                        </Col>
-                        <Col span={2}>
-                            <p className="payComfirmPriceTotalLabel">总价格：</p>
-                        </Col>
-                        <Col span={4}>
-                            <p className="payComfirmPriceTotalNum">
-                                ￥{this.state.totalPrice.toFixed(2)}
-                            </p>
-                        </Col>
-                    </Row>
-                </>
-            );
+                <Row>
+                    <Col span={18}>
+                    </Col>
+                    <Col span={2}>
+                        <p className="payComfirmPriceTotalLabel">总价格：</p>
+                    </Col>
+                    <Col span={4}>
+                        <p className="payComfirmPriceTotalNum">
+                            ￥{this.state.totalPrice.toFixed(2)}
+                        </p>
+                    </Col>
+                </Row>
+            </>
+        );
     }
 }
 

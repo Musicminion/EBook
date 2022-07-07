@@ -1,7 +1,8 @@
 import React from "react";
 import {Button, DatePicker, Image, Space, Table, Tag} from "antd";
-import {getAllOrder, getUserOrder} from "../../service/orderService";
+
 import {SearchOutlined} from "@ant-design/icons";
+import {getAllOrder, getUserOrder} from "../../service/admin/adminService_order";
 const { RangePicker } = DatePicker;
 
 //return <Table columns={columns} dataSource={data} pagination={false} />;

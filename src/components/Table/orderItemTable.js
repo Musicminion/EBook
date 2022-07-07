@@ -2,8 +2,10 @@ import React from "react";
 import {Button, Image, Input, Space, Table, Tag} from "antd";
 import {SearchOutlined} from "@ant-design/icons";
 import Highlighter from "react-highlight-words";
-import {getAllOrderItem, getUserOrderItem} from "../../service/orderService";
 import { DatePicker} from 'antd';
+import {getAllOrderItem, getUserOrderItem} from "../../service/admin/adminService_order";
+
+
 const { RangePicker } = DatePicker;
 
 class OrderItemTable extends React.Component{
@@ -18,12 +20,11 @@ class OrderItemTable extends React.Component{
         };
 
         if(this.props.idAdmin){
-            getAllOrderItem((data)=>{
+            getAllOrderItem((data) => {
                 // console.log(data);
                 this.setState({
                     orderData:data.concat([])
                 });
-
             });
         }
         else {

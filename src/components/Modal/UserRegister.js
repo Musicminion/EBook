@@ -2,6 +2,8 @@ import React from 'react';
 import {Modal, Button, Form, Input, Checkbox, message} from 'antd';
 import {checkUserExit, userRegister} from "../../service/userService";
 
+
+//  [对话框]
 //  [组件用途介绍]：用户注册的对话框，里面内嵌一个表格，用户填写完成注册的信息，然后确认后可以向后端注册
 //  [组件使用场景]：登录页面的注册按钮，对接本组件
 //  [功能详细介绍]：对话框常态是隐藏的，单机按钮打开对话框

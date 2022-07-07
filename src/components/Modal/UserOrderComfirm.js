@@ -2,6 +2,11 @@ import React from "react";
 import {Button, Modal} from "antd";
 import {orderMakeFromShopCart} from "../../service/orderService";
 
+//  [对话框]
+//  [组件用途介绍]：用户订单确认的对话框
+//  [组件使用场景]：用户支付的对接
+//  [功能详细介绍]：对话框常态是隐藏的，单机按钮打开对话框
+
 
 class UserOrderComfirm extends React.Component{
     constructor(props) {
@@ -25,7 +30,6 @@ class UserOrderComfirm extends React.Component{
             this.setState({ loading: false, visible: false });
         }, 0);
 
-
         let orderInfo = {
             receivename :this.props.parentNode.state.receivename,
             phonenumber: this.props.parentNode.state.phonenumber,
@@ -33,7 +37,7 @@ class UserOrderComfirm extends React.Component{
             receiveaddress : this.props.parentNode.state.receiveaddress,
         };
 
-        orderMakeFromShopCart(this.props.bookIDGroup,this.props.bookNumGroup,orderInfo,
+        orderMakeFromShopCart(this.props.bookIDGroup,this.props.bookNumGroup, orderInfo,
             (data) =>{
                 console.log(data);
                 if(data.status>=0)

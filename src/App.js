@@ -3,7 +3,6 @@ import LoginPage from "./view/login/LoginPage";
 import MainPage from "./view/MainPage";
 
 import LoginPageAbout from "./view/login/LoginPageAbout";
-import LoginShopRegisterPage from "./view/login/LoginPageRules";
 import LoginPageFeedBack from "./view/login/LoginPageFeedBack";
 import BookDetailPage from "./view/BookDetailPage";
 import SearchResultPage from "./view/SearchResultPage";
@@ -14,7 +13,6 @@ import SingleOrderComfirm from "./view/Order/singleOrderComfirm";
 import PrivateRoute from "./route/PrivateRoute";
 import OrderPay from "./view/Order/OrderPay";
 import myCart from "./view/iEbook/myCart";
-import ShopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
 import shopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
 import purchaseSuccess from "./view/Result/purchaseSuccess";
 import errorPage from "./view/Result/errorPage";

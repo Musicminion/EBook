@@ -12,6 +12,7 @@ import {getBookByID} from "../../service/bookservice";
 import UserOrderComfirm from "../../components/Modal/UserOrderComfirm";
 import BookShopCartRow from "../../components/Book/BookShopCartRow";
 import BookShopCartHead from "../../components/Book/BookShopCartHead";
+import OrderPayTable from "../../components/Table/orderPayTable";
 
 const { Step } = Steps;
 const { TabPane } = Tabs;
@@ -26,9 +27,27 @@ const reminderInfoCheck = type => {
 
 //
 class ShopCartOrderComfirm extends React.Component{
+    refOrderPayTable = null;
+
     constructor() {
         super();
+        reminderInfoCheck('warning');
+        this.state = {
+            receivename: LoginPassport.getNickName(),
+            phonenumber: LoginPassport.getUserTelephone(),
+            postcode : "400000",
+            receiveaddress: LoginPassport.getUserAddress(),
+        }
+    }
 
+    // ！这个函数下发给子组件，子组件操作父亲组件的页面的 用户订单信息！
+    infoChange = (receivename, phonenumber, postcode, receiveaddress) => {
+        this.setState({
+            receivename: receivename,
+            phonenumber: phonenumber,
+            postcode: postcode,
+            receiveaddress: receiveaddress,
+        });
     }
 
     render() {
@@ -38,14 +57,12 @@ class ShopCartOrderComfirm extends React.Component{
                 <div className="MainContentsCard_compact">
                     <div className="PayComfirm_TopArea">
                         <div className="PayComfirm_logoArea">
-                            <img src={LogoEBook} className="PayComfirm_logo"/>
+                            <img src={LogoEBook} className="PayComfirm_logo" alt={"logo"}/>
                         </div>
                         <div className="PayComfirm_StepArea">
                             <Steps current={0} className="PayComfirm_Step">
-                                <Step title="确认订单"/>
-                                <Step title="付款"/>
-                                <Step title="确认收货"/>
-                                <Step title="评价"/>
+                                <Step title="确认订单"/><Step title="付款"/>
+                                <Step title="确认收货"/><Step title="评价"/>
                             </Steps>
                         </div>
                     </div>
@@ -61,9 +78,7 @@ class ShopCartOrderComfirm extends React.Component{
                                 </Card>
 
                                 <Row>
-                                    <Col span={20}>
-
-                                    </Col>
+                                    <Col span={20}></Col>
                                     <Col span={2}>
                                         <UserLocation
                                             confirmChange = {this.infoChange}
@@ -79,19 +94,15 @@ class ShopCartOrderComfirm extends React.Component{
 
                         <Tabs defaultActiveKey="1">
                             <TabPane tab={<><AppstoreOutlined/>确认订单信息</>} key="1">
-                                <BookShopCartHead/>
+                                <OrderPayTable fromType={"shopCartBuy"} ref={this.refOrderPayTable}/>
 
-                                <>{this.orderItem}</>
+
                             </TabPane>
                         </Tabs>
 
                         <Row>
-                            <Col span={18}>
-
-                            </Col>
-                            <Col span={2}>
-                                <p className="payComfirmPriceTotalLabel">总价格：</p>
-                            </Col>
+                            <Col span={18}></Col>
+                            <Col span={2}><p className="payComfirmPriceTotalLabel">总价格：</p></Col>
                             <Col span={4}>
                                 <p className="payComfirmPriceTotalNum">
                                     ￥{this.state.allBookPrice.toFixed(2)}
@@ -100,22 +111,17 @@ class ShopCartOrderComfirm extends React.Component{
                         </Row>
 
                         <Row>
-                            <Col span={20}>
-
-                            </Col>
+                            <Col span={20}></Col>
                             <Col span={3}>
                                 <UserOrderComfirm
-                                    bookIDGroup={this.bookID}
-                                    bookNumGroup={this.bookNum}
-                                    parentNode={this}
+                                    bookIDGroup={this.bookID} bookNumGroup={this.bookNum} parentNode={this}
                                 />
                             </Col>
                         </Row>
 
                     </div>
                 </div>
-                <div className="clearOnly_compact">
-                </div>
+                <div className="clearOnly_compact"></div>
                 <div className="Pagefooter">
                     <p>CopyRight ©2022 All Rights Reserved.Developed By Zhang Ziqian.</p>
                 </div>

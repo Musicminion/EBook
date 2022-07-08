@@ -119,7 +119,7 @@ class BookDetailPage extends React.Component{
 
                             <div className="BookDetailTop">
                                 <div className="BookDetailImg">
-                                    <Image src={this.state.imageUrl}/>
+                                    <Image src={this.state.imageUrl} width={"100%"}/>
                                 </div>
 
                                 <div className="BookDescription">

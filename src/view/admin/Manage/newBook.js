@@ -54,7 +54,7 @@ class newBook extends React.Component{
                                                    message: '需要输入书籍的价格信息!',
                                                },]}
                                 >
-                                    <InputNumber prefix="￥" step="0.01" min="0"
+                                    <InputNumber prefix="￥" step="1" min="0"
                                                  style={{width: 130,}} precision={2} defaultValue={0}
                                     />
                                 </Form.Item>

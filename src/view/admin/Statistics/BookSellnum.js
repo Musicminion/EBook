@@ -173,7 +173,7 @@ class BookSellnum extends React.Component{
             getBookSellData(obj,(data)=>{
                 console.log(data);
                 this.setState({
-                    userData:data.concat([])
+                    sellData:data.concat([])
                 });
 
                 let tmpChartData = [];
@@ -189,8 +189,6 @@ class BookSellnum extends React.Component{
                     chartData: tmpChartData
                 });
             });
-
-            // console.log(obj);
         }
     };
 
@@ -201,11 +199,10 @@ class BookSellnum extends React.Component{
             <div className="eBookPageContainer">
                 <TopBar/>
                 <div className="MainContentsCard_compact">
+                    <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
                     <Tabs defaultActiveKey="1">
                         <TabPane tab={<><UnorderedListOutlined />书籍销量统计表</>} key="1">
-                            <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
-
-                            <Table columns={this.columns} dataSource={this.state.sellData}/>;
+                            <Table columns={this.columns} dataSource={this.state.sellData}/>
 
                         </TabPane>
                         <TabPane tab={<><UnorderedListOutlined />书籍销量统计图</>} key="2">

@@ -196,9 +196,10 @@ class UserConsumption extends React.Component{
             <div className="eBookPageContainer">
                 <TopBar/>
                 <div className="MainContentsCard_compact">
+                    <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
                     <Tabs defaultActiveKey="1">
                         <TabPane tab={<><UnorderedListOutlined />用户消费统计表</>} key="1">
-                            <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
+
 
                             <Table columns={this.columns} dataSource={this.state.userData}/>
 

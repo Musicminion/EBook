@@ -37,18 +37,10 @@ class userTopBar extends React.Component{
                 <Menu.Item>
                     <Link to={{pathname:'/eBook'}}>eBook网上书城</Link>
                 </Menu.Item>
-                <SubMenu key="account" icon={<UserOutlined />} title="账号管理">
-                    <Menu.ItemGroup>
-                        <Menu.Item key="accountSafe">账号安全</Menu.Item>
-                        <Menu.Item key="personalInfo">个人资料</Menu.Item>
-                        <Menu.Item key="PayMethod">支付方式</Menu.Item>
-                    </Menu.ItemGroup>
-                </SubMenu>
+
                 <SubMenu key="iEBook" icon={<AppstoreOutlined/>} title="iEBook">
                     <Menu.ItemGroup>
                         <Menu.Item key="myCart" ><Link to={{pathname:'/eBook/myCart'}}>我的购物车</Link></Menu.Item>
-                        <Menu.Item key="myFavorites" >我的收藏夹</Menu.Item>
-                        <Menu.Item key="myFootPrint" >我的足迹</Menu.Item>
                         <Menu.Item key="myOrder" ><Link to={{pathname:'/eBook/myOrder'}}>我的订单</Link></Menu.Item>
                         <Menu.Item key="myComment" >
                             <Link to={{pathname:'/eBook/myStatistics'}}>我的统计</Link>
@@ -88,3 +80,11 @@ class userTopBar extends React.Component{
 }
 
 export default userTopBar;
+
+{/*<SubMenu key="account" icon={<UserOutlined />} title="账号管理">*/}
+{/*    <Menu.ItemGroup>*/}
+{/*        <Menu.Item key="accountSafe">账号安全</Menu.Item>*/}
+{/*        <Menu.Item key="personalInfo">个人资料</Menu.Item>*/}
+{/*        <Menu.Item key="PayMethod">支付方式</Menu.Item>*/}
+{/*    </Menu.ItemGroup>*/}
+{/*</SubMenu>*/}

@@ -1,6 +1,6 @@
 import React from "react";
 import TopBar from "../../../components/TopBar/TopBar";
-import {Button, DatePicker, Image, Input, Space, Table, Tabs} from "antd";
+import {Button, DatePicker, Divider, Image, Input, Space, Table, Tabs} from "antd";
 import {SearchOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import {getBookSellData, getuserConsumeData} from "../../../service/statisticService";
 import {Column} from "@ant-design/charts";
@@ -199,6 +199,8 @@ class BookSellnum extends React.Component{
             <div className="eBookPageContainer">
                 <TopBar/>
                 <div className="MainContentsCard_compact">
+                    <h2 style={{color:"#ff78ac"}}>书籍销量统计</h2>
+                    <Divider/>
                     <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
                     <Tabs defaultActiveKey="1">
                         <TabPane tab={<><UnorderedListOutlined />书籍销量统计表</>} key="1">

@@ -1,9 +1,8 @@
 import React from "react";
 import TopBar from "../../components/TopBar/TopBar";
-import {DatePicker, Image, Table, Tabs} from "antd";
+import {DatePicker, Divider, Image, Table, Tabs} from "antd";
 import {UnorderedListOutlined} from "@ant-design/icons";
 import {
-    getBookSellData,
     getUserbookAllBuyNum,
     getUserbookTotalPay,
     getUserbookWithBuyNum
@@ -65,6 +64,9 @@ class MyStatistics extends React.Component{
 
             getUserbookWithBuyNum(obj,(data)=>{
                 console.log(data);
+                this.setState({
+                    userData:data.concat([])
+                });
             });
 
             getUserbookTotalPay(obj,(data)=>{
@@ -112,14 +114,18 @@ class MyStatistics extends React.Component{
             <div className="eBookPageContainer">
                 <TopBar/>
                 <div className="MainContentsCard_compact">
+                    <h2 style={{color:"#ff78ac"}}>用户个人消费统计</h2>
+                    <Divider/>
+                    <span style={{color: "#ff5294"}}>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
+                    <br/>
+                    <br/>
+                    <span style={{color: "#ff5294"}}>统计结果：</span><span>购买书籍数量{this.state.UserbookAllBuyNum} 本 &nbsp;&nbsp;&nbsp;
+                        消费金额￥ {this.state.UserbookTotalPay} 元（默认统计全部）
+                    </span>
+                    <br/>
                     <Tabs defaultActiveKey="1">
                         <TabPane tab={<><UnorderedListOutlined />统计数据</>} key="1">
-                            <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
-                            <br/>
-                            <span>统计结果：购买书籍数量{this.state.UserbookAllBuyNum} 本 &nbsp;&nbsp;&nbsp;
-                                消费金额￥ {this.state.UserbookTotalPay} 元（默认统计全部）
-                            </span>
-                            <br/>
+
 
                             <Table columns={this.columns} dataSource={this.state.userData}/>;
 

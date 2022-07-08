@@ -28,7 +28,7 @@ export const getBookByKeyWord = (searchType, keyword, callback) => {
 // 函数功能： 通过和后端的端口交互，前端设置文件上传的实时的Policy【包括过期时间】，发送到后端获取签名
 //          签名基于公钥、私钥、实时时间进行加密 参考了阿里云的 sha1 加密方法 POST请求，
 export const getSignatureForUpload = (PolicyData,callback) =>{
-    let url = apiURL + "/addBook/requestSignature";
+    let url = apiURL + "/requestUploadSignature";
     let obj = {
         PolicyData: PolicyData
     };

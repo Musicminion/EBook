@@ -3,7 +3,6 @@ import {Button, Col, Divider, Image, Row} from "antd";
 import '../../css/BookRow.css';
 import {EnvironmentOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import {Link} from "react-router-dom";
-import BookOperation from "./BookOperation";
 
 
 class BookRow extends React.Component{
@@ -51,7 +50,7 @@ class BookRow extends React.Component{
                             <Col span={4}></Col>
                             <Col span={8}>
                                 <Link to={'bookdetail?bookid='+this.props.bookInfo.id}>
-                                    <Button className="BookRow_functionButton" type="primary">加入购物车</Button>
+                                    <Button className="BookRow_functionButton" type="primary">查看详情</Button>
                                 </Link>
                             </Col>
                         </Row>

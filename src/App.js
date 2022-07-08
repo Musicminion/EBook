@@ -11,7 +11,6 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import {history} from "./components/PublicHistory";
 import SingleOrderComfirm from "./view/Order/singleOrderComfirm";
 import PrivateRoute from "./route/PrivateRoute";
-import OrderPay from "./view/Order/OrderPay";
 import myCart from "./view/iEbook/myCart";
 import shopCartOrderComfirm from "./view/Order/shopCartOrderComfirm";
 import purchaseSuccess from "./view/Result/purchaseSuccess";
@@ -60,7 +59,6 @@ class App extends React.Component{
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
                         <PrivateRoute exact path="/eBook/makeOrder/directBuy" component={SingleOrderComfirm}/>
                         <PrivateRoute exact path="/eBook/makeOrder/shopCart" component={shopCartOrderComfirm}/>
-                        <PrivateRoute exact path="/eBook/order/" component={OrderPay}/>
                         <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
                         <PrivateRoute exact path="/eBook/myOrder/" component={myOrder}/>
                         <PrivateRoute exact path="/eBook/myStatistics/" component={myStatistics}/>

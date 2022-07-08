@@ -1,6 +1,6 @@
 import React from 'react';
 import TopBar from "../../components/TopBar/TopBar";
-import {Card, Col, Form, Input, notification, Row, Steps, Tabs} from "antd";
+import {Card, Col, notification, Row, Steps, Tabs} from "antd";
 import "../../css/PayComfirm.css"
 import LogoEBook from "../../asset/background/ebookLogo.svg";
 import {AppstoreOutlined} from "@ant-design/icons";

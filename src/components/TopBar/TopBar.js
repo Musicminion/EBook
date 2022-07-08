@@ -1,16 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import {Avatar, Badge, Menu} from 'antd';
-import { Button } from 'antd';
-import {
-    ShoppingCartOutlined,
-    UserOutlined,
-    ShoppingOutlined, SoundOutlined
-} from '@ant-design/icons';
-import {Link} from "react-router-dom";
-import LoginPassport from "../Login/LoginPassport";
+import {Menu} from 'antd';
 import VisitorTopBar from "./visitorTopBar";
-import userTopBar from "./userTopBar";
 import UserTopBar from "./userTopBar";
 import ShoperTopBar from "./shoperTopBar";
 import AdminTopBar from "./adminTopBar";

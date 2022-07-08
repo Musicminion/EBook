@@ -2,7 +2,6 @@ import React from "react";
 import {Button, Menu} from "antd";
 import {Link} from "react-router-dom";
 import {SoundOutlined, UserOutlined} from "@ant-design/icons";
-import LoginPassport from "../Login/LoginPassport";
 
 const { SubMenu } = Menu;
 

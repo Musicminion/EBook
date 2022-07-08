@@ -195,7 +195,6 @@ class BookManage extends React.Component{
     ];
 
     deleteBook = (bookID) =>{
-        // alert(bookID);
         let obj = {
             bookID: bookID,
         };

@@ -208,10 +208,7 @@ class BookSellnum extends React.Component{
 
                         </TabPane>
                         <TabPane tab={<><UnorderedListOutlined />书籍销量统计图</>} key="2">
-                            <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
-                            <br/>
-                            <br/>
-                            <br/>
+                            <br/><br/><br/>
                             <Column data={this.state.chartData}
                                     xField={"book"}
                                     yField={"bookSellnum"}

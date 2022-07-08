@@ -201,16 +201,10 @@ class UserConsumption extends React.Component{
                     <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
                     <Tabs defaultActiveKey="1">
                         <TabPane tab={<><UnorderedListOutlined />用户消费统计表</>} key="1">
-
-
                             <Table columns={this.columns} dataSource={this.state.userData}/>
-
                         </TabPane>
                         <TabPane tab={<><UnorderedListOutlined />用户消费统计图</>} key="2">
-                            <span>统计范围：</span><RangePicker onChange={this.onChange} showTime/>
-                            <br/>
-                            <br/>
-                            <br/>
+                            <br/><br/><br/>
                             <Column data={this.state.chartData}
                                     xField={"user"}
                                     yField={"payAll"}

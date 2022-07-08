@@ -28,6 +28,7 @@ class OrderTable extends React.Component{
         }
         else{
             getUserOrder((data) => {
+                console.log(data);
                 this.setState({
                     orderData:data.concat([])
                 });

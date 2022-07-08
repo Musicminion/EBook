@@ -40,7 +40,21 @@ class BookRow extends React.Component{
                         <p className="BookRow_bookSellnum">&nbsp;销量：{this.props.bookInfo.sellnumber}</p>
                     </Col>
                     <Col span={8}>
-                        <BookOperation/>
+                        <Row>
+                            <Col span={4}></Col>
+                            <Col span={8}>
+                                <Link to={'/eBook/makeOrder/directBuy?book1id=' + this.props.bookInfo.id
+                                    +"&book1buynum="+1}>
+                                    <Button className="BookRow_functionButton" type="primary" danger>立即购买</Button>
+                                </Link>
+                            </Col>
+                            <Col span={4}></Col>
+                            <Col span={8}>
+                                <Link to={'bookdetail?bookid='+this.props.bookInfo.id}>
+                                    <Button className="BookRow_functionButton" type="primary">加入购物车</Button>
+                                </Link>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
                 <Divider></Divider>

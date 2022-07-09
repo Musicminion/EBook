@@ -1,7 +1,7 @@
 import React from "react";
 import {Carousel, Image} from "antd";
 
-// 走马灯的展示
+// 组件：首页走马灯的展示
 
 class BookCarousel extends React.Component{
     render() {

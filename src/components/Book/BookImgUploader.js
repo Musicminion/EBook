@@ -1,5 +1,5 @@
 import React from "react";
-import {accessId, picHost, picKey} from "../../config/BaseConfig";
+import {accessId, picHost} from "../../config/BaseConfig";
 import Base64 from "base-64";
 import {Button, Upload} from "antd";
 import {UploadOutlined} from "@ant-design/icons";

@@ -12,30 +12,60 @@ class BookCarousel extends React.Component{
                 <div className="BookDisplayCarouselArea">
                     <Carousel autoplay>
                         <div>
-                            <Image src={require("../../asset/Carousel/c1.jpg")} className="CarouselPicture">
-                            </Image>
+                            <Image
+                                src={require("../../asset/Carousel/c1.jpg")}
+                                width={"90%"}
+                                height={390}
+                                preview={false}
+                                className="CarouselPicture"
+                            />
                         </div>
                         <div>
-                            <Image src={require("../../asset/Carousel/c2.jpg")} className="CarouselPicture">
-                            </Image>
+                            <Image
+                                src={require("../../asset/Carousel/c2.jpg")}
+                                width={"90%"}
+                                height={390}
+                                preview={false}
+                                className="CarouselPicture"
+                            />
                         </div>
                         <div>
-                            <Image src={require("../../asset/Carousel/c3.jpg")} className="CarouselPicture">
-                            </Image>
+                            <Image
+                                src={require("../../asset/Carousel/c3.jpg")}
+                                width={"90%"}
+                                height={390}
+                                preview={false}
+                                className="CarouselPicture"
+                            />
                         </div>
                         <div>
-                            <Image src={require("../../asset/Carousel/c4.jpg")} className="CarouselPicture">
-                            </Image>
+                            <Image
+                                src={require("../../asset/Carousel/c4.jpg")}
+                                width={"90%"}
+                                height={390}
+                                preview={false}
+                                className="CarouselPicture"
+                            />
                         </div>
                         <div>
-                            <Image src={require("../../asset/Carousel/c5.jpg")} className="CarouselPicture">
-                            </Image>
+                            <Image
+                                src={require("../../asset/Carousel/c5.jpg")}
+                                width={"90%"}
+                                height={390}
+                                preview={false}
+                                className="CarouselPicture"
+                            />
                         </div>
                         <div>
-                            <Image src={require("../../asset/Carousel/c6.jpg")} className="CarouselPicture">
-                            </Image>
+                            <Image
+                                src={require("../../asset/Carousel/c6.jpg")}
+                                width={"90%"}
+                                height={390}
+                                preview={false}
+                                className="CarouselPicture"
+                            />
                         </div>
-                    </Carousel>,
+                    </Carousel>
                 </div>
             </div>
         );

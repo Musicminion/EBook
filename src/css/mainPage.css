@@ -26,13 +26,10 @@
 
 .MainPageTopArea{
     position: relative;
-
     top: 20vh;
-
     display: flex;
     height: fit-content;
     width: 100%;
-
 }
 
 
@@ -193,20 +190,29 @@
             rgba(255, 255, 255, 0.6),
             rgba(255, 255, 255, 0.1)
     );
-    position: absolute;
+    position: relative;
     border-radius: 27px;
     box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
 
     width: 58vw;
-    right: 10vw;
-
-    height: 100%;
+    right: -12vw;
     float: right;
     display: inline-block;
-    text-align: center;
 
+    text-align: center;
     z-index: 2;
 }
+
+.BookDisplayCarouselArea{
+    padding-top: 10px;
+    /*height: 80%;*/
+    position: relative;
+
+}
+
+
+
+
 
 .Recommendation{
 
@@ -351,6 +357,7 @@
     color: #ff91c4;
     font-size: 18px;
     padding-top: 1%;
+    margin: 0;
     vertical-align: center;
     background: linear-gradient(
             to left top,
@@ -398,10 +405,10 @@
 
 
 .CarouselPicture{
-    height: 52vh;
-    width: 54vw;
+    /*height: 90%;*/
+    /*width: 50vw;*/
 
-    border-radius: 25px;
+    /*border-radius: 25px;*/
 }
 
 

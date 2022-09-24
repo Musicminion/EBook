@@ -28,8 +28,8 @@ export const userLogout = (SuccessCallBack) => {
     const callback = (respdata) => {
         if(respdata.status >= 0) {
             LoginPassport.removeLocalPassport();
-            message.success("您已经安全退出！");
-            setTimeout(SuccessCallBack,800);
+            message.success("您已经安全退出！"+ respdata.data.timeInfo);
+            setTimeout(SuccessCallBack,20000);
         }
         else{
             message.error(respdata.msg);

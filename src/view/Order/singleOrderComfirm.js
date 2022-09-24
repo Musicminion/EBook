@@ -2,7 +2,7 @@ import React from 'react';
 import TopBar from "../../components/TopBar/TopBar";
 import {Button, Card, Col, Form, Input, notification, Row, Steps, Tabs} from "antd";
 import "../../css/PayComfirm.css"
-import LogoEBook from "../../asset/background/ebookLogo.svg";
+import LogoEBook from "../../../src/asset/background/eBooklogo.svg";
 import BookRow from "../../components/Book/BookRow";
 import {AppstoreOutlined} from "@ant-design/icons";
 import UserLocation from "../../components/Modal/UserLocation";

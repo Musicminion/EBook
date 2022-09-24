@@ -1,6 +1,6 @@
 import React from 'react';
 import TopBar from "../../components/TopBar/TopBar";
-import LogoEBook from "../../asset/background/ebookLogo.svg";
+import LogoEBook from "../../../src/asset/background/eBooklogo.svg";
 import {Button, Result} from "antd";
 import {Link} from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Result, Button } from 'antd';
 import TopBar from "../../components/TopBar/TopBar";
-import LogoEBook from "../../asset/background/ebookLogo.svg";
+import LogoEBook from "../../asset/background/eBooklogo.svg";
 import {Link} from "react-router-dom";
 
 

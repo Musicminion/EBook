@@ -68,7 +68,7 @@ class SingleOrderComfirm extends React.Component{
             (data)=>{
                 console.log(data);
                 if(data.status>=0)
-                    window.location.href="/eBook/purchaseSuccess";
+                    window.location.href="/eBook/purchaseSuccess?orderUUID=" + data.data.uuid;
                 else
                     window.location.href="/eBook/errorPage";
             });

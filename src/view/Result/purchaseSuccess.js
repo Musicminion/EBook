@@ -7,6 +7,7 @@ import Paragraph from "antd/lib/typography/Paragraph";
 import Text from "antd/lib/typography/Text";
 import {urlDecoder} from "../../utils/urlDecoder";
 import {closeWebSocket, createWebSocket} from "../../utils/websocket";
+import LoginPassport from "../../components/Login/LoginPassport";
 
 const reminderInfoCheck = (type, content) => {
     notification[type]({
@@ -15,7 +16,6 @@ const reminderInfoCheck = (type, content) => {
             content,
     });
 };
-
 
 class purchaseSuccess extends React.Component{
     orderUUID = "";
@@ -27,16 +27,25 @@ class purchaseSuccess extends React.Component{
         console.log(theRequest);
         if(theRequest["orderUUID"]!= null ){
             this.orderUUID = theRequest["orderUUID"];
-            this.socketURL = "ws://localhost:8080/websocket/transfer/" + this.orderUUID;
+            let SHA256 = require("crypto-js/sha256");
+            this.socketURL = "ws://localhost:8080/websocket/transfer/" + SHA256(LoginPassport.getUserName());
             createWebSocket(this.socketURL,
                 (info) => {
-                    reminderInfoCheck('warning', info.data);
+                    let jsonData = JSON.parse(info.data);
+
+                    if(jsonData.websocketCode === 0){
+                        reminderInfoCheck('success', jsonData.websocketMsgInfo);
+                    }
+                    else if(jsonData.websocketCode === 1){
+                        reminderInfoCheck('warning', jsonData.websocketMsgInfo);
+                    }
+                    closeWebSocket();
                 }
             );
         }
     }
     componentWillUnmount(){
-        closeWebSocket();
+        //closeWebSocket();
     }
 
     render() {
@@ -87,7 +96,6 @@ class purchaseSuccess extends React.Component{
                     <p>CopyRight © 2022 AllRights Reserved.ALL Developed By ZhangZiqian.</p>
                 </div>
             </div>
-
         );
     }
 }

@@ -16,6 +16,7 @@ let createWebSocket = (url, handleEvent) => {
         //event 为服务端传输的消息，在这里可以处理
     }
 }
+
 let reconnect = (url) => {
     if (lockReconnect) return;
     //没连接上会一直重连，设置延迟避免请求过多

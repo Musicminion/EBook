@@ -8,7 +8,7 @@ import {AppstoreOutlined, BarsOutlined} from "@ant-design/icons";
 import '../css/searchResult.css'
 import {urlDecoder} from "../utils/urlDecoder";
 import BookCard from "../components/Book/BookCard";
-import {getAllBookList, getBookByKeyWord} from "../service/bookservice";
+import {getAllBookList, getBookByKeyWord, getBookByKeyWordForDescription} from "../service/bookservice";
 
 
 const { TabPane } = Tabs;
@@ -39,6 +39,7 @@ class SearchResultPage extends React.Component{
 
         // 抓书 如果搜索的是空白的话抓取所有的内容
         if(this.searchKeyWord !== ""){
+            //  全文搜索 描述信息
             getBookByKeyWord(this.searchby,this.searchKeyWord,
                 (data)=>{
                     console.log(data);

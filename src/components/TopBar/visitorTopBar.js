@@ -43,7 +43,9 @@ class visitorTopBar extends React.Component{
         return (
             <Menu className="MainPageTopBar" onClick={this.handleClick} mode="horizontal" >
                 <Menu.Item>
-                    <Link to={{pathname:'/eBook'}}>eBook网上书城</Link>
+                    <Link to={{pathname:'/eBook'}}>
+                        eBook网上书城
+                    </Link>
                 </Menu.Item>
 
                 <SubMenu key="SubMenu" icon={<SoundOutlined />} title="背景音乐">

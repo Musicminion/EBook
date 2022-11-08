@@ -67,6 +67,7 @@ class SearchPanel extends React.Component{
                     <Option value="2" style={{ textAlign: 'center'}}>出版社</Option>*/}
                     <Option value="3" style={{ textAlign: 'center'}}>作者</Option>*/}
                     <Option value="0" style={{ textAlign: 'center'}}>全局搜索</Option>*/}
+                    <Option value="4" style={{ textAlign: 'center'}}>简介全文搜索</Option>*/}
                 </Select>
 
                 <Search

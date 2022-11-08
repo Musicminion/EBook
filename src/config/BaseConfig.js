@@ -1,5 +1,5 @@
 // 后端API的地址
-const apiURL = "https://localhost:8443";
+const apiURL = "http://localhost:8080";
 export {apiURL};
 
 // 阿里云对象存储 主机地址

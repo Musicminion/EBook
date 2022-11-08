@@ -64,3 +64,8 @@
     margin: 10px;
     width: 90%;
 }
+
+em {
+    color: red !important;
+    font-style: normal !important;
+}

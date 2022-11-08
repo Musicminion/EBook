@@ -56,6 +56,20 @@ class BookRow extends React.Component{
                         </Row>
                     </Col>
                 </Row>
+                <br/>
+                <Row>
+                    <span>
+                        <span style={{color:'deeppink'}}>作者信息：</span><>{this.props.bookInfo.author} </>
+                        {/*<span>{this.props.bookInfo.description}</span>*/}
+                        <br/>
+                        <>
+                            <span style={{color:'deeppink'}}>简介信息：</span>
+                            <span dangerouslySetInnerHTML={{__html:this.props.bookInfo.description}} ></span>
+                        </>
+
+                    </span>
+
+                </Row>
                 <Divider></Divider>
             </>
 

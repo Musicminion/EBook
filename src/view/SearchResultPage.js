@@ -8,7 +8,7 @@ import {AppstoreOutlined, BarsOutlined} from "@ant-design/icons";
 import '../css/searchResult.css'
 import {urlDecoder} from "../utils/urlDecoder";
 import BookCard from "../components/Book/BookCard";
-import {getAllBookList, getBookByKeyWord, getBookByKeyWordForDescription} from "../service/bookservice";
+import {getAllBookList, getBookByKeyWord} from "../service/bookservice";
 
 
 const { TabPane } = Tabs;

@@ -24,14 +24,6 @@ export const getBookByKeyWord = (searchType, keyword, callback) => {
     getRequest(getBookURL, callback);
 }
 
-
-export const getBookByKeyWordForDescription = (keyword, callback) => {
-    let getBookURL = apiURL + "/queryBooksDescriptionSearch/" + keyword;
-    getRequest(getBookURL, callback);
-}
-
-
-
 // 函数功能： 通过和后端的端口交互，前端设置文件上传的实时的Policy【包括过期时间】，发送到后端获取签名
 //          签名基于公钥、私钥、实时时间进行加密 参考了阿里云的 sha1 加密方法 POST请求，
 export const getSignatureForUpload = (PolicyData,callback) =>{
@@ -42,7 +34,7 @@ export const getSignatureForUpload = (PolicyData,callback) =>{
     postRequest(url,obj,callback);
 };
 
-
+// 函数功能： 获取书籍的列表
 export const getAllBookList = (callback) => {
     let url = apiURL + "/queryBook/All";
     postRequest(url,{},callback);

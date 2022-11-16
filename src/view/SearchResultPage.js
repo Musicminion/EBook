@@ -9,6 +9,8 @@ import '../css/searchResult.css'
 import {urlDecoder} from "../utils/urlDecoder";
 import BookCard from "../components/Book/BookCard";
 import {getAllBookList, getBookByKeyWord} from "../service/bookservice";
+import Search from "antd/es/input/Search";
+import {findAuthorsByBookname} from "../service/microService";
 
 
 const { TabPane } = Tabs;
@@ -23,8 +25,20 @@ const { Panel } = Collapse;
 // ];
 
 class SearchResultPage extends React.Component{
+
+
+
     searchKeyWord ="";
     searchWay = 0;
+
+    onSearchAuthors(key) {
+        // alert(key);
+        findAuthorsByBookname(key, (resp)=>{
+            console.log(resp);
+            this.setState({info_getter_authors: resp.data});
+        })
+    }
+
 
     constructor() {
         super();
@@ -35,6 +49,7 @@ class SearchResultPage extends React.Component{
 
         this.state = {
             searchData : [],
+            info_getter_authors: '',
         };
 
         // 抓书 如果搜索的是空白的话抓取所有的内容
@@ -69,6 +84,7 @@ class SearchResultPage extends React.Component{
                         <SearchPanel id="MainPageSearchPanel" fromPage="ResultPage"/>
                     </div>
                     <div className="MainContentsCard">
+
                         <Tabs defaultActiveKey="1">
                             <TabPane tab={<><AppstoreOutlined/>卡片展示</>} key="1">
                                 <List
@@ -112,7 +128,23 @@ class SearchResultPage extends React.Component{
                                 />
 
                             </TabPane>
-
+                            <TabPane tab={<><BarsOutlined/>信息筛选</>} key="3">
+                                <div>
+                                    <span>微服务：按照书名查询作者：</span>
+                                    <br/>
+                                    <Search
+                                        placeholder="输入书名"
+                                        allowClear
+                                        enterButton="查找"
+                                        size="middle"
+                                        style={{ width: 204 }}
+                                        onSearch={(value)=>{this.onSearchAuthors(value)}}
+                                    />
+                                    <br/>
+                                    <br/>
+                                    <span>&nbsp;查询结果：{this.state.info_getter_authors}</span>
+                                </div>
+                            </TabPane>
                         </Tabs>
 
                     </div>

@@ -63,11 +63,12 @@ class SearchPanel extends React.Component{
             <Input.Group compact>
                 <Select style={{ width: '15%',textAlign:'center'} } defaultValue="0"
                         onChange={(e) => this.selectChange(e)}>
+                    <Option value="0" style={{ textAlign: 'center'}}>全局搜索</Option>*/}
                     <Option value="1" style={{ textAlign: 'center'}}>书籍</Option>
                     <Option value="2" style={{ textAlign: 'center'}}>出版社</Option>*/}
                     <Option value="3" style={{ textAlign: 'center'}}>作者</Option>*/}
-                    <Option value="0" style={{ textAlign: 'center'}}>全局搜索</Option>*/}
                     <Option value="4" style={{ textAlign: 'center'}}>简介全文搜索</Option>*/}
+                    <Option value="5" style={{ textAlign: 'center'}}>Tag搜索</Option>*/}
                 </Select>
 
                 <Search

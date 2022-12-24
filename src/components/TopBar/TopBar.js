@@ -16,6 +16,7 @@ class TopBar extends React.Component {
             current: 'mail',
             userPermissionLevel: 3,
         };
+
     }
 
     // 暂定 userPermissionLevel 0 超级管理员，1 商店用户 2 普通用户 3 未登录用户

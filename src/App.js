@@ -28,6 +28,7 @@ import BookSellnum from "./view/admin/Statistics/BookSellnum";
 import myStatistics from "./view/iEbook/myStatistics";
 import RulesPage from "./view/login/LoginPageRules";
 import noItemPage from "./view/Result/noItemPage";
+import myAccount from "./view/iEbook/myAccount";
 
 class App extends React.Component{
     constructor(props) {
@@ -59,6 +60,7 @@ class App extends React.Component{
                         {/* ---------  下面的部分是私有路由  带有权限鉴定 --------------- */}
                         <PrivateRoute exact path="/eBook/makeOrder/directBuy" component={SingleOrderComfirm}/>
                         <PrivateRoute exact path="/eBook/makeOrder/shopCart" component={shopCartOrderComfirm}/>
+                        <PrivateRoute exact path="/eBook/myAccount/" component={myAccount}/>
                         <PrivateRoute exact path="/eBook/myCart/" component={myCart}/>
                         <PrivateRoute exact path="/eBook/myOrder/" component={myOrder}/>
                         <PrivateRoute exact path="/eBook/myStatistics/" component={myStatistics}/>

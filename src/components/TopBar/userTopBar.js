@@ -1,13 +1,24 @@
 import React from "react";
 import {Avatar, Badge, Menu} from "antd";
 import {Link} from "react-router-dom";
-import {AppstoreOutlined, SoundOutlined, UserOutlined} from "@ant-design/icons";
+import {AppstoreOutlined, SoundOutlined} from "@ant-design/icons";
 import LoginPassport from "../Login/LoginPassport";
 import loginPassport from "../Login/LoginPassport";
+import {userInfoRequest} from "../../service/userService";
 
 const { SubMenu } = Menu;
 
 class userTopBar extends React.Component{
+    constructor() {
+        super();
+        this.state = {
+            iconBase64 : ""
+        };
+        userInfoRequest((resp)=>{
+            console.log(resp);
+            this.setState({iconBase64: resp.data.userIcon.iconBase64})
+        });
+    }
 
     musicPlay(musicId){
         let tmp = document.getElementById("BackgroundMusic");
@@ -40,6 +51,7 @@ class userTopBar extends React.Component{
 
                 <SubMenu key="iEBook" icon={<AppstoreOutlined/>} title="iEBook">
                     <Menu.ItemGroup>
+                        <Menu.Item key="myAccount" ><Link to={{pathname:'/eBook/myAccount'}}>我的账户</Link></Menu.Item>
                         <Menu.Item key="myCart" ><Link to={{pathname:'/eBook/myCart'}}>我的购物车</Link></Menu.Item>
                         <Menu.Item key="myOrder" ><Link to={{pathname:'/eBook/myOrder'}}>我的订单</Link></Menu.Item>
                         <Menu.Item key="myComment" >
@@ -69,7 +81,12 @@ class userTopBar extends React.Component{
                 <SubMenu
                     id="MainPageLoginDiv"
                     title={"Hello! "+loginPassport.getNickName()}
-                    icon={<Badge count={0} size="small"><Avatar size="middle" icon={<UserOutlined/>}/></Badge>}
+                    icon={
+                        <Badge count={0} size="small">
+                            {/*<Avatar size="middle" icon={<UserOutlined/>}/>*/}
+                            <Avatar size="middle" src={this.state.iconBase64}/>
+                        </Badge>
+                    }
                 >
                     <Menu.Item key="setting:22">我的消息</Menu.Item>
                     <Menu.Item key="setting:23" onClick={(e) => this.logout()}>退出登录</Menu.Item>

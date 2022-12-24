@@ -16,6 +16,7 @@
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.18.9",
+    "antd-img-crop": "^4.5.2",
     "base-64": "^1.0.0",
     "config": "^3.3.7",
     "crypto-js": "^4.1.1",
